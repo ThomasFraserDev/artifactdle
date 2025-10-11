@@ -1,4 +1,4 @@
-function Navbar() {
+export default function Navbar() {
 return (
     <nav>
         <h2> Genshin </h2>
@@ -8,5 +8,3 @@ return (
     </nav>
 )
 }
-
-export default Navbar;
