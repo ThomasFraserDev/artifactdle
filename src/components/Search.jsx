@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Search({ onGuess, artifacts }) {
+export default function Search({ onGuess, artifacts, disabled }) {
   const [query, setQuery] = useState('')
 
   const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ export default function Search({ onGuess, artifacts }) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Type artifact name..." value={query} onChange={(e) => setQuery(e.target.value)}/> {/* Search bar */}
-      <button type="submit">
+      <button type="submit" disabled={disabled}>
         Guess
       </button>
     </form>
