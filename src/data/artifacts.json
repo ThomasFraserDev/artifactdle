@@ -1,18 +1,82 @@
 [
     {
-        "name": "1",
-        "region": "x",
-        "2pc": "y",
-        "4pc": "z",
-        "version":"xyz",
+        "name": "Archaic Petra",
+        "region": "Liyue",
+        "2pc": "Elemental DMG",
+        "4pc": "Elemental DMG",
+        "version":"1.x",
         "icon": "abc"
     },
     {
-        "name": "2",
-        "region": "d",
-        "2pc": "y",
-        "4pc": "a",
-        "version":"xyz",
+        "name": "Blizzard Strayer",
+        "region": "Mondstadt",
+        "2pc": "Elemental DMG",
+        "4pc": "Crit Rate",
+        "version":"1.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Bloodstained Chivalry",
+        "region": "Liyue",
+        "2pc": "Physical DMG",
+        "4pc": "Charged ATK",
+        "version":"2.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Crimson Witch of Flames",
+        "region": "Liyue",
+        "2pc": "Elemental DMG",
+        "4pc": "Reaction DMG",
+        "version":"1.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Deepwood Memories",
+        "region": "Sumeru",
+        "2pc": "Elemental DMG",
+        "4pc": "Elemental RES",
+        "version":"3.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Desert Pavilion Chronicle",
+        "region": "Sumeru",
+        "2pc": "Elemental DMG",
+        "4pc": "Normal ATK/Charged ATK/Plunge ATK",
+        "version":"3.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Echoes of an Offering",
+        "region": "Liyue",
+        "2pc": "ATK",
+        "4pc": "Normal ATK",
+        "version":"2.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Emblem of Severed Fate",
+        "region": "Inazuma",
+        "2pc": "ER",
+        "4pc": "Burst DMG",
+        "version":"2.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Finale of the Deep Galleries",
+        "region": "Natlan",
+        "2pc": "Elemental DMG",
+        "4pc": "Normal ATK/Burst DMG",
+        "version":"5.x",
+        "icon": "abc"
+    },
+    {
+        "name": "Flower of Paradise Lost",
+        "region": "Sumeru",
+        "2pc": "EM",
+        "4pc": "Reaction DMG",
+        "version":"3.x",
         "icon": "abc"
     }
 ]
