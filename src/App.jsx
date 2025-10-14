@@ -1,11 +1,11 @@
-import Header from './components/Header'
+import Navbar from './components/NavBar'
 import GameContainer from './components/GameContainer'
 
 export default function App() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-y-5"> {/* Main container */}
-    <Header />
+    <Navbar></Navbar>
     <GameContainer />
      </div>
   )
