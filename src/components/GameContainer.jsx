@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import GameInfo from "./GameInfo";
 import Guess from "./Guess";
 import GuessHeader from "./GuessHeader";
@@ -10,17 +10,24 @@ export default function GameContainer() {
 	const [prevAnswer, setPrevAnswer] = useState("N/A"); // Initialise previous answer
 	const [limit, setLimit] = useState(0); // Initialise guess limit
 	const [streak, setStreak] = useState(0); // Initialise win streak
+	const [highScore, setHighScore] = useState(streak); //Initialise high score
 	const isGuessed = guesses.some((g) => g.name === answer.name); // Check for if the word has been guessed
 
+	useEffect(() => { // Update the high score whenever the streak is updated, and is higher than the current high score
+		if (streak > highScore) {
+			setHighScore(streak);
+		}
+	}, [streak, highScore]);
+
 	const handleGuess = (artifact) => {
-		if (isGuessed || limit >= 5)
-			// Check for if the artifact set has been guessed or the limit of guesses has been exceeded
+		if (isGuessed || limit >= 5) // Check for if the artifact set has been guessed or the limit of guesses has been exceeded
 			return;
-		if (guesses.find((g) => g.name === artifact.name))
-			// Don't add the new guess to the list of guesses if it's name is already within the list
+		if (guesses.find((g) => g.name === artifact.name)) // Don't add the new guess to the list of guesses if it's name is already within the list
 			return;
-		if (artifact.name === answer.name) setStreak((prev) => prev + 1); // Increment the win streak if the guess was correct
-		else if (limit + 1 >= 5) setStreak(0); // If the artifact set isn't guessed, reset the streak
+		if (artifact.name === answer.name)
+			setStreak((prev) => prev + 1); // Increment the win streak if the guess was correct
+		else if (limit + 1 >= 5)
+			setStreak(0); // If the artifact set isn't guessed, reset the streak
 		setGuesses((prev) => [artifact, ...prev]); // Otherwise, add the new guess to the start of the list
 		setLimit((prev) => prev + 1); // Increment the limit counter
 	};
@@ -34,29 +41,14 @@ export default function GameContainer() {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-y-5">
-		  <GameInfo limit={limit} streak={streak} prevAnswer={prevAnswer} isDisabled={isGuessed || limit >= 5} onGuess={handleGuess} artifacts={artifacts}/>
+		<div className="max-h-fit overflow-y-auto flex flex-col items-center justify-center gap-y-5">
+		  <GameInfo limit={limit} streak={streak} prevAnswer={prevAnswer} isDisabled={isGuessed || limit >= 5} isGuessed={isGuessed} onGuess={handleGuess} onReplay={handleReplay} answer={answer} highScore={highScore} artifacts={artifacts}/>
 			<div className="flex flex-col gap-1 mt-4 p-2 rounded bg-neutral-800"> {/* Div containing all the current guesses and the guess headings */}
 				<GuessHeader />
 				{guesses.map((guess, index) => (
 					<Guess key={index} guess={guess} answer={answer} />
 				))}
 			</div>
-			{isGuessed && ( // Display a win message and replay button if the answer is guessed
-				<div>
-					<p>You guessed correctly!</p>
-					<button onClick={handleReplay}> Play again </button>
-				</div>
-			)}
-			{!isGuessed &&
-				limit >= 5 && ( // Display a lose message and replay button if the answer is guessed
-					<div>
-						<p>
-							You didn't manage to guess the set. The answer was <span className="text-green-400">{answer.name}</span>.{" "}
-						</p>
-						<button onClick={handleReplay}> Play again </button>
-					</div>
-				)}
 		</div>
 	);
 }
