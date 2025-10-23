@@ -46,7 +46,7 @@ export default function GameContainer() {
 			<div className="flex flex-col gap-1 mt-4 p-2 rounded bg-neutral-800"> {/* Div containing all the current guesses and the guess headings */}
 				<GuessHeader />
 				{guesses.map((guess, index) => (
-					<Guess key={index} guess={guess} answer={answer} />
+					<Guess key={limit-index} guess={guess} answer={answer} />
 				))}
 			</div>
 		</div>

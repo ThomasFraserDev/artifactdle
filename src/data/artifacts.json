@@ -78,5 +78,45 @@
 		"4pc": "Reaction DMG",
 		"version": "3.x",
 		"icon": "abc"
+	},
+	{
+		"name": "Fragment of Harmonic Whimsy",
+		"region": "Fontaine",
+		"2pc": "ATK",
+		"4pc": "Character DMG",
+		"version": "4.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Gilded Dreams",
+		"region": "Sumeru",
+		"2pc": "EM",
+		"4pc": "ATK/EM",
+		"version": "3.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Gladiator's Finale",
+		"region": "All",
+		"2pc": "ATK",
+		"4pc": "Normal ATK DMG",
+		"version": "1.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Golden Troupe",
+		"region": "Fontaine",
+		"2pc": "Skill DMG",
+		"4pc": "Skill DMG",
+		"version": "4.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Heart of Depth",
+		"region": "Mondstadt",
+		"2pc": "Elemental DMG",
+		"4pc": "Normal ATK/Charged ATK",
+		"version": "1.x",
+		"icon": "abc"
 	}
 ]
