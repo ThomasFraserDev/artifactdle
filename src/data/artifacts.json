@@ -118,5 +118,53 @@
 		"4pc": "Normal ATK/Charged ATK",
 		"version": "1.x",
 		"icon": "abc"
+	},
+	{
+		"name": "Husk of Opulent Dreams",
+		"region": "Inazuma",
+		"2pc": "DEF",
+		"4pc": "DEF/Elemental DMG",
+		"version": "2.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Lavawalker",
+		"region": "Liyue",
+		"2pc": "Elemental RES",
+		"4pc": "DMG",
+		"version": "1.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Long Night's Oath",
+		"region": "Natlan",
+		"2pc": "Plunge ATK",
+		"4pc": "Plunge ATK",
+		"version": "5.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Maiden Beloved",
+		"region": "Mondstadt",
+		"2pc": "Healing",
+		"4pc": "Healing",
+		"version": "1.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Marechaussee Hunter",
+		"region": "Fontaine",
+		"2pc": "Normal ATK/ Charged ATK",
+		"4pc": "Crit Rate",
+		"version": "4.x",
+		"icon": "abc"
+	},
+	{
+		"name": "Night of the Sky's Unveiling",
+		"region": "Nod Krai",
+		"2pc": "Elemental Mastery",
+		"4pc": "Crit Rate/Reaction DMG",
+		"version": "6.x",
+		"icon": "abc"
 	}
 ]
