@@ -35,7 +35,7 @@
 		"name": "Deepwood Memories",
 		"region": "Sumeru",
 		"2pc": "Elemental DMG",
-		"4pc": "Elemental RES",
+		"4pc": "RES shred",
 		"version": "3.x",
 		"icon": "abc"
 	},
@@ -43,14 +43,14 @@
 		"name": "Desert Pavilion Chronicle",
 		"region": "Sumeru",
 		"2pc": "Elemental DMG",
-		"4pc": "Normal ATK/Charged ATK/Plunge ATK",
+		"4pc": "Normal + Charged + Plunge ATK",
 		"version": "3.x",
 		"icon": "abc"
 	},
 	{
 		"name": "Echoes of an Offering",
 		"region": "Liyue",
-		"2pc": "ATK",
+		"2pc": "ATK%",
 		"4pc": "Normal ATK",
 		"version": "2.x",
 		"icon": "abc"
@@ -67,7 +67,7 @@
 		"name": "Finale of the Deep Galleries",
 		"region": "Natlan",
 		"2pc": "Elemental DMG",
-		"4pc": "Normal ATK/Burst DMG",
+		"4pc": "Normal ATK + Burst DMG",
 		"version": "5.x",
 		"icon": "abc"
 	},
@@ -82,7 +82,7 @@
 	{
 		"name": "Fragment of Harmonic Whimsy",
 		"region": "Fontaine",
-		"2pc": "ATK",
+		"2pc": "ATK%",
 		"4pc": "Character DMG",
 		"version": "4.x",
 		"icon": "abc"
@@ -91,15 +91,15 @@
 		"name": "Gilded Dreams",
 		"region": "Sumeru",
 		"2pc": "EM",
-		"4pc": "ATK/EM",
+		"4pc": "ATK% + EM",
 		"version": "3.x",
 		"icon": "abc"
 	},
 	{
 		"name": "Gladiator's Finale",
 		"region": "All",
-		"2pc": "ATK",
-		"4pc": "Normal ATK DMG",
+		"2pc": "ATK%",
+		"4pc": "Normal ATK",
 		"version": "1.x",
 		"icon": "abc"
 	},
@@ -115,15 +115,15 @@
 		"name": "Heart of Depth",
 		"region": "Mondstadt",
 		"2pc": "Elemental DMG",
-		"4pc": "Normal ATK/Charged ATK",
+		"4pc": "Normal ATK + Charged ATK",
 		"version": "1.x",
 		"icon": "abc"
 	},
 	{
 		"name": "Husk of Opulent Dreams",
 		"region": "Inazuma",
-		"2pc": "DEF",
-		"4pc": "DEF/Elemental DMG",
+		"2pc": "DEF%",
+		"4pc": "DEF% + Elemental DMG",
 		"version": "2.x",
 		"icon": "abc"
 	},
@@ -131,7 +131,7 @@
 		"name": "Lavawalker",
 		"region": "Liyue",
 		"2pc": "Elemental RES",
-		"4pc": "DMG",
+		"4pc": "Reaction DMG",
 		"version": "1.x",
 		"icon": "abc"
 	},
@@ -154,7 +154,7 @@
 	{
 		"name": "Marechaussee Hunter",
 		"region": "Fontaine",
-		"2pc": "Normal ATK/ Charged ATK",
+		"2pc": "Normal ATK + Charged ATK",
 		"4pc": "Crit Rate",
 		"version": "4.x",
 		"icon": "abc"
@@ -162,8 +162,8 @@
 	{
 		"name": "Night of the Sky's Unveiling",
 		"region": "Nod Krai",
-		"2pc": "Elemental Mastery",
-		"4pc": "Crit Rate/Reaction DMG",
+		"2pc": "EM",
+		"4pc": "Crit Rate + Reaction DMG",
 		"version": "6.x",
 		"icon": "abc"
 	}

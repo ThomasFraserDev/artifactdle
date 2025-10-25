@@ -11,12 +11,32 @@ export default function Guess({guess, answer}) {
           displayVal = `${guess[key]} ⬇️`;
         else if (key === "version" && parseInt(guess[key].charAt(0), 10) < parseInt(answer[key].charAt(0), 10)) // If the guessed version is lower than the answer's version
           displayVal = `${guess[key]} ⬆️`;
+        const hasMatchingKeyword = (guess, answer, keywords) => {
+          const g = (guess).toLowerCase();
+          const a = (answer).toLowerCase();
+          return keywords.some(kw => g.includes(kw) && a.includes(kw));
+        };
+
+        const buffKeywords = ["normal", "charged", "plunge", "em", "er", "atk%", "def%", "crit rate", "elemental dmg", "reaction dmg", "skill dmg", "burst dmg", "character dmg", "healing", "res shred"];
+        const checkBuffs = 
+          (key === "2pc" || key === "4pc") && 
+          hasMatchingKeyword(guess[key], answer[key], buffKeywords);
+
+        let bgColor;
+        if (checkField) {
+          bgColor = "bg-green-600";
+        } else if (checkBuffs) {
+          bgColor = "bg-yellow-500";
+        } else {
+          bgColor = "bg-red-800";
+        }
+
           
         return (
           <motion.span
             key={key}
             className={`h-16 w-45 border border-gray-400 flex items-center justify-center text-white rounded
-              ${checkField ? "bg-green-600" : "bg-red-800"}`}
+              ${bgColor}`}
             initial={{ rotateY: 90, opacity: 0 }}
             animate={{ rotateY: 0, opacity: 1 }}
             transition={{
