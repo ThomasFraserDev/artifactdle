@@ -6,7 +6,7 @@ export default function GameInfo({limit, streak, prevAnswer, isDisabled, isGuess
             <div className="flex flex-col items-center text-center w-full py-10 px-20 bg-blue-900/95">
                 <div className="flex flex-row items-center gap-3 p-4 text-center">
                     <div>
-                        <img  src="../src/assets/kokomi.png" alt="Kokomi thinking" className="max-w-64 h-auto"/>
+                        <img  src="/assets/misc/kokomi.png" alt="Kokomi thinking" className="max-w-64 h-auto"/>
                     </div>
                     <div className="space-y-1 px-15">
                         <h2 className="text-5xl font-bold mb-10">Artifactdle</h2>
