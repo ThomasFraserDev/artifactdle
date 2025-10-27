@@ -17,7 +17,7 @@ export default function Guess({guess, answer}) {
           return keywords.some(kw => g.includes(kw) && a.includes(kw));
         };
 
-        const buffKeywords = ["normal", "charged", "plunge", "em", "er", "atk%", "def%", "crit rate", "elemental dmg", "reaction dmg", "skill dmg", "burst dmg", "character dmg", "healing", "res shred"];
+        const buffKeywords = ["normal", "charged", "plunge", "em", "er", "atk%", "def%", "hp%", "crit rate", "elemental dmg", "reaction dmg", "skill dmg", "burst dmg", "character dmg", "healing", "res shred, shield"];
         const checkBuffs = 
           (key === "2pc" || key === "4pc") && 
           hasMatchingKeyword(guess[key], answer[key], buffKeywords);
