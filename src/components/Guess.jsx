@@ -14,7 +14,12 @@ export default function Guess({guess, answer}) {
         const hasMatchingKeyword = (guess, answer, keywords) => {
           const g = (guess).toLowerCase();
           const a = (answer).toLowerCase();
-          return keywords.some(kw => g.includes(kw) && a.includes(kw));
+          return keywords.some(kw => {
+    // Escape special regex characters (like %, +, (, etc.)
+            const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
+            return pattern.test(g) && pattern.test(a);
+          });
         };
 
         const buffKeywords = ["normal", "charged", "plunge", "em", "er", "atk%", "def%", "hp%", "crit rate", "elemental dmg", "reaction dmg", "skill dmg", "burst dmg", "character dmg", "healing", "res shred, shield"];

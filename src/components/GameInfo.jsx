@@ -20,15 +20,15 @@ export default function GameInfo({limit, streak, prevAnswer, isDisabled, isGuess
             
             </div>
             {isGuessed && ( // Display a win message and replay button if the answer is guessed
-				<div className="bg-green-400/95 w-full py-10 px-20">
+				<div className="bg-green-400/95 w-full py-10 px-20 flex flex-col gap-10 items-center text-black text-2xl">
 					<p>You guessed correctly!</p>
-					<button onClick={onReplay}> Play again </button>
+					<button onClick={onReplay} className="border-2 border-black p-4 cursor-pointer"> Play again </button>
 				</div>
 			)}
 			{!isGuessed && limit >= 5 && ( // Display a lose message and replay button if the answer is guessed
-				<div className="bg-red-400/95 w-full py-10 px-20">
-					<p> You didn't manage to guess the set. The answer was <span className="text-green-400">{answer.name}</span>.{" "} </p>
-					<button onClick={onReplay}> Play again </button>
+				<div className="bg-red-400/95 w-full py-10 px-20  flex flex-col gap-10 items-center text-black text-2xl">
+					<p> You didn't manage to guess the set. The answer was <span className="text-green-300">{answer.name}</span>.{" "} </p>
+					<button onClick={onReplay} className="border-2 border-black p-4 cursor-pointer"> Play again </button>
 				</div>
 			)}
         </div>

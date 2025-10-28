@@ -72,8 +72,9 @@ export default function Search({onGuess, artifacts, disabled}) {
 								(
 									artifact // Create each suggestion as an li
 								) => (
-									<li key={artifact.name} onClick={() => handleSelect(artifact)} className="p-2 flex flex-row items-center justify-center">
-									<img src={artifact.icon} className="h-16 w-16 "></img> {artifact.name}
+									<li key={artifact.name} onClick={() => handleSelect(artifact)} className="p-4 border border-gray-500 flex flex-row items-center justify-between">
+										<img src={artifact.icon} className="h-20 w-20 "></img>
+										<span className="flex-1 text-center text-2xl">{artifact.name}</span>
 									</li>
 								)
 							)}
