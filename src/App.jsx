@@ -1,11 +1,21 @@
+import { useState } from 'react';
 import Navbar from './components/NavBar'
 import GameContainer from './components/GameContainer'
 
 export default function App() {
+  const [background, setBackground] = useState("/assets/backgrounds/nodkrai.png");
+
+  const changeBackground = (chosenBG) => {
+    setBackground(chosenBG);
+  };
 
   return (
-    <div className="flex flex-col h-screen gap-y-5"> {/* Main container */}
-    <Navbar></Navbar>
+    <div className="flex flex-col h-screen gap-y-5" style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}> {/* Main container */}
+    <Navbar onBackgroundChange={changeBackground} />
     <GameContainer />
      </div>
   )

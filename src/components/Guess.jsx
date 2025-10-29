@@ -14,8 +14,8 @@ export default function Guess({guess, answer}) {
         const hasMatchingKeyword = (guess, answer, keywords) => {
           const g = (guess).toLowerCase();
           const a = (answer).toLowerCase();
+
           return keywords.some(kw => {
-    // Escape special regex characters (like %, +, (, etc.)
             const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
             return pattern.test(g) && pattern.test(a);
@@ -44,21 +44,8 @@ export default function Guess({guess, answer}) {
           bgColor = "bg-red-800";
         }
 
-          
         return (
-          <motion.span
-            key={key}
-            className={`${size} border border-gray-400 flex items-center justify-center text-white rounded
-              ${bgColor}`}
-            initial={{ rotateY: 90, opacity: 0 }}
-            animate={{ rotateY: 0, opacity: 1 }}
-            transition={{
-              delay: i * 0.2, 
-              duration: 0.2,
-              ease: "easeOut"
-            }}
-            style={{ transformOrigin: "center" }}
-          >
+          <motion.span key={key} className={`${size} border border-gray-400 flex items-center justify-center text-white rounded ${bgColor}`} initial={{ rotateY: 90, opacity: 0 }} animate={{ rotateY: 0, opacity: 1 }} transition={{delay: i * 0.2, duration: 0.2, ease: "easeOut"}} style={{ transformOrigin: "center" }}>
             {key === "icon" ? (
               <img src={guess.icon} alt={guess.name} className="w-27 h-26 object-contain" />
             ) : (
