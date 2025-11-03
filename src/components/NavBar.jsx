@@ -8,7 +8,7 @@ export default function Navbar({onBackgroundChange}) {
     onBackgroundChange(e.target.value);
   };
   return (
-    <nav className="flex flex-row w-screen bg-neutral-900 text-3xl p-2 sticky gap-3 top-0">
+    <nav className="flex flex-col sm:flex-row w-full bg-neutral-900 text-xl sm:text-3xl p-2 sm:p-4 sticky gap-3 top-0">
       <div className=" flex flex-row ml-10 mr-auto gap-3">
         <h2> Artifactdle</h2>
       </div>
