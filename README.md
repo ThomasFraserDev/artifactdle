@@ -19,7 +19,7 @@ Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), b
 
 ## 🕹️ Game Flow
 
-1. An random, unknown artifact set is selected.
+1. A random, unknown artifact set is selected.
 2. Type and select an artifact set from the given list.
 3. The game compares your guess and tells you which attriutes (name, region, 2pc buff, 4pc buff & release version) are a match or close match to the answer.
 4. Keep guessing until either you guess the correct artifact set or hit the guess limit.
