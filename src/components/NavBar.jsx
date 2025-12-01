@@ -24,10 +24,10 @@ export default function Navbar({ onBackgroundChange }) {
             </select>
           </div>
 
-          <a href="https://github.com/TheRealThomasFraser">
+          <a href="https://github.com/ThomasFraserDev">
             <img className="h-6 w-6 sm:h-8 sm:w-8" src="/assets/misc/github-mark-white.png" />
           </a>
-          <a href="https://x.com/ThomasFDev">
+          <a href="https://x.com/ThomasFraserDev">
             <img className="h-6 w-6 sm:h-8 sm:w-8" src="/assets/misc/twitterLogo.png" />
           </a>
         </div>
