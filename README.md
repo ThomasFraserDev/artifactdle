@@ -41,7 +41,7 @@ Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), b
   
 ### Run Locally
 ```bash
-git clone https://github.com/TheRealThomasFraser/artifactdle.git
+git clone https://github.com/ThomasFraserDev/artifactdle.git
 cd artifactdle
 npm install
 npm run dev
