@@ -23,13 +23,6 @@ export default function Navbar({ onBackgroundChange }) {
               <option value={backgrounds[1]}>Fatui</option>
             </select>
           </div>
-
-          <a href="https://github.com/ThomasFraserDev">
-            <img className="h-6 w-6 sm:h-8 sm:w-8" src="/assets/misc/github-mark-white.png" />
-          </a>
-          <a href="https://x.com/ThomasFraserDev">
-            <img className="h-6 w-6 sm:h-8 sm:w-8" src="/assets/misc/twitterLogo.png" />
-          </a>
         </div>
 
       </div>
