@@ -9,7 +9,7 @@
 A Wordle-style game for guessing artifact sets from Genshin Impact.  
 Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets instead.
 
-## 🖼️ Screenshots
+## Screenshots
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
 
 <img src="https://github.com/user-attachments/assets/1b28c511-2e3e-4792-9805-b86ab0e2f2eb" alt="Gameplay board" width="400" />
@@ -17,7 +17,7 @@ Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), b
 
 </div>
 
-## 🕹️ Game Flow
+## Game Flow
 
 1. A random, unknown artifact set is selected.
 2. Type and select an artifact set from the given list.
@@ -25,7 +25,7 @@ Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), b
 4. Keep guessing until either you guess the correct artifact set or hit the guess limit.
 5. Build up a streak of wins and aim for a high score.
 
-## 🚧 Upcoming Features
+## Upcoming Features
 
 - Mobile & responsive layout
 - Support for Honkai Star Rail relics
@@ -33,7 +33,7 @@ Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), b
 - Deployment
 - More!
 
-## 🧰 Download and Run
+## Download and Run
 
 ### Prerequisites
 
@@ -46,7 +46,7 @@ cd artifactdle
 npm install
 npm run dev
 ```
-## 🪙 License
+## License
 
 This is a fan-made project based on Genshin Impact.  
 All game assets and names are property of HoYoverse.  
