@@ -6,32 +6,32 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](./LICENSE)
 
-A Wordle-style game for guessing artifact sets from Genshin Impact.  
-Heavily inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets instead.
+Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impact. You pick an artifact set from the list of sets, and get guess feedback based on the set's region, 2pc and 4pc buffs and release version, with the aim of guessing the randomly selected artifact set within five guesses. Built with React, Tailwind and Framer Motion, the project is heavily inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets.
 
 ## Screenshots
+
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-
-<img src="https://github.com/user-attachments/assets/1b28c511-2e3e-4792-9805-b86ab0e2f2eb" alt="Gameplay board" width="400" />
-<img src="https://github.com/user-attachments/assets/8bfdf480-463e-48b9-8791-7ac3ae42c758" alt="Guess input and feedback" width="400" />
-
+  <img width="500" height="auto" alt="Base screen" src="https://github.com/user-attachments/assets/4293d2d4-10fd-4b31-bbb8-2c5aa8b85a7d" />
+  <img width="500" height="auto" alt="Guesses" src="https://github.com/user-attachments/assets/518f4829-e679-425e-a209-db874016856d" />
+  <img width="500" height="auto" alt="Correct guess" src="https://github.com/user-attachments/assets/9ea6bf31-1123-4e25-972c-a2403931ee1d" />
+  <img width="500" height="auto" alt="Guessing" src="https://github.com/user-attachments/assets/3c290422-ea99-40ad-93fb-03534fb7cba4" />
 </div>
 
-## Game Flow
+## How To Play
 
 1. A random, unknown artifact set is selected.
 2. Type and select an artifact set from the given list.
-3. The game compares your guess and tells you which attriutes (name, region, 2pc buff, 4pc buff & release version) are a match or close match to the answer.
-4. Keep guessing until either you guess the correct artifact set or hit the guess limit.
-5. Build up a streak of wins and aim for a high score.
+3. The game compares your guess and tells you which attributes (name, region, 2pc buff, 4pc buff & release version) are a match or close match to the answer.
+4. Keep guessing until either you guess the correct artifact set or hit 5 guesses.
+5. Try to build up a streak of wins and aim for a high score.
 
 ## Upcoming Features
 
-- Mobile & responsive layout
-- Support for Honkai Star Rail relics
-- Daily challenges
-- Deployment
-- More!
+- [ ] Daily challenges
+- [ ] Honkai Star Rail Relic support
+- [ ] Zenless Zone Zero Disc Drive support
+- [ ] More Backgrounds
+
 
 ## Download and Run
 
@@ -46,6 +46,27 @@ cd artifactdle
 npm install
 npm run dev
 ```
+
+## Contributing
+
+Contributions are welcome! :]
+
+If you’d like to help improve Artifactdle, please follow these steps:
+1. Fork the repository and create a new branch from main.
+2. For UI changes, screenshots or short clips are encouraged.
+3. Make sure the project runs locally:
+```bash
+npm install
+npm run dev
+```
+4. Open a Pull Request with:
+- A clear description of what you changed or added 
+- The reasoning behind it
+
+If you’re unsure about an idea or want feedback before starting, feel free to open an issue to discuss it first.
+
+Thanks for helping make Artifactdle better! 💜
+
 ## License
 
 This is a fan-made project based on Genshin Impact.  
