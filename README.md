@@ -14,7 +14,6 @@ Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impac
   <img width="500" height="auto" alt="Base screen" src="https://github.com/user-attachments/assets/4293d2d4-10fd-4b31-bbb8-2c5aa8b85a7d" />
   <img width="500" height="auto" alt="Guesses" src="https://github.com/user-attachments/assets/518f4829-e679-425e-a209-db874016856d" />
   <img width="500" height="auto" alt="Correct guess" src="https://github.com/user-attachments/assets/9ea6bf31-1123-4e25-972c-a2403931ee1d" />
-  <img width="500" height="auto" alt="Guessing" src="https://github.com/user-attachments/assets/3c290422-ea99-40ad-93fb-03534fb7cba4" />
 </div>
 
 ## How To Play
