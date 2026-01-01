@@ -8,12 +8,12 @@ export default function GameInfo({limit, streak, prevAnswer, isDisabled, isGuess
                     <div>
                         <img  src="/assets/misc/kokomi.png" alt="Kokomi thinking" className="max-w-32 sm:max-w-64 h-auto"/>
                     </div>
-                    <div className="space-y-1 sm:px-15">
-                        <h2 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10">Artifactdle</h2>
-                        <h3 className="text-lg sm:text-2xl">Guesses: {limit} / 5</h3>
-                        <h3 className="text-lg sm:text-2xl">Win Streak: {streak} 🔥</h3>
-                        <h3 className="text-lg sm:text-2xl">High Score: {highScore} 🔥</h3>
-                        <h3 className="text-lg sm:text-2xl">Previous Answer: {prevAnswer}</h3>
+                    <div className="space-y-1 sm:px-15 text-lg sm:text-2xl font-semibold">
+                        <h2 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 ">Artifactdle</h2>
+                        <h3>Guesses: {limit} / 5</h3>
+                        <h3>Win Streak: {streak} 🔥</h3>
+                        <h3>High Score: {highScore} 🔥</h3>
+                        <h3>Previous Answer: {prevAnswer}</h3>
                     </div>
                 </div>
                     <Search onGuess={onGuess} artifacts={artifacts} disabled={isDisabled}/> {/* Search component that calls handleGuess with every entered guess, is disabled when the answer is guessed or the guess limit is exceeded */}

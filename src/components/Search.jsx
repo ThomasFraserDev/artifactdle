@@ -60,7 +60,7 @@ export default function Search({onGuess, artifacts, disabled}) {
 				<button onClick={handleButtonClick}>
 				<ChevronDown
 					size={20}
-					className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 transition-transform duration-300 ${
+					className={`absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 transition-transform duration-300 cursor-pointer ${
 						showSuggestions ? "-rotate-180" : "rotate-0"
 					}`}
 				/>

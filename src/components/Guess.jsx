@@ -45,7 +45,7 @@ export default function Guess({guess, answer}) {
         }
 
         return (
-          <motion.span key={key} className={`${size} border border-gray-400 flex items-center justify-center text-white rounded ${bgColor}`} initial={{ rotateY: 90, opacity: 0 }} animate={{ rotateY: 0, opacity: 1 }} transition={{delay: i * 0.2, duration: 0.2, ease: "easeOut"}} style={{ transformOrigin: "center" }}>
+          <motion.span key={key} className={`${size} border border-gray-400 flex items-center justify-center text-white rounded ${bgColor} flex-shrink-0`} initial={{ rotateY: 90, opacity: 0 }} animate={{ rotateY: 0, opacity: 1 }} transition={{delay: i * 0.2, duration: 0.2, ease: "easeOut"}} style={{ transformOrigin: "center" }}>
             {key === "icon" ? (
               <img src={guess.icon} alt={guess.name} className="w-27 h-26 object-contain" />
             ) : (
