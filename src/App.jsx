@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/NavBar'
 import GameContainer from './components/GameContainer'
 
@@ -17,6 +18,7 @@ export default function App() {
       }}> {/* Main container */}
     <Navbar onBackgroundChange={changeBackground} />
     <GameContainer />
+    <Analytics />
      </div>
   )
 }
