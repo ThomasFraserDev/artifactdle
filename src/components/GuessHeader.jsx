@@ -6,7 +6,7 @@ export default function GuessHeader() {
       {headers.map((header) => {
         let size = "h-12 w-28";
         if (header === "Name" || header === "2pc Buff" || header === "4pc Buff") {
-          size = "h-12 w-60";
+          size = "h-12 w-50";
         }
         return (
           <span key={header} className={`border border-gray-400 flex items-center justify-center bg-blue-900 rounded ${size} flex-shrink-0`}>
