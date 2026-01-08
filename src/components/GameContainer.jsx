@@ -41,9 +41,9 @@ export default function GameContainer() {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-y-5">
+		<div className="flex flex-col items-center justify-center gap-y-5 pb-6">
 		  <GameInfo limit={limit} streak={streak} prevAnswer={prevAnswer} isDisabled={isGuessed || limit >= 5} isGuessed={isGuessed} onGuess={handleGuess} onReplay={handleReplay} answer={answer} highScore={highScore} artifacts={artifacts}/>
-			<div className="flex flex-col gap-1 mt-4 p-2 rounded bg-neutral-800 w-11/12 sm:w-auto overflow-x-auto sm:overflow-visible"> {/* Div containing all the current guesses and the guess headings */}
+			<div className="flex flex-col gap-1 mt-4 p-2 rounded bg-neutral-800 w-11/12 sm:w-auto overflow-x-auto sm:overflow-visible mb-4"> {/* Div containing all the current guesses and the guess headings */}
 				<div className="min-w-min">
 					<GuessHeader />
 					{guesses.map((guess, index) => (

@@ -11,7 +11,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen gap-y-5 overflow-y-auto" style={{
+    <div className="flex flex-col min-h-screen w-screen gap-y-5 overflow-y-auto pb-8" style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
