@@ -6,6 +6,8 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](./LICENSE)
 
+## Play Here ----> https://artifactdle.vercel.app
+
 Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impact. You pick an artifact set from the list of sets, and get guess feedback based on the set's region, 2pc and 4pc buffs and release version, with the aim of guessing the randomly selected artifact set within five guesses. Built with React, Tailwind and Framer Motion, the project is heavily inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets.
 
 ## Screenshots
