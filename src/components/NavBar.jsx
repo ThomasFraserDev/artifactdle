@@ -9,7 +9,7 @@ export default function Navbar({ onBackgroundChange }) {
   };
 
   return (
-    <nav className="w-full bg-neutral-900 sticky z-50 top-0 p-3 sm:p-4 text-gray-200">
+    <nav className="w-full bg-neutral-900 p-3 sm:p-4 text-gray-200">
       <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
         <div className="flex flex-row items-center w-full sm:w-auto justify-center sm:justify-start">
           <h2 className="text-xl sm:text-3xl font-semibold">Artifactdle</h2>
