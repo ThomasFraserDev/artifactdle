@@ -15,9 +15,9 @@ If you enjoy or use this project, feel free to leave it a star! ;) 🫶
 ## Screenshots
 
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-  <img width="500" height="auto" alt="Base screen" src="https://github.com/user-attachments/assets/4293d2d4-10fd-4b31-bbb8-2c5aa8b85a7d" />
-  <img width="500" height="auto" alt="Guesses" src="https://github.com/user-attachments/assets/518f4829-e679-425e-a209-db874016856d" />
-  <img width="500" height="auto" alt="Correct guess" src="https://github.com/user-attachments/assets/9ea6bf31-1123-4e25-972c-a2403931ee1d" />
+<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 26 48" src="https://github.com/user-attachments/assets/c338103e-1d9a-4600-97f7-84c4c082d40d" />
+<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 27 26" src="https://github.com/user-attachments/assets/09b58fc3-e105-4a6f-b512-88cf0e89c432" />
+<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 27 59" src="https://github.com/user-attachments/assets/03e366db-47db-41a1-968c-aaf0c3fbe9a6" />
 </div>
 
 ## How To Play
