@@ -9,7 +9,7 @@ export default function GuessHeader() {
           size = "h-12 w-50";
         }
         return (
-          <span key={header} className={`border border-gray-400 flex items-center justify-center bg-blue-900 rounded ${size} flex-shrink-0`}>
+          <span key={header} className={`border border-gray-400 flex items-center justify-center bg-purple-600 rounded ${size} flex-shrink-0`}>
             {header}
           </span>
         );

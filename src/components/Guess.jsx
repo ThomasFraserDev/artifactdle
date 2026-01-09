@@ -39,7 +39,7 @@ export default function Guess({guess, answer}) {
         else if (checkField) {
           bgColor = "bg-green-600";
         } else if (checkBuffs) {
-          bgColor = "bg-yellow-500";
+          bgColor = "bg-yellow-500"; // Set background to yellow if guess was close
         }  else {
           bgColor = "bg-red-800";
         }

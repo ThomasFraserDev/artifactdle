@@ -8,7 +8,9 @@
 
 ## Play Here ----> https://artifactdle.vercel.app
 
-Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impact. You pick an artifact set from the list of sets, and get guess feedback based on the set's region, 2pc and 4pc buffs and release version, with the aim of guessing the randomly selected artifact set within five guesses. Built with React, Tailwind and Framer Motion, the project is heavily inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets.
+Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impact. You pick an artifact set from the list of sets, and get guess feedback based on the set's region, 2pc and 4pc buffs and release version, with the aim of guessing the randomly selected artifact set within five guesses. The game features a daily mode, as well as infinite. Built with React, Tailwind and Framer Motion, and inspired by the already exisitng [Genshindle](https://genshindle.com), but for artifact sets.
+
+If you enjoy or use this project, feel free to leave it a star! ;) 🫶
 
 ## Screenshots
 
@@ -28,11 +30,10 @@ Artifactdle is a Wordle-style game for guessing artifact sets from Genshin Impac
 
 ## Upcoming Features
 
-- [ ] Daily challenges
 - [ ] Honkai Star Rail Relic support
 - [ ] Zenless Zone Zero Disc Drive support
 - [ ] More Backgrounds
-
+- [ ] Colour Themes
 
 ## Download and Run
 

@@ -19,10 +19,13 @@ lerna-debug.log*
 .env
 .env.local
 .env.*.local
+.env.*
 
 # Vite / build cache
 .vite/
 .eslintcache
+dist/
+.dist/
 
 # Editor directories and files
 .vscode/*
@@ -35,6 +38,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+.vercel/
 
 # Testing
 coverage/
