@@ -6,7 +6,7 @@ import GameInfo from "./GameInfo";
 import artifacts from "../data/artifacts.json";
 import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate } from "../utils/dailyMode";
 
-export default function GameContainer({ gameMode }) {
+export default function GameContainer({ gameMode, game}) {
     const [guesses, setGuesses] = useState([]);
     const [answer, setAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]);
     const [limit, setLimit] = useState(0);
@@ -180,6 +180,8 @@ export default function GameContainer({ gameMode }) {
 
     return (
         <div className="flex flex-col items-center gap-y-6 pb-20 px-4">
+            {game === 'main' ? (
+                <>
 
             <div className="w-full max-w-4xl">
                 <div className="bg-purple-600/95 rounded-lg p-6 sm:p-8">
@@ -270,6 +272,12 @@ export default function GameContainer({ gameMode }) {
             </div>
 
             <GameInfo limit={limit} streak={streak} highScore={highScore} prevAnswer={prevAnswer} />
+                </>
+            ) : (
+                <div className="text-white text-center mt-10">
+                    <p className="text-2xl font-bold">coming soon!</p>
+                </div>
+            )}
         </div>
     );
 }
