@@ -11,6 +11,8 @@ export default function GameContainer({ gameMode }) {
     const [answer, setAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]);
     const [limit, setLimit] = useState(0);
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [showShareMenu, setShowShareMenu] = useState(false);
+    const [shareGuesses, setShareGuesses] = useState([]);
     
     // Initialising separate stat states for daily and infinite modes
     const [dailyStreak, setDailyStreak] = useState(0);
@@ -50,6 +52,7 @@ export default function GameContainer({ gameMode }) {
             } else {
                 setGuesses([]); // Reset guesses on a new day
                 setLimit(0); // Reset guess limit on a new day
+                setShareGuesses([]); // Reset share guesses on a new day
             }
 
             const dailyIndex = getDailyArtifactIndex(artifacts.length);
@@ -70,6 +73,7 @@ export default function GameContainer({ gameMode }) {
             setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
             setGuesses([]);
             setLimit(0);
+            setShareGuesses([]); // Add this line
         }
         setHasLoaded(true);
     }, [gameMode]);
@@ -82,6 +86,7 @@ export default function GameContainer({ gameMode }) {
             const dailyProgress = {
                 date: getTodayDateString(),
                 guesses,
+                shareGuesses,
                 limit,
                 completed: isGuessed || limit >= 5
             };
@@ -104,7 +109,7 @@ export default function GameContainer({ gameMode }) {
         }
     }, [guesses, limit, gameMode, isGuessed, dailyStreak, dailyHighScore, dailyPrevAnswer, infiniteStreak, infiniteHighScore, infinitePrevAnswer, hasLoaded]);
 
-    // When a day is finished, record it's answer to be displayed the next day
+    // When a day is finished, record it's answer to be displayed as the previous answer the next day
     useEffect(() => {
         if (gameMode === 'daily') {
             const t = new Date(); // Get today's date
@@ -119,12 +124,14 @@ export default function GameContainer({ gameMode }) {
         }
     }, [gameMode, isGuessed, limit, answer, dailyPrevAnswer]);
 
+    // Update high score
     useEffect(() => {
         if (streak > highScore) {
             setHighScore(streak);
         }
     }, [streak, highScore, setHighScore]);
 
+    // Update relevant stats on each guess
     const handleGuess = (artifact) => {
         if (isGuessed || limit >= 5)
             return;
@@ -138,11 +145,37 @@ export default function GameContainer({ gameMode }) {
         setLimit((prev) => prev + 1);
     };
 
+    // Update relevant stats on replay
     const handleReplay = () => {
         setGuesses([]);
         setPrevAnswer(answer.name);
         setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
         setLimit(0);
+    };
+
+    // Generate share result text based on score
+    const generateScoreText = () => {
+        const emoji = isGuessed ? "✅" : "❌";
+        const result = isGuessed ? `${limit}/5` : "5/5";
+        const date = getTodayDateString();
+        const guessLines = shareGuesses.join('\n');
+        return `Artifactdle\n${date} - ${result} ${emoji}\n${guessLines}\n\nhttps://artifactdle.vercel.app`;
+    };
+
+    // Show alert when share text copied to clipboard
+    const handleCopyScore = async () => {
+        try {
+            await navigator.clipboard.writeText(generateScoreText());
+            alert("Score copied to clipboard!");
+        } catch (err) {
+            alert("Failed to copy score");
+        }
+    };
+
+    // Open twitter with the share result text as a tweet when sharing via twitter
+    const handleTweetScore = () => {
+        const text = encodeURIComponent(generateScoreText());
+        window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
     };
 
     return (
@@ -154,25 +187,48 @@ export default function GameContainer({ gameMode }) {
                     <Search onGuess={handleGuess} artifacts={artifacts} disabled={isGuessed || limit >= 5}/>
                     {gameMode === 'daily' && (isGuessed || limit >= 5) && (
                         <p className="text-center text-sm text-gray-300 mt-4">
-                            Next daily in: {getTimeUntilNextDaily().hours}h {getTimeUntilNextDaily().minutes}m
+                            Next daily artifact in: {getTimeUntilNextDaily().hours}h {getTimeUntilNextDaily().minutes}m
                         </p>
                     )}
                 </div>
             </div>
 
-            {isGuessed && (
-                <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
-                    <p className="font-bold">You guessed correctly! 🎉</p>
-                    {gameMode === 'infinite' && (
-                        <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-green-500 transition rounded"> 
-                            Play again 
-                        </button>
-                    )}
-                    {gameMode === 'daily' && (
-                        <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
-                    )}
-                </div>
-            )}
+{isGuessed && (
+    <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
+        <p className="font-bold">You guessed correctly!</p>
+        {gameMode === 'infinite' && (
+            <div className="text-center">
+                <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-green-500 transition rounded"> 
+                    Play again 
+                </button>
+                <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
+                    Share score 
+                </p>
+                
+            </div>
+        )}
+        {gameMode === 'daily' && (
+            <div className="text-center">
+                <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
+                    Share score 
+                </p>
+                {showShareMenu && (
+                    <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
+                        <div className="flex flex-col gap-3">
+                            <button  onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer font-">
+                                Copy to Clipboard
+                            </button>
+                            <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
+                                Share on Twitter
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        )}
+    </div>
+)}
             {!isGuessed && limit >= 5 && (
                 <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
                     <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{answer.name}</span>.</p>
@@ -182,7 +238,24 @@ export default function GameContainer({ gameMode }) {
                         </button>
                     )}
                     {gameMode === 'daily' && (
-                        <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                        <div className="text-center">
+                            <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                            <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
+                                Share score
+                            </p>
+                            {showShareMenu && (
+                                <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
+                                    <div className="flex flex-col gap-3">
+                                        <button onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer">
+                                            Copy to Clipboard
+                                        </button>
+                                        <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
+                                            Share on Twitter
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     )}
                 </div>
             )}
@@ -191,7 +264,7 @@ export default function GameContainer({ gameMode }) {
                 <div className="min-w-min">
                     <GuessHeader />
                     {guesses.map((guess, index) => (
-                        <Guess key={limit-index} guess={guess} answer={answer} />
+                        <Guess key={limit-index} guess={guess} answer={answer} setShareGuesses={setShareGuesses} gameMode={gameMode}/>
                     ))}
                 </div>
             </div>

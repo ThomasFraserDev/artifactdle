@@ -1,22 +1,27 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function Guess({guess, answer}) {
+export default function Guess({guess, answer, setShareGuesses, gameMode}) {
   const fields = ["icon", "name", "region", "2pc", "4pc", "version"];
-  return (
+  let shareGuess = "";
+  
+  const renderGuess = () => (
     <div className="flex gap-1">
       {fields.map((key, i) => {
         const checkField = guess[key] === answer[key]; // Check to see if the guess field matches the answer field, to determine it's span's background colour below
         let displayVal = guess[key];
+
         if (key === "version" && parseInt(guess[key].charAt(0), 10) > parseInt(answer[key].charAt(0), 10)) // If the guessed version is higher than the answer's version
           displayVal = `${guess[key]} ⬇️`;
         else if (key === "version" && parseInt(guess[key].charAt(0), 10) < parseInt(answer[key].charAt(0), 10)) // If the guessed version is lower than the answer's version
           displayVal = `${guess[key]} ⬆️`;
+
         const hasMatchingKeyword = (guess, answer, keywords) => {
           const g = (guess).toLowerCase();
           const a = (answer).toLowerCase();
 
           return keywords.some(kw => {
-            const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Handle special characters
             const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
             return pattern.test(g) && pattern.test(a);
           });
@@ -38,10 +43,13 @@ export default function Guess({guess, answer}) {
         }
         else if (checkField) {
           bgColor = "bg-green-600";
+          shareGuess += "🟩";
         } else if (checkBuffs) {
           bgColor = "bg-yellow-500"; // Set background to yellow if guess was close
+          shareGuess += "🟨";
         }  else {
           bgColor = "bg-red-800";
+          shareGuess += "🟥";
         }
 
         return (
@@ -56,4 +64,11 @@ export default function Guess({guess, answer}) {
       })}
     </div>
   );
+
+  if (gameMode === "daily") {
+  useEffect(() => {
+    setShareGuesses(prev => [...prev, shareGuess]);
+  }, [guess, answer, setShareGuesses]);
+  }
+  return renderGuess();
 }
