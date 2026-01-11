@@ -227,10 +227,10 @@ useEffect(() => {
     }
     else if (game === "silhouette") {
         if (silhouetteStreak > silhouetteHighScore) {
-            setHighScore(silhouetteStreak);
+            setSilhouetteHighScore(silhouetteStreak);
         }
     }
-}, [streak, highScore, setHighScore]);
+}, [game, streak, highScore, setHighScore, silhouetteStreak, silhouetteHighScore, setSilhouetteHighScore]);
 
 // Update relevant stats on each guess
 const handleGuess = (artifact) => {
@@ -403,7 +403,7 @@ const handleTweetScore = () => {
                 </div>
             </div>
 
-            <GameInfo limit={limit} streak={streak} highScore={highScore} prevAnswer={prevAnswer} />
+            <GameInfo limit={limit} streak={streak} highScore={highScore} prevAnswer={prevAnswer} game={game}/>
                 </>
             ) : (
                 <>
@@ -498,6 +498,8 @@ const handleTweetScore = () => {
                             ))}
                         </div>
                     </div>
+
+                    <GameInfo limit={silhouetteLimit} streak={silhouetteStreak} highScore={silhouetteHighScore} prevAnswer={silhouettePrevAnswer} game={game}/>
                 </>
             )}
         </div>
