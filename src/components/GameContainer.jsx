@@ -22,6 +22,7 @@ export default function GameContainer({ gameMode, game}) {
     const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false);
     const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false);
     const [silhouetteShareGuesses, setSilhouetteShareGuesses] = useState([]);
+    const [silhouetteDailyCharIndex, setSilhouetteDailyCharIndex] = useState(0);
 
     // Initialising separate stat states for daily and infinite modes in the normal mode
     const [dailyStreak, setDailyStreak] = useState(0);
@@ -104,6 +105,8 @@ export default function GameContainer({ gameMode, game}) {
             setGuesses([]);
             setLimit(0);
             setShareGuesses([]);
+            const newIndex = Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length);
+            setSilhouetteDailyCharIndex(newIndex);
         }
         setHasLoaded(true);
     }
@@ -411,7 +414,7 @@ const handleTweetScore = () => {
                             {[
                                 { label: "Role", value: silhouetteAnswer['role'] },
                                 { label: "4pc Buff", value: silhouetteAnswer['4pc'] },
-                                { label: "Character", value: silhouetteAnswer['chars'].split(', ')[Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length)] },
+                                { label: "Character", value: silhouetteAnswer['chars'].split(', ')[gameMode === 'daily' ? silhouetteDailyCharIndex : Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length)] },
                                 { label: "Reveal Colours", value: "✅" }
                             ].map((hint, i) => (
                                 <div key={i} className={`p-4 rounded-lg text-center text-sm font-semibold transition-all ${silhouetteLimit > i ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'}`}>
