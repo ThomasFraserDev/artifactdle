@@ -1,19 +1,19 @@
-export const getDailyArtifactIndex = (artifactCount) => { // Select randpm daily artifact
+export const getDailyArtifactIndex = (artifactCount, offset) => { // Select randpm daily artifact
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Normalize to midnight
   const startDate = new Date('2025-01-01'); // Base start date to allow for the randomising 
   startDate.setHours(0, 0, 0, 0);
   const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-  return daysSinceStart % artifactCount; // Calculate random index
+  return (daysSinceStart + offset) % artifactCount; // Calculate random index
 };
 
-export const getDailyArtifactIndexForDate = (artifactCount, date) => {
+export const getDailyArtifactIndexForDate = (artifactCount, offset, date) => {
   const d = new Date(date);
   d.setHours(0, 0, 0, 0);
   const startDate = new Date('2025-01-01');
   startDate.setHours(0, 0, 0, 0);
   const daysSinceStart = Math.floor((d - startDate) / (1000 * 60 * 60 * 24));
-  return daysSinceStart % artifactCount;
+  return (daysSinceStart + offset) % artifactCount;
 };
 
 export const getTodayDateString = () => {

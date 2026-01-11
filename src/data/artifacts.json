@@ -5,7 +5,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Elemental DMG",
 		"version": "1.x",
-		"icon": "/assets/icons/petra.webp"
+		"icon": "/assets/icons/petra.webp",
+		"role": "Support",
+		"chars": "Ningguang, Albedo, Zhongli"
 	},
 	{
 		"name": "Blizzard Strayer",
@@ -13,7 +15,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Crit Rate",
 		"version": "1.x",
-		"icon": "/assets/icons/blizzard.webp"
+		"icon": "/assets/icons/blizzard.webp",
+		"role": "DPS",
+		"chars": "Ayaka, Ganyu, Kaeya"
 	},
 	{
 		"name": "Bloodstained Chivalry",
@@ -21,7 +25,9 @@
 		"2pc": "Physical DMG",
 		"4pc": "Charged ATK",
 		"version": "2.x",
-		"icon": "/assets/icons/chivalry.webp"
+		"icon": "/assets/icons/chivalry.webp",
+		"role": "DPS",
+		"chars": "Eula, Keqing, Noelle"
 	},
 	{
 		"name": "Crimson Witch of Flames",
@@ -29,7 +35,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Reaction DMG",
 		"version": "1.x",
-		"icon": "/assets/icons/crimson.webp"
+		"icon": "/assets/icons/crimson.webp",
+		"role": "DPS",
+		"chars": "Hu Tao, Klee, Yanfei"
 	},
 	{
 		"name": "Deepwood Memories",
@@ -37,7 +45,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "RES shred",
 		"version": "3.x",
-		"icon": "/assets/icons/deepwood.webp"
+		"icon": "/assets/icons/deepwood.webp",
+		"role": "Support",
+		"chars": "Nahida, Tighnari, Collei"
 	},
 	{
 		"name": "Desert Pavilion Chronicle",
@@ -45,7 +55,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Normal + Charged + Plunge ATK",
 		"version": "3.x",
-		"icon": "/assets/icons/desertPavilion.webp"
+		"icon": "/assets/icons/desertPavilion.webp",
+		"role": "DPS",
+		"chars": "Wanderer, Xiao, Heizou"
 	},
 	{
 		"name": "Echoes of an Offering",
@@ -53,7 +65,9 @@
 		"2pc": "ATK%",
 		"4pc": "Normal ATK",
 		"version": "2.x",
-		"icon": "/assets/icons/echoes.webp"
+		"icon": "/assets/icons/echoes.webp",
+		"role": "DPS",
+		"chars": "Ayato, Childe, Wanderer"
 	},
 	{
 		"name": "Emblem of Severed Fate",
@@ -61,7 +75,9 @@
 		"2pc": "ER",
 		"4pc": "Burst DMG",
 		"version": "2.x",
-		"icon": "/assets/icons/emblem.webp"
+		"icon": "/assets/icons/emblem.webp",
+		"role": "Support",
+		"chars": "Xiangling, Xingqiu, Raiden"
 	},
 	{
 		"name": "Finale of the Deep Galleries",
@@ -69,7 +85,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Normal ATK + Burst DMG",
 		"version": "5.x",
-		"icon": "/assets/icons/finale.webp"
+		"icon": "/assets/icons/finale.webp",
+		"role": "DPS",
+		"chars": "Skirk"
 	},
 	{
 		"name": "Flower of Paradise Lost",
@@ -77,7 +95,9 @@
 		"2pc": "EM",
 		"4pc": "Reaction DMG",
 		"version": "3.x",
-		"icon": "/assets/icons/paradiseLost.webp"
+		"icon": "/assets/icons/paradiseLost.webp",
+		"role": "Support",
+		"chars": "Raiden, Yae Miko, Kuki"
 	},
 	{
 		"name": "Fragment of Harmonic Whimsy",
@@ -85,7 +105,9 @@
 		"2pc": "ATK%",
 		"4pc": "Character DMG",
 		"version": "4.x",
-		"icon": "/assets/icons/whimsy.webp"
+		"icon": "/assets/icons/whimsy.webp",
+		"role": "DPS",
+		"chars": "Arlecchino, Clorinde"
 	},
 	{
 		"name": "Gilded Dreams",
@@ -93,7 +115,9 @@
 		"2pc": "EM",
 		"4pc": "ATK% + EM",
 		"version": "3.x",
-		"icon": "/assets/icons/gilded.webp"
+		"icon": "/assets/icons/gilded.webp",
+		"role": "Support / DPS",
+		"chars": "Alhaitham, Cyno, Thoma"
 	},
 	{
 		"name": "Gladiator's Finale",
@@ -101,7 +125,9 @@
 		"2pc": "ATK%",
 		"4pc": "Normal ATK",
 		"version": "1.x",
-		"icon": "/assets/icons/glad.webp"
+		"icon": "/assets/icons/glad.webp",
+		"role": "DPS",
+		"chars": "Arlecchino, Clorinde, Keqing"
 	},
 	{
 		"name": "Golden Troupe",
@@ -109,7 +135,9 @@
 		"2pc": "Skill DMG",
 		"4pc": "Skill DMG",
 		"version": "4.x",
-		"icon": "/assets/icons/goldenTroupe.webp"
+		"icon": "/assets/icons/goldenTroupe.webp",
+		"role": "Support",
+		"chars": "Furina, Escoffier, Fischl"
 	},
 	{
 		"name": "Heart of Depth",
@@ -117,7 +145,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Normal ATK + Charged ATK",
 		"version": "1.x",
-		"icon": "/assets/icons/heartOfDepth.webp"
+		"icon": "/assets/icons/heartOfDepth.webp",
+		"role": "DPS",
+		"chars": "Childe, Xingqiu, Mona"
 	},
 	{
 		"name": "Husk of Opulent Dreams",
@@ -125,7 +155,9 @@
 		"2pc": "DEF%",
 		"4pc": "DEF% + Elemental DMG",
 		"version": "2.x",
-		"icon": "/assets/icons/husk.webp"
+		"icon": "/assets/icons/husk.webp",
+		"role": "Support / DPS",
+		"chars": "Chiori, Xilonen, Itto"
 	},
 	{
 		"name": "Lavawalker",
@@ -133,7 +165,9 @@
 		"2pc": "Elemental RES",
 		"4pc": "Elemental DMG",
 		"version": "1.x",
-		"icon": "/assets/icons/lavawalker.webp"
+		"icon": "/assets/icons/lavawalker.webp",
+		"role": "DPS",
+		"chars": "Klee, Diluc, Hu Tao"
 	},
 	{
 		"name": "Long Night's Oath",
@@ -141,7 +175,9 @@
 		"2pc": "Plunge ATK",
 		"4pc": "Plunge ATK",
 		"version": "5.x",
-		"icon": "/assets/icons/lno.webp"
+		"icon": "/assets/icons/lno.webp",
+		"role": "DPS",
+		"chars": "Varesa, Xiao, Gaming"
 	},
 	{
 		"name": "Maiden Beloved",
@@ -149,7 +185,9 @@
 		"2pc": "Healing",
 		"4pc": "Healing",
 		"version": "1.x",
-		"icon": "/assets/icons/maidens.webp"
+		"icon": "/assets/icons/maidens.webp",
+		"role": "Support",
+		"chars": "Barbara, Qiqi, Diona"
 	},
 	{
 		"name": "Marechaussee Hunter",
@@ -157,7 +195,9 @@
 		"2pc": "Normal ATK + Charged ATK",
 		"4pc": "Crit Rate",
 		"version": "4.x",
-		"icon": "/assets/icons/marechaussee.webp"
+		"icon": "/assets/icons/marechaussee.webp",
+		"role": "DPS",
+		"chars": "Neuvillette, Wriothesley, Skirk"
 	},
 	{
 		"name": "Night of the Sky's Unveiling",
@@ -165,7 +205,9 @@
 		"2pc": "EM",
 		"4pc": "Crit Rate + Reaction DMG",
 		"version": "6.x",
-		"icon": "/assets/icons/skysUnveiling.webp"
+		"icon": "/assets/icons/skysUnveiling.webp",
+		"role": "DPS",
+		"chars": "Flins, Nefer"
 	},
 	{
 		"name": "Nighttime Whispers in the Echoing Woods",
@@ -173,7 +215,9 @@
 		"2pc": "ATK%",
 		"4pc": "Elemental DMG",
 		"version": "4.x",
-		"icon": "/assets/icons/nighttime.webp"
+		"icon": "/assets/icons/nighttime.webp",
+		"role": "DPS",
+		"chars": "Navia, Ningguang"
 	},
 	{
 		"name": "Noblesse Oblige",
@@ -181,7 +225,9 @@
 		"2pc": "Burst DMG",
 		"4pc": "ATK%",
 		"version": "1.x",
-		"icon": "/assets/icons/noblesse.webp"
+		"icon": "/assets/icons/noblesse.webp",
+		"role": "Support",
+		"chars": "Bennett, Shenhe, Dahlia"
 	},
 	{
 		"name": "Nymph's Dream",
@@ -189,7 +235,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "ATK% + Elemental DMG",
 		"version": "3.x",
-		"icon": "/assets/icons/nymphs.webp"
+		"icon": "/assets/icons/nymphs.webp",
+		"role": "DPS",
+		"chars": "Childe, Ayato"
 	},
 	{
 		"name": "Obsidian Codex",
@@ -197,7 +245,9 @@
 		"2pc": "Character DMG",
 		"4pc": "Crit Rate",
 		"version": "5.x",
-		"icon": "/assets/icons/codex.webp"
+		"icon": "/assets/icons/codex.webp",
+		"role": "DPS",
+		"chars": "Mualani, Kinich, Mavuika"
 	},
 	{
 		"name": "Ocean-Hued Clam",
@@ -205,7 +255,9 @@
 		"2pc": "Healing",
 		"4pc": "Healing",
 		"version": "2.x",
-		"icon": "/assets/icons/clam.webp"
+		"icon": "/assets/icons/clam.webp",
+		"role": "Support",
+		"chars": "Kokomi, Barbara, Baizhu"
 	},
 	{
 		"name": "Pale Flame",
@@ -213,7 +265,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "ATK%",
 		"version": "1.x",
-		"icon": "/assets/icons/paleFlame.webp"
+		"icon": "/assets/icons/paleFlame.webp",
+		"role": "DPS",
+		"chars": "Eula, Razor, Keqing"
 	},
 	{
 		"name": "Retracing Bolide",
@@ -221,7 +275,9 @@
 		"2pc": "Shield",
 		"4pc": "Normal ATK + Charged ATK",
 		"version": "1.x",
-		"icon": "/assets/icons/bolide.webp"
+		"icon": "/assets/icons/bolide.webp",
+		"role": "DPS",
+		"chars": "Yoimiya, Itto, Childe"
 	},
 	{
 		"name": "Scroll of the Hero of Cinder City",
@@ -229,7 +285,9 @@
 		"2pc": "ER",
 		"4pc": "Elemental DMG",
 		"version": "5.x",
-		"icon": "/assets/icons/scroll.webp"
+		"icon": "/assets/icons/scroll.webp",
+		"role": "Support",
+		"chars": "Xilonen, Citlali, Kachina"
 	},
 	{
 		"name": "Shimenawa's Reminiscence",
@@ -237,7 +295,9 @@
 		"2pc": "ATK%",
 		"4pc": "Normal + Charged + Plunge ATK",
 		"version": "2.x",
-		"icon": "/assets/icons/shimenawas.webp"
+		"icon": "/assets/icons/shimenawas.webp",
+		"role": "DPS",
+		"chars": "Yoimiya"
 	},
 	{
 		"name": "Silken Moon's Serenade",
@@ -245,7 +305,9 @@
 		"2pc": "ER",
 		"4pc": "EM + Reaction DMG",
 		"version": "6.x",
-		"icon": "/assets/icons/silkenMoons.webp"
+		"icon": "/assets/icons/silkenMoons.webp",
+		"role": "Support",
+		"chars": "Lauma, Aino, Jahoda"
 	},
 	{
 		"name": "Song of Days Past",
@@ -253,7 +315,9 @@
 		"2pc": "Healing",
 		"4pc": "Character DMG",
 		"version": "4.x",
-		"icon": "/assets/icons/song.webp"
+		"icon": "/assets/icons/song.webp",
+		"role": "Support",
+		"chars": "Chevreuse, Kokomi, Charlotte"
 	},
 	{
 		"name": "Tenacity of the Milileth",
@@ -261,7 +325,9 @@
 		"2pc": "HP%",
 		"4pc": "ATK% + Shield",
 		"version": "1.x",
-		"icon": "/assets/icons/milileth.webp"
+		"icon": "/assets/icons/milileth.webp",
+		"role": "Support",
+		"chars": "Furina, Zhongli"
 	},
 	{
 		"name": "Thundering Fury",
@@ -269,7 +335,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "Reaction DMG",
 		"version": "1.x",
-		"icon": "/assets/icons/thunderingFury.webp"
+		"icon": "/assets/icons/thunderingFury.webp",
+		"role": "DPS",
+		"chars": "Keqing, Razor, Raiden"
 	},
 	{
 		"name": "Thundersoother",
@@ -277,7 +345,9 @@
 		"2pc": "Elemental RES",
 		"4pc": "Reaction DMG",
 		"version": "1.x",
-		"icon": "/assets/icons/thundersoother.webp"
+		"icon": "/assets/icons/thundersoother.webp",
+		"role": "DPS",
+		"chars": "Beidou, Fischl, Razor"
 	},
 	{
 		"name": "Unfinished Reverie",
@@ -285,7 +355,9 @@
 		"2pc": "ATK%",
 		"4pc": "Character DMG",
 		"version": "4.x",
-		"icon": "/assets/icons/reverie.webp"
+		"icon": "/assets/icons/reverie.webp",
+		"role": "Support / DPS",
+		"chars": "Emilie, Kinich, Ganyu"
 	},
 	{
 		"name": "Vermillion Hereafter",
@@ -293,7 +365,9 @@
 		"2pc": "ATK%",
 		"4pc": "ATK%",
 		"version": "2.x",
-		"icon": "/assets/icons/vermillion.webp"
+		"icon": "/assets/icons/vermillion.webp",
+		"role": "DPS",
+		"chars": "Nobody 💀"
 	},
 	{
 		"name": "Virdescent Venerer",
@@ -301,7 +375,9 @@
 		"2pc": "Elemental DMG",
 		"4pc": "RES shred",
 		"version": "1.x",
-		"icon": "/assets/icons/virdescent.webp"
+		"icon": "/assets/icons/virdescent.webp",
+		"role": "Support",
+		"chars": "Jean, Lanyan, Sucrose"
 	},
 	{
 		"name": "Vorushaka's Glow",
@@ -309,7 +385,9 @@
 		"2pc": "HP%",
 		"4pc": "Skill DMG + Burst DMG",
 		"version": "3.x",
-		"icon": "/assets/icons/vorushakas.webp"
+		"icon": "/assets/icons/vorushakas.webp",
+		"role": "Support",
+		"chars": "Dehya, Nilou, Kirara"
 	},
 	{
 		"name": "Wanderer's Troupe",
@@ -317,6 +395,8 @@
 		"2pc": "EM",
 		"4pc": "Charged ATK",
 		"version": "1.x",
-		"icon": "/assets/icons/wanderers.webp"
+		"icon": "/assets/icons/wanderers.webp",
+		"role": "DPS",
+		"chars": "Tighnari, Collei, Sucrose"
 	}
 ]
