@@ -409,7 +409,7 @@ const handleTweetScore = () => {
                 <>
                     <div className="flex flex-col justify-center items-center w-full max-w-4xl bg-purple-600/95 rounded-lg p-6 sm:p-8">
                         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">Can you name this artifact?</h1>
-                        <img src={silhouetteAnswer.icon} alt={silhouetteAnswer.name} className={`w-64 h-64 object-contain filter mb-8 ${silhouetteLimit >= 4 ? 'brightness-100' : 'brightness-0'} ${silhouetteLimit >= 5 ? 'blur-none' : 'blur-xl'}`}/>
+                        <img src={silhouetteAnswer.icon} alt={silhouetteAnswer.name} className={`w-64 h-64 object-contain filter mb-8 ${silhouetteLimit >= 4 || isSilhouetteGuessed ? 'brightness-100' : 'brightness-0'} ${silhouetteLimit >= 5 || isSilhouetteGuessed ? 'blur-none' : 'blur-xl'}`}/>
                         <div className="grid grid-cols-2 gap-3 mb-6 w-full">
                             {[
                                 { label: "Role", value: silhouetteAnswer['role'] },
@@ -417,8 +417,8 @@ const handleTweetScore = () => {
                                 { label: "Character", value: silhouetteAnswer['chars'].split(', ')[gameMode === 'daily' ? silhouetteDailyCharIndex : Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length)] },
                                 { label: "Reveal Colours", value: "✅" }
                             ].map((hint, i) => (
-                                <div key={i} className={`p-4 rounded-lg text-center text-sm font-semibold transition-all ${silhouetteLimit > i ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'}`}>
-                                    {silhouetteLimit > i 
+                                <div key={i} className={`p-4 rounded-lg text-center text-sm font-semibold transition-all ${silhouetteLimit > i || isSilhouetteGuessed ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'}`}>
+                                    {silhouetteLimit > i || isSilhouetteGuessed
                                         ? `${hint.label}: ${hint.value}`
                                         : `🔒 Hint ${i + 1} - ${hint.label}`
                                     }
