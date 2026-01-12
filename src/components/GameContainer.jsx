@@ -8,21 +8,21 @@ import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDa
 
 export default function GameContainer({ gameMode, game}) {
     // Normal mode states
-    const [guesses, setGuesses] = useState([]);
-    const [answer, setAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]);
-    const [limit, setLimit] = useState(0);
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const [showShareMenu, setShowShareMenu] = useState(false);
-    const [shareGuesses, setShareGuesses] = useState([]);
+    const [guesses, setGuesses] = useState([]); // Guesses made by the user
+    const [answer, setAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]); // The artifact set to be guessed
+    const [limit, setLimit] = useState(0); // The amount of guesses made by the user
+    const [hasLoaded, setHasLoaded] = useState(false); // Whether the page has loaded or not
+    const [showShareMenu, setShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
+    const [shareGuesses, setShareGuesses] = useState([]); // Guesses in shareable format
 
     // Silhouette mode states
-    const [silhouetteGuesses, setSilhouetteGuesses] = useState([]);
-    const [silhouetteAnswer, setSilhouetteAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]);
-    const [silhouetteLimit, setSilhouetteLimit] = useState(0);
-    const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false);
-    const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false);
-    const [silhouetteShareGuesses, setSilhouetteShareGuesses] = useState([]);
-    const [silhouetteDailyCharIndex, setSilhouetteDailyCharIndex] = useState(0);
+    const [silhouetteGuesses, setSilhouetteGuesses] = useState([]); // Guesses made by the user
+    const [silhouetteAnswer, setSilhouetteAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]); // The artifact set to be guessed
+    const [silhouetteLimit, setSilhouetteLimit] = useState(0); // The amount of guesses made by the user
+    const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false); // Whether the page has loaded or not
+    const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
+    const [silhouetteShareGuesses, setSilhouetteShareGuesses] = useState([]);  // Guesses in shareable format
+    const [silhouetteDailyCharIndex, setSilhouetteDailyCharIndex] = useState(0); // Index of the character to appear in daily mode hint
 
     // Initialising separate stat states for daily and infinite modes in the normal mode
     const [dailyStreak, setDailyStreak] = useState(0);
@@ -61,52 +61,53 @@ export default function GameContainer({ gameMode, game}) {
     const isGuessed = guesses.some((g) => g.name === answer.name);
     const isSilhouetteGuessed = silhouetteGuesses.some((g) => g.name === silhouetteAnswer.name);
 
-    // Load daily/infinite stats on reload/mode change
+    // Load daily/infinite stats from local storage on reload/mode change
     useEffect(() => {
     if (game === "main") {
 
         if (gameMode === 'daily') {
-            const dailyStats = JSON.parse(localStorage.getItem('dailyStats') || '{}');
+            const dailyStats = JSON.parse(localStorage.getItem('dailyStats') || '{}'); // Load daily stats from local storage
             setDailyStreak(dailyStats.streak || 0);
             setDailyHighScore(dailyStats.highScore || 0);
             setDailyPrevAnswer(dailyStats.prevAnswer || "N/A");
 
             const today = getTodayDateString();
-            const dailyProgress = JSON.parse(localStorage.getItem('dailyProgress') || '{}');
+            const dailyProgress = JSON.parse(localStorage.getItem('dailyProgress') || '{}'); // Load daily progress from local storage
 
-            if (dailyProgress.date === today) {
+            if (dailyProgress.date === today) { // Carry over guesses made on the same day
                 setGuesses(dailyProgress.guesses || []); 
                 setLimit(dailyProgress.limit || 0);
             }
 
-            else {
+            else { // Reset guesses on a new day
                 setGuesses([]);
                 setLimit(0);
                 setShareGuesses([]);
             }
 
+            // Calculating previous day's answer
             const dailyIndex = getDailyArtifactIndex(artifacts.length, 0);
             setAnswer(artifacts[dailyIndex]);
-            const t = new Date();
+            const t = new Date(); // Today
             t.setHours(0, 0, 0, 0);
-            const y = new Date(t);
+            const y = new Date(t); // Yesterday
             y.setDate(y.getDate() - 1);
             const yIndex = getDailyArtifactIndexForDate(artifacts.length, 0, y);
             setDailyPrevAnswer(artifacts[yIndex].name);
         }
 
         else {
-            const infiniteStats = JSON.parse(localStorage.getItem('infiniteStats') || '{}');
+            // Load infinite stats from local storage
+            const infiniteStats = JSON.parse(localStorage.getItem('infiniteStats') || '{}'); 
             setInfiniteStreak(infiniteStats.streak || 0);
             setInfiniteHighScore(infiniteStats.highScore || 0);
             setInfinitePrevAnswer(infiniteStats.prevAnswer || "N/A");
 
+            // Generate new answer and reset guesses & limit
             setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
             setGuesses([]);
             setLimit(0);
             setShareGuesses([]);
-            const newIndex = Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length);
-            setSilhouetteDailyCharIndex(newIndex);
         }
         setHasLoaded(true);
     }
@@ -114,42 +115,47 @@ export default function GameContainer({ gameMode, game}) {
     else if (game === "silhouette") {
 
         if (gameMode === 'daily') {
-            const silhouetteDailyStats = JSON.parse(localStorage.getItem('silhouetteDailyStats') || '{}');
+            const silhouetteDailyStats = JSON.parse(localStorage.getItem('silhouetteDailyStats') || '{}'); // Load silhouette daily stats from local storage
             setSilhouetteDailyStreak(silhouetteDailyStats.streak || 0);
             setSilhouetteDailyHighScore(silhouetteDailyStats.highScore || 0);
             setSilhouetteDailyPrevAnswer(silhouetteDailyStats.prevAnswer || "N/A");
 
             const today = getTodayDateString();
-            const silhouetteDailyProgress = JSON.parse(localStorage.getItem('silhouetteDailyProgress') || '{}');
+            const silhouetteDailyProgress = JSON.parse(localStorage.getItem('silhouetteDailyProgress') || '{}'); // Load silhouette daily progress from local storage
 
-            if (silhouetteDailyProgress.date === today) {
+            if (silhouetteDailyProgress.date === today) { // Carry over guesses made on the same day
                 setSilhouetteGuesses(silhouetteDailyProgress.guesses || []); 
                 setSilhouetteLimit(silhouetteDailyProgress.limit || 0);
             }
 
-            else {
+            else { // Reset guesses on a new day
                 setSilhouetteGuesses([]);
                 setSilhouetteLimit(0);
                 setSilhouetteShareGuesses([]);
+                const newIndex = Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length);
+                setSilhouetteDailyCharIndex(newIndex);
             }
 
-            const OFFSET = Math.floor(artifacts.length / 2);
+            // Calculating previous day's answer
+            const OFFSET = Math.floor(artifacts.length / 2); // Offset used for silhouette mode
             const dailyIndex = getDailyArtifactIndex(artifacts.length, OFFSET);
             setSilhouetteAnswer(artifacts[dailyIndex]);
             const t = new Date();
-            t.setHours(0, 0, 0, 0);
+            t.setHours(0, 0, 0, 0); // Today
             const y = new Date(t);
-            y.setDate(y.getDate() - 1);
+            y.setDate(y.getDate() - 1); // Yesterday
             const yIndex = getDailyArtifactIndexForDate(artifacts.length, OFFSET, y);
             setSilhouetteDailyPrevAnswer(artifacts[yIndex].name);
         }
 
         else {
+            // Load silhouette infinite stats from local storage
             const silhouetteInfiniteStats = JSON.parse(localStorage.getItem('silhouetteInfiniteStats') || '{}');
             setSilhouetteInfiniteStreak(silhouetteInfiniteStats.streak || 0);
             setSilhouetteInfiniteHighScore(silhouetteInfiniteStats.highScore || 0);
             setSilhouetteInfinitePrevAnswer(silhouetteInfiniteStats.prevAnswer || "N/A");
 
+            // Generate new answer and reset guesses & limit
             setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
             setSilhouetteGuesses([]);
             setSilhouetteLimit(0);
@@ -157,26 +163,25 @@ export default function GameContainer({ gameMode, game}) {
         }
         setSilhouetteHasLoaded(true);
   }
-}, [game, gameMode]);
+}, [game, gameMode]); // Update on game and game mode change
 
-// Save progress/stats
+// Save game progress and stats to local storage
 useEffect(() => {
     if (game === "main") {
-
         if (!hasLoaded) {
             return;
         }
 
         if (gameMode === 'daily') {
             const dailyProgress = { date: getTodayDateString(), guesses, shareGuesses, limit, completed: isGuessed || limit >= 5};
-            localStorage.setItem('dailyProgress', JSON.stringify(dailyProgress));
+            localStorage.setItem('dailyProgress', JSON.stringify(dailyProgress)); // Save daily guess progress to local storage
             const dailyStats = { streak: dailyStreak, highScore: dailyHighScore, prevAnswer: dailyPrevAnswer };
-            localStorage.setItem('dailyStats', JSON.stringify(dailyStats));
+            localStorage.setItem('dailyStats', JSON.stringify(dailyStats)); // Save daily stats to local storage
         } 
 
         else {
             const infiniteStats = { streak: infiniteStreak, highScore: infiniteHighScore, prevAnswer: infinitePrevAnswer };
-            localStorage.setItem('infiniteStats', JSON.stringify(infiniteStats));
+            localStorage.setItem('infiniteStats', JSON.stringify(infiniteStats)); // Save infinite stats to local storage
         }
     } 
 
@@ -187,21 +192,20 @@ useEffect(() => {
 
         if (gameMode === 'daily') {
             const silhouetteDailyProgress = { date: getTodayDateString(), guesses: silhouetteGuesses, shareGuesses: silhouetteShareGuesses, limit: silhouetteLimit, completed: isSilhouetteGuessed || silhouetteLimit >= 5};
-            localStorage.setItem('silhouetteDailyProgress', JSON.stringify(silhouetteDailyProgress));
+            localStorage.setItem('silhouetteDailyProgress', JSON.stringify(silhouetteDailyProgress)); // Save daily guess progress to local storage
             const silhouetteDailyStats = { streak: silhouetteDailyStreak, highScore: silhouetteDailyHighScore, prevAnswer: silhouetteDailyPrevAnswer};
-            localStorage.setItem('silhouetteDailyStats', JSON.stringify(silhouetteDailyStats));
+            localStorage.setItem('silhouetteDailyStats', JSON.stringify(silhouetteDailyStats)); // Save daily stats to local storage
         } 
         else {
         const silhouetteInfiniteStats = {streak: silhouetteInfiniteStreak, highScore: silhouetteInfiniteHighScore, prevAnswer: silhouetteInfinitePrevAnswer};
-        localStorage.setItem('silhouetteInfiniteStats', JSON.stringify(silhouetteInfiniteStats));
+        localStorage.setItem('silhouetteInfiniteStats', JSON.stringify(silhouetteInfiniteStats)); // Save infinite stats to local storage
         }
   }
 }, [game, gameMode,
-  // main
+  // Main
   hasLoaded, guesses, shareGuesses, limit, isGuessed, dailyStreak, dailyHighScore, dailyPrevAnswer, infiniteStreak, infiniteHighScore, infinitePrevAnswer,
-  // silhouette
-  silhouetteHasLoaded, silhouetteGuesses, silhouetteShareGuesses, silhouetteLimit, isSilhouetteGuessed, silhouetteDailyStreak, silhouetteDailyHighScore, silhouetteDailyPrevAnswer, silhouetteInfiniteStreak, silhouetteInfiniteHighScore, silhouetteInfinitePrevAnswer
-]);
+  // Silhouette
+  silhouetteHasLoaded, silhouetteGuesses, silhouetteShareGuesses, silhouetteLimit, isSilhouetteGuessed, silhouetteDailyStreak, silhouetteDailyHighScore, silhouetteDailyPrevAnswer, silhouetteInfiniteStreak, silhouetteInfiniteHighScore, silhouetteInfinitePrevAnswer]);
 
 // When a day is finished, record it's answer to be displayed as the previous answer the next day
 useEffect(() => {
@@ -268,7 +272,7 @@ const handleGuess = (artifact) => {
   }
 };
 
-// Update relevant stats on replay
+// Update relevant stats when replaying in infinite mode
 const handleReplay = () => {
     if (game === "main") {
         setGuesses([]);
@@ -286,21 +290,21 @@ const handleReplay = () => {
 
 // Generate share result text based on score (separate per game)
 const generateScoreText = () => {
-    const isSil = game === 'silhouette';
-    const guessed = isSil ? isSilhouetteGuessed : isGuessed;
-    const attempts = isSil ? silhouetteLimit : limit;
-    const guessesLines = (isSil ? silhouetteShareGuesses : shareGuesses).join('\n');
+    const isSilhouette = game === 'silhouette';
+    const guessed = isSilhouette ? isSilhouetteGuessed : isGuessed;
+    const attempts = isSilhouette ? silhouetteLimit : limit;
+    const guessesLines = (isSilhouette ? silhouetteShareGuesses : shareGuesses).join('\n');
     const emoji = guessed ? "✅" : "❌";
     const result = guessed ? `${attempts}/5` : "5/5";
     const date = getTodayDateString();
-    const title = isSil ? "Artifactdle Silhouette" : "Artifactdle";
+    const title = isSilhouette ? "Artifactdle Silhouette" : "Artifactdle";
     return `${title}\n${date} - ${result} ${emoji}\n${guessesLines}\n\nhttps://artifactdle.vercel.app`;
 };
 
 // Show alert when share text copied to clipboard
 const handleCopyScore = async () => {
     try {
-        await navigator.clipboard.writeText(generateScoreText());
+        await navigator.clipboard.writeText(generateScoreText()); // Write score to clipboard
         alert("Score copied to clipboard!");
     } catch (err) {
         alert("Failed to copy score");
@@ -310,100 +314,99 @@ const handleCopyScore = async () => {
 // Open twitter with the share result text as a tweet when sharing via twitter
 const handleTweetScore = () => {
     const text = encodeURIComponent(generateScoreText());
-    window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+    window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank'); // Open Twitter with the score text inputted as a tweet
 };
 
     return (
         <div className="flex flex-col items-center gap-y-6 pb-20 px-4">
             {game === 'main' ? (
                 <>
-
-            <div className="w-full max-w-4xl">
-                <div className="bg-purple-600/95 rounded-lg p-6 sm:p-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Guess the Artifact Set</h2>
-                    <Search onGuess={handleGuess} artifacts={artifacts} disabled={isGuessed || limit >= 5}/>
-                    {gameMode === 'daily' && (isGuessed || limit >= 5) && (
-                        <p className="text-center text-sm text-gray-300 mt-4">
-                            Next daily artifact in: {getTimeUntilNextDaily().hours}h {getTimeUntilNextDaily().minutes}m
-                        </p>
-                    )}
-                </div>
-            </div>
-
-{isGuessed && (
-    <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
-        <p className="font-bold">You guessed correctly!</p>
-        {gameMode === 'infinite' && (
-            <div className="text-center">
-                <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-green-500 transition rounded"> 
-                    Play again 
-                </button>
-                </div>
-                )}
-        
-        {gameMode === 'daily' && (
-            <div className="text-center">
-                <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
-                <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
-                    Share score 
-                </p>
-                {showShareMenu && (
-                    <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
-                        <div className="flex flex-col gap-3">
-                            <button  onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer font-">
-                                Copy to Clipboard
-                            </button>
-                            <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
-                                Share on Twitter
-                            </button>
+                    <div className="w-full max-w-4xl">
+                        <div className="bg-purple-600/95 rounded-lg p-6 sm:p-8">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Guess the Artifact Set</h2>
+                            <Search onGuess={handleGuess} artifacts={artifacts} disabled={isGuessed || limit >= 5}/>
+                            {gameMode === 'daily' && (isGuessed || limit >= 5) && (
+                                <p className="text-center text-sm text-gray-300 mt-4">
+                                    Next daily artifact in: {getTimeUntilNextDaily().hours}h {getTimeUntilNextDaily().minutes}m
+                                </p>
+                            )}
                         </div>
                     </div>
-                )}
-            </div>
-        )}
-    </div>
-)}
-            {!isGuessed && limit >= 5 && (
-                <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
-                    <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{answer.name}</span>.</p>
-                    {gameMode === 'infinite' && (
-                        <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded"> 
-                            Play again 
-                        </button>
-                    )}
-                    {gameMode === 'daily' && (
-                        <div className="text-center">
-                            <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
-                            <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
-                                Share score
-                            </p>
-                            {showShareMenu && (
-                                <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
-                                    <div className="flex flex-col gap-3">
-                                        <button onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer">
-                                            Copy to Clipboard
-                                        </button>
-                                        <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
-                                            Share on Twitter
-                                        </button>
-                                    </div>
+
+                    {isGuessed && (
+                        <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
+                            <p className="font-bold">You guessed correctly!</p>
+                            {gameMode === 'infinite' && (
+                                <div className="text-center">
+                                    <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-green-500 transition rounded"> 
+                                        Play again 
+                                    </button>
+                                </div>
+                            )}
+                    
+                            {gameMode === 'daily' && (
+                                <div className="text-center">
+                                    <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                                    <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
+                                        Share score 
+                                    </p>
+                                    {showShareMenu && (
+                                        <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
+                                            <div className="flex flex-col gap-3">
+                                                <button  onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer font-">
+                                                    Copy to Clipboard
+                                                </button>
+                                                <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
+                                                    Share on Twitter
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
                     )}
-                </div>
-            )}
+                    {!isGuessed && limit >= 5 && (
+                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
+                            <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{answer.name}</span>.</p>
+                            {gameMode === 'infinite' && (
+                                <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded"> 
+                                    Play again 
+                                </button>
+                            )}
+                            {gameMode === 'daily' && (
+                                <div className="text-center">
+                                    <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                                    <p className="text-sm text-gray-900 underline cursor-pointer" onClick={() => setShowShareMenu(!showShareMenu)}> 
+                                        Share score
+                                    </p>
+                                    {showShareMenu && (
+                                        <div className="mt-4 p-4 bg-neutral-800 rounded-lg shadow-lg border-2 border-gray-300">
+                                            <div className="flex flex-col gap-3">
+                                                <button onClick={handleCopyScore} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition cursor-pointer">
+                                                    Copy to Clipboard
+                                                </button>
+                                                <button onClick={handleTweetScore} className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition cursor-pointer">
+                                                    Share on Twitter
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
-            <div className="flex flex-col gap-1 p-2 rounded bg-neutral-800 w-full max-w-min overflow-x-auto">
-                <div className="min-w-min">
-                    <GuessHeader game={game}/>
-                    {guesses.map((guess, index) => (
-                        <Guess key={limit-index} guess={guess} answer={answer} setShareGuesses={setShareGuesses} gameMode={gameMode} game={game}/>
-                    ))}
-                </div>
-            </div>
+                    <div className="flex flex-col gap-1 p-2 rounded bg-neutral-800 w-full max-w-min overflow-x-auto">
+                        <div className="min-w-min">
+                            <GuessHeader game={game}/>
+                            {guesses.map((guess, index) => (
+                                <Guess key={limit-index} guess={guess} answer={answer} setShareGuesses={setShareGuesses} gameMode={gameMode} game={game}/>
+                            ))}
+                        </div>
+                    </div>
 
-            <GameInfo limit={limit} streak={streak} highScore={highScore} prevAnswer={prevAnswer} game={game}/>
+                    <GameInfo limit={limit} streak={streak} highScore={highScore} prevAnswer={prevAnswer} game={game}/>
                 </>
             ) : (
                 <>
