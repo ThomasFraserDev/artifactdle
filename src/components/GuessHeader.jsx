@@ -1,7 +1,7 @@
 export default function GuessHeader({game}) {
   const headers = ["Icon", "Name", "Region", "2pc Buff", "4pc Buff", "Version"];
   const silhouetteHeaders = ["1", "2", "3", "4", "5"]
-  if (game === "main") {
+  if (game === "normal") {
     return (
       <div className="flex gap-1 font-bold text-white">
         {headers.map((header) => {

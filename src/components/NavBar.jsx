@@ -23,7 +23,7 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-xl sm:text-4xl font-semibold px-2 text-center">Artifactdle</h2>
           <div className="flex flex-row gap-2">
-            <button value={"main"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
+            <button value={"normal"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
               Normal
             </button>
             <button value={"silhouette"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">

@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [background, setBackground] = useState("/assets/backgrounds/nodkrai.png");
-  const [game, setGame] = useState("main");
+  const [game, setGame] = useState("normal");
   const [gameMode, setGameMode] = useState('daily');
 
   const changeBackground = (chosenBG) => {

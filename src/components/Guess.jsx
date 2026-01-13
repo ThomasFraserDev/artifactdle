@@ -5,16 +5,18 @@ export default function Guess({guess, answer, setShareGuesses, gameMode, game}) 
   const fields = ["icon", "name", "region", "2pc", "4pc", "version"];
   let shareGuess = "";
   
-  const renderMainGuess = () => (
+  const renderNormalGuess = () => (
     <div className="flex gap-1">
       {fields.map((key, i) => {
         const checkField = guess[key] === answer[key]; // Check to see if the guess field matches the answer field, to determine it's span's background colour below
         let displayVal = guess[key];
 
-        if (key === "version" && parseInt(guess[key].charAt(0), 10) > parseInt(answer[key].charAt(0), 10)) // If the guessed version is higher than the answer's version
+        if (key === "version" && parseInt(guess[key].charAt(0), 10) > parseInt(answer[key].charAt(0), 10)) { // If the guessed version is higher than the answer's version
           displayVal = `${guess[key]} ⬇️`;
-        else if (key === "version" && parseInt(guess[key].charAt(0), 10) < parseInt(answer[key].charAt(0), 10)) // If the guessed version is lower than the answer's version
+        }
+        else if (key === "version" && parseInt(guess[key].charAt(0), 10) < parseInt(answer[key].charAt(0), 10)) {// If the guessed version is lower than the answer's version
           displayVal = `${guess[key]} ⬆️`;
+        }
 
         const hasMatchingKeyword = (guess, answer, keywords) => {
           const g = (guess).toLowerCase();
@@ -83,10 +85,10 @@ export default function Guess({guess, answer, setShareGuesses, gameMode, game}) 
   };
 
   useEffect(() => {
-    if (gameMode === "daily" && game === "main") {
+    if (gameMode === "daily" && game === "normal") {
       setShareGuesses(prev => [...prev, shareGuess]);
     }
   }, [guess, answer, setShareGuesses, game, gameMode]);
 
-  return game === "main" ? renderMainGuess() : renderSilhouetteGuess();
+  return game === "normal" ? renderNormalGuess() : renderSilhouetteGuess();
 }

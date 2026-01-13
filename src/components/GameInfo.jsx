@@ -5,9 +5,7 @@ export default function GameInfo({ limit, streak, highScore, prevAnswer, game })
                 <div className="flex flex-col sm:flex-row items-center justify-around gap-6 text-center">
                     <div className="flex flex-col items-center">
                         <img 
-                            src={game === 'main' ? "/assets/misc/sandrone.png" : "/assets/misc/columbina.webp"} 
-                            alt={game === 'main' ? "Sandrone" : "Columbina"} 
-                            className="w-32 h-32 sm:w-64 sm:h-64 object-contain mb-2 border-4 border-blue-900 bg-cyan-700/50 rounded-2xl"
+                            src={game === 'normal' ? "/assets/misc/sandrone.png" : "/assets/misc/columbina.webp"} alt={game === 'normal' ? "Sandrone" : "Columbina"} className="w-32 h-32 sm:w-64 sm:h-64 object-contain mb-2 border-4 border-blue-900 bg-cyan-700/50 rounded-2xl"
                         />
                     </div>
                     <div className="grid grid-cols-2 gap-4 sm:gap-6 text-lg sm:text-xl font-semibold">
