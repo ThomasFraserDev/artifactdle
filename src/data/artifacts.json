@@ -1,5 +1,15 @@
 [
 	{
+		"name": "A Day Carved from Rising Winds",
+		"region": "Nod Krai",
+		"2pc": "ATK%",
+		"4pc": "AYK% + Crit Rate",
+		"version": "6.x",
+		"icon": "/assets/icons/windborne.webp",
+		"role": "DPS",
+		"chars": "Venti, Durin, Klee"
+	},
+	{
 		"name": "Archaic Petra",
 		"region": "Liyue",
 		"2pc": "Elemental DMG",
@@ -8,6 +18,16 @@
 		"icon": "/assets/icons/petra.webp",
 		"role": "Support",
 		"chars": "Ningguang, Albedo, Zhongli"
+	},
+	{
+		"name": "Aubade of Morningstar and Moon",
+		"region": "Nod Krai",
+		"2pc": "EM",
+		"4pc": "Reaction DMG",
+		"version": "6.x",
+		"icon": "/assets/icons/aubade.webp",
+		"role": "Support",
+		"chars": "Ineffa, Columbina, Aino"
 	},
 	{
 		"name": "Blizzard Strayer",
