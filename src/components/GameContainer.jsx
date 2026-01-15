@@ -4,12 +4,17 @@ import GuessHeader from "./GuessHeader";
 import Search from "./Search";
 import GameInfo from "./GameInfo";
 import artifacts from "../data/artifacts.json";
-import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate } from "../utils/dailyMode";
+import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate, getDailySilhouetteArtifactIndex, getDailySilhouetteArtifactIndexForDate } from "../utils/dailyMode";
 
 export default function GameContainer({ gameMode, game}) {
     // Normal mode states
     const [guesses, setGuesses] = useState([]); // Guesses made by the user
-    const [answer, setAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]); // The artifact set to be guessed
+    const [answer, setAnswer] = useState(() => {
+        if (gameMode === 'daily') {
+            return artifacts[getDailyArtifactIndex(artifacts.length)];
+        }
+        return artifacts[Math.floor(Math.random() * artifacts.length)];
+    }); // The artifact set to be guessed
     const [guessAmount, setGuessAmount] = useState(0); // The amount of guesses made by the user
     const [hasLoaded, setHasLoaded] = useState(false); // Whether the page has loaded or not
     const [showShareMenu, setShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
@@ -17,7 +22,12 @@ export default function GameContainer({ gameMode, game}) {
 
     // Silhouette mode states
     const [silhouetteGuesses, setSilhouetteGuesses] = useState([]); // Guesses made by the user
-    const [silhouetteAnswer, setSilhouetteAnswer] = useState(artifacts[Math.floor(Math.random() * artifacts.length)]); // The artifact set to be guessed
+    const [silhouetteAnswer, setSilhouetteAnswer] = useState(() => {
+        if (gameMode === 'daily') {
+            return artifacts[getDailySilhouetteArtifactIndex(artifacts.length)];
+        }
+        return artifacts[Math.floor(Math.random() * artifacts.length)];
+    }); // The artifact set to be guessed
     const [silhouetteguessAmount, setSilhouetteguessAmount] = useState(0); // The amount of guesses made by the user
     const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false); // Whether the page has loaded or not
     const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
@@ -104,7 +114,11 @@ export default function GameContainer({ gameMode, game}) {
             setInfinitePrevAnswer(infiniteStats.prevAnswer || "N/A");
 
             // Generate new answer and reset guesses & guessAmount
-            setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+            if (gameMode === 'daily') {
+                setAnswer(artifacts[getDailyArtifactIndex(artifacts.length)]);
+            } else {
+                setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+            }
             setGuesses([]);
             setGuessAmount(0);
             setShareGuesses([]);
@@ -156,7 +170,11 @@ export default function GameContainer({ gameMode, game}) {
             setSilhouetteInfinitePrevAnswer(silhouetteInfiniteStats.prevAnswer || "N/A");
 
             // Generate new answer and reset guesses & guessAmount
-            setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+            if (gameMode === 'daily') {
+                setSilhouetteAnswer(artifacts[getDailySilhouetteArtifactIndex(artifacts.length)]);
+            } else {
+                setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+            }
             setSilhouetteGuesses([]);
             setSilhouetteguessAmount(0);
             setSilhouetteShareGuesses([]);
@@ -277,13 +295,21 @@ const handleReplay = () => {
     if (game === "normal") {
         setGuesses([]);
         setPrevAnswer(answer.name);
-        setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+        if (gameMode === 'daily') {
+            setAnswer(artifacts[getDailyArtifactIndex(artifacts.length)]);
+        } else {
+            setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+        }
         setGuessAmount(0);
     }
     else if (game === "silhouette") {
         setSilhouetteGuesses([]);
         setSilhouettePrevAnswer(silhouetteAnswer.name);
-        setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+        if (gameMode === 'daily') {
+            setSilhouetteAnswer(artifacts[getDailySilhouetteArtifactIndex(artifacts.length)]);
+        } else {
+            setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+        }
         setSilhouetteguessAmount(0);
     }
 };
