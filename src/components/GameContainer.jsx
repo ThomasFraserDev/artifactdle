@@ -28,7 +28,7 @@ export default function GameContainer({ gameMode, game}) {
         }
         return artifacts[Math.floor(Math.random() * artifacts.length)];
     }); // The artifact set to be guessed
-    const [silhouetteguessAmount, setSilhouetteguessAmount] = useState(0); // The amount of guesses made by the user
+    const [silhouetteguessAmount, setSilhouetteGuessAmount] = useState(0); // The amount of guesses made by the user
     const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false); // Whether the page has loaded or not
     const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
     const [silhouetteShareGuesses, setSilhouetteShareGuesses] = useState([]);  // Guesses in shareable format
@@ -73,114 +73,105 @@ export default function GameContainer({ gameMode, game}) {
 
     // Load daily/infinite stats from local storage on reload/mode change
     useEffect(() => {
-    if (game === "normal") {
+        let dailyStats;
+        let updateDailyStreak;
+        let updateDailyHighScore;
+        let updateDailyPrevAswer;
+        let dailyProgress;
+        let updateGuesses;
+        let updateGuessAmount;
+        let updateShareGuesses;
+        let OFFSET;
+        let dailyIndex;
+        let infiniteStats;
+        let updateInfiniteStreak;
+        let updateInfiniteHighScore;
+        let updateInfinitePrevAnswer;
+        let resetAnswer;
+        let updateHasLoaded;
+
+        if (game === "normal") {
+            dailyStats = JSON.parse(localStorage.getItem('dailyStats') || '{}'); // Load daily stats from local storage
+            updateDailyStreak = setDailyStreak;
+            updateDailyHighScore = setDailyHighScore;
+            updateDailyPrevAswer = setDailyPrevAnswer;
+            dailyProgress = JSON.parse(localStorage.getItem('dailyProgress') || '{}'); // Load daily progress from local storage
+            updateGuesses = setGuesses;
+            updateGuessAmount = setGuessAmount;
+            updateShareGuesses = setShareGuesses;
+            OFFSET = 0;
+            dailyIndex = getDailyArtifactIndex(artifacts.length, OFFSET);
+            infiniteStats = JSON.parse(localStorage.getItem('infiniteStats') || '{}');
+            updateInfiniteStreak = setInfiniteStreak;
+            updateInfiniteHighScore = setInfiniteHighScore;
+            updateInfinitePrevAnswer = setInfinitePrevAnswer;
+            resetAnswer = setAnswer;
+            updateHasLoaded = setHasLoaded;
+        }
+
+        else if (game === "silhouette") {
+            dailyStats = JSON.parse(localStorage.getItem('silhouetteDailyStats') || '{}'); // Load daily stats from local storage
+            updateDailyStreak = setSilhouetteDailyStreak;
+            updateDailyHighScore = setSilhouetteDailyHighScore;
+            updateDailyPrevAswer = setSilhouetteDailyPrevAnswer;
+            dailyProgress = JSON.parse(localStorage.getItem('sihouetteDailyProgress') || '{}'); // Load daily progress from local storage
+            updateGuesses = setSilhouetteGuesses;
+            updateGuessAmount = setSilhouetteGuessAmount;
+            updateShareGuesses = setSilhouetteShareGuesses;
+            OFFSET = Math.floor(artifacts.length / 2); // Offset used for silhouette mode
+            dailyIndex = getDailyArtifactIndex(artifacts.length, OFFSET);
+            infiniteStats = JSON.parse(localStorage.getItem('silhouetteInfiniteStats') || '{}');
+            updateInfiniteStreak = setSilhouetteInfiniteStreak;
+            updateInfiniteHighScore = setSilhouetteInfiniteHighScore;
+            updateInfinitePrevAnswer = setSilhouetteInfinitePrevAnswer;
+            resetAnswer = setSilhouetteAnswer;
+            updateHasLoaded = setSilhouetteHasLoaded;
+        }
 
         if (gameMode === 'daily') {
-            const dailyStats = JSON.parse(localStorage.getItem('dailyStats') || '{}'); // Load daily stats from local storage
-            setDailyStreak(dailyStats.streak || 0);
-            setDailyHighScore(dailyStats.highScore || 0);
-            setDailyPrevAnswer(dailyStats.prevAnswer || "N/A");
+            updateDailyStreak(dailyStats.streak || 0);
+            updateDailyHighScore(dailyStats.highScore || 0);
+            updateDailyPrevAswer(dailyStats.prevAnswer || "N/A");
 
             const today = getTodayDateString();
-            const dailyProgress = JSON.parse(localStorage.getItem('dailyProgress') || '{}'); // Load daily progress from local storage
-
+            
             if (dailyProgress.date === today) { // Carry over guesses made on the same day
-                setGuesses(dailyProgress.guesses || []); 
-                setGuessAmount(dailyProgress.guessAmount || 0);
+                updateGuesses(dailyProgress.guesses || []); 
+                updateGuessAmount(dailyProgress.guessAmount || 0);
             }
-
             else { // Reset guesses on a new day
-                setGuesses([]);
-                setGuessAmount(0);
-                setShareGuesses([]);
+                updateGuesses([]);
+                updateGuessAmount(0);
+                updateShareGuesses([]);
             }
 
             // Calculating previous day's answer
-            const dailyIndex = getDailyArtifactIndex(artifacts.length, 0);
-            setAnswer(artifacts[dailyIndex]);
+            resetAnswer(artifacts[dailyIndex]);
             const t = new Date(); // Today
             t.setHours(0, 0, 0, 0);
             const y = new Date(t); // Yesterday
             y.setDate(y.getDate() - 1);
-            const yIndex = getDailyArtifactIndexForDate(artifacts.length, 0, y);
-            setDailyPrevAnswer(artifacts[yIndex].name);
+            const yIndex = getDailyArtifactIndexForDate(artifacts.length, OFFSET, y);
+            updateDailyPrevAswer(artifacts[yIndex].name);
         }
-
         else {
             // Load infinite stats from local storage
-            const infiniteStats = JSON.parse(localStorage.getItem('infiniteStats') || '{}'); 
-            setInfiniteStreak(infiniteStats.streak || 0);
-            setInfiniteHighScore(infiniteStats.highScore || 0);
-            setInfinitePrevAnswer(infiniteStats.prevAnswer || "N/A");
+            updateInfiniteStreak(infiniteStats.streak || 0);
+            updateInfiniteHighScore(infiniteStats.highScore || 0);
+            updateInfinitePrevAnswer(infiniteStats.prevAnswer || "N/A");
 
             // Generate new answer and reset guesses & guessAmount
             if (gameMode === 'daily') {
-                setAnswer(artifacts[getDailyArtifactIndex(artifacts.length)]);
+                resetAnswer(artifacts[getDailyArtifactIndex(artifacts.length)]);
             } else {
-                setAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
+                resetAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
             }
-            setGuesses([]);
-            setGuessAmount(0);
-            setShareGuesses([]);
+            updateGuesses([]);
+            updateGuessAmount(0);
+            updateShareGuesses([]);
         }
-        setHasLoaded(true);
-    }
-
-    else if (game === "silhouette") {
-
-        if (gameMode === 'daily') {
-            const silhouetteDailyStats = JSON.parse(localStorage.getItem('silhouetteDailyStats') || '{}'); // Load silhouette daily stats from local storage
-            setSilhouetteDailyStreak(silhouetteDailyStats.streak || 0);
-            setSilhouetteDailyHighScore(silhouetteDailyStats.highScore || 0);
-            setSilhouetteDailyPrevAnswer(silhouetteDailyStats.prevAnswer || "N/A");
-
-            const today = getTodayDateString();
-            const silhouetteDailyProgress = JSON.parse(localStorage.getItem('silhouetteDailyProgress') || '{}'); // Load silhouette daily progress from local storage
-
-            if (silhouetteDailyProgress.date === today) { // Carry over guesses made on the same day
-                setSilhouetteGuesses(silhouetteDailyProgress.guesses || []); 
-                setSilhouetteguessAmount(silhouetteDailyProgress.guessAmount || 0);
-            }
-
-            else { // Reset guesses on a new day
-                setSilhouetteGuesses([]);
-                setSilhouetteguessAmount(0);
-                setSilhouetteShareGuesses([]);
-                const newIndex = Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length);
-                setSilhouetteDailyCharIndex(newIndex);
-            }
-
-            // Calculating previous day's answer
-            const OFFSET = Math.floor(artifacts.length / 2); // Offset used for silhouette mode
-            const dailyIndex = getDailyArtifactIndex(artifacts.length, OFFSET);
-            setSilhouetteAnswer(artifacts[dailyIndex]);
-            const t = new Date();
-            t.setHours(0, 0, 0, 0); // Today
-            const y = new Date(t);
-            y.setDate(y.getDate() - 1); // Yesterday
-            const yIndex = getDailyArtifactIndexForDate(artifacts.length, OFFSET, y);
-            setSilhouetteDailyPrevAnswer(artifacts[yIndex].name);
-        }
-
-        else {
-            // Load silhouette infinite stats from local storage
-            const silhouetteInfiniteStats = JSON.parse(localStorage.getItem('silhouetteInfiniteStats') || '{}');
-            setSilhouetteInfiniteStreak(silhouetteInfiniteStats.streak || 0);
-            setSilhouetteInfiniteHighScore(silhouetteInfiniteStats.highScore || 0);
-            setSilhouetteInfinitePrevAnswer(silhouetteInfiniteStats.prevAnswer || "N/A");
-
-            // Generate new answer and reset guesses & guessAmount
-            if (gameMode === 'daily') {
-                setSilhouetteAnswer(artifacts[getDailySilhouetteArtifactIndex(artifacts.length)]);
-            } else {
-                setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
-            }
-            setSilhouetteGuesses([]);
-            setSilhouetteguessAmount(0);
-            setSilhouetteShareGuesses([]);
-        }
-        setSilhouetteHasLoaded(true);
-  }
+        updateHasLoaded(true);
+    
 }, [game, gameMode]); // Update on game and game mode change
 
 // Save game progress and stats to local storage
@@ -286,7 +277,7 @@ const handleGuess = (artifact) => {
             setSilhouetteStreak(0); 
         }
         setSilhouetteGuesses((prev) => [...prev, artifact]);
-        setSilhouetteguessAmount((prev) => prev + 1);
+        setSilhouetteGuessAmount((prev) => prev + 1);
   }
 };
 
@@ -310,7 +301,7 @@ const handleReplay = () => {
         } else {
             setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
         }
-        setSilhouetteguessAmount(0);
+        setSilhouetteGuessAmount(0);
     }
 };
 
