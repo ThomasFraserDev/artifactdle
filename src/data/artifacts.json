@@ -157,7 +157,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/goldenTroupe.webp",
 		"role": "Support",
-		"chars": "Furina, Escoffier, Fischl"
+		"chars": "Furina, Escoffier, Fischl, Albedo"
 	},
 	{
 		"name": "Heart of Depth",
@@ -177,7 +177,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/husk.webp",
 		"role": "Support / DPS",
-		"chars": "Chiori, Xilonen, Itto"
+		"chars": "Chiori, Xilonen, Itto, Albedo"
 	},
 	{
 		"name": "Lavawalker",
@@ -247,7 +247,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/noblesse.webp",
 		"role": "Support",
-		"chars": "Bennett, Shenhe, Dahlia"
+		"chars": "Bennett, Shenhe, Dahlia, Aino"
 	},
 	{
 		"name": "Nymph's Dream",
@@ -307,7 +307,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/scroll.webp",
 		"role": "Support",
-		"chars": "Xilonen, Citlali, Kachina"
+		"chars": "Xilonen, Citlali, Kachina, Aino"
 	},
 	{
 		"name": "Shimenawa's Reminiscence",

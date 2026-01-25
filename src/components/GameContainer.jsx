@@ -28,7 +28,7 @@ export default function GameContainer({ gameMode, game}) {
         }
         return artifacts[Math.floor(Math.random() * artifacts.length)];
     }); // The artifact set to be guessed
-    const [silhouetteguessAmount, setSilhouetteGuessAmount] = useState(0); // The amount of guesses made by the user
+    const [silhouetteGuessAmount, setsilhouetteGuessAmount] = useState(0); // The amount of guesses made by the user
     const [silhouetteHasLoaded, setSilhouetteHasLoaded] = useState(false); // Whether the page has loaded or not
     const [silhouetteShowShareMenu, setSilhouetteShowShareMenu] = useState(false); // Whether the share menu is shown or hidden
     const [silhouetteShareGuesses, setSilhouetteShareGuesses] = useState([]);  // Guesses in shareable format
@@ -116,7 +116,7 @@ export default function GameContainer({ gameMode, game}) {
             updateDailyPrevAswer = setSilhouetteDailyPrevAnswer;
             dailyProgress = JSON.parse(localStorage.getItem('sihouetteDailyProgress') || '{}'); // Load daily progress from local storage
             updateGuesses = setSilhouetteGuesses;
-            updateGuessAmount = setSilhouetteGuessAmount;
+            updateGuessAmount = setsilhouetteGuessAmount;
             updateShareGuesses = setSilhouetteShareGuesses;
             OFFSET = Math.floor(artifacts.length / 2); // Offset used for silhouette mode
             dailyIndex = getDailyArtifactIndex(artifacts.length, OFFSET);
@@ -200,7 +200,7 @@ useEffect(() => {
         }
 
         if (gameMode === 'daily') {
-            const silhouetteDailyProgress = { date: getTodayDateString(), guesses: silhouetteGuesses, shareGuesses: silhouetteShareGuesses, guessAmount: silhouetteguessAmount, completed: isSilhouetteGuessed || silhouetteguessAmount >= 5};
+            const silhouetteDailyProgress = { date: getTodayDateString(), guesses: silhouetteGuesses, shareGuesses: silhouetteShareGuesses, guessAmount: silhouetteGuessAmount, completed: isSilhouetteGuessed || silhouetteGuessAmount >= 5};
             localStorage.setItem('silhouetteDailyProgress', JSON.stringify(silhouetteDailyProgress)); // Save daily guess progress to local storage
             const silhouetteDailyStats = { streak: silhouetteDailyStreak, highScore: silhouetteDailyHighScore, prevAnswer: silhouetteDailyPrevAnswer};
             localStorage.setItem('silhouetteDailyStats', JSON.stringify(silhouetteDailyStats)); // Save daily stats to local storage
@@ -214,7 +214,7 @@ useEffect(() => {
   // Normal
   hasLoaded, guesses, shareGuesses, guessAmount, isGuessed, dailyStreak, dailyHighScore, dailyPrevAnswer, infiniteStreak, infiniteHighScore, infinitePrevAnswer,
   // Silhouette
-  silhouetteHasLoaded, silhouetteGuesses, silhouetteShareGuesses, silhouetteguessAmount, isSilhouetteGuessed, silhouetteDailyStreak, silhouetteDailyHighScore, silhouetteDailyPrevAnswer, silhouetteInfiniteStreak, silhouetteInfiniteHighScore, silhouetteInfinitePrevAnswer]);
+  silhouetteHasLoaded, silhouetteGuesses, silhouetteShareGuesses, silhouetteGuessAmount, isSilhouetteGuessed, silhouetteDailyStreak, silhouetteDailyHighScore, silhouetteDailyPrevAnswer, silhouetteInfiniteStreak, silhouetteInfiniteHighScore, silhouetteInfinitePrevAnswer]);
 
 // When a day is finished, record it's answer to be displayed as the previous answer the next day
 useEffect(() => {
@@ -264,7 +264,7 @@ const handleGuess = (artifact) => {
         setGuessAmount((prev) => prev + 1);
     } 
     else if (game === "silhouette") {
-        if (isSilhouetteGuessed || silhouetteguessAmount >= 5) {
+        if (isSilhouetteGuessed || silhouetteGuessAmount >= 5) {
             return;
         }
         if (silhouetteGuesses.find((g) => g.name === artifact.name)) {
@@ -273,11 +273,11 @@ const handleGuess = (artifact) => {
         if (artifact.name === silhouetteAnswer.name) {
             setSilhouetteStreak((prev) => prev + 1);
         }
-        else if (silhouetteguessAmount + 1 >= 5) {
+        else if (silhouetteGuessAmount + 1 >= 5) {
             setSilhouetteStreak(0); 
         }
         setSilhouetteGuesses((prev) => [...prev, artifact]);
-        setSilhouetteGuessAmount((prev) => prev + 1);
+        setsilhouetteGuessAmount((prev) => prev + 1);
   }
 };
 
@@ -301,7 +301,7 @@ const handleReplay = () => {
         } else {
             setSilhouetteAnswer(artifacts[Math.floor(Math.random() * artifacts.length)]);
         }
-        setSilhouetteGuessAmount(0);
+        setsilhouetteGuessAmount(0);
     }
 };
 
@@ -309,7 +309,7 @@ const handleReplay = () => {
 const generateScoreText = () => {
     const isSilhouette = game === 'silhouette';
     const guessed = isSilhouette ? isSilhouetteGuessed : isGuessed;
-    const attempts = isSilhouette ? silhouetteguessAmount : guessAmount;
+    const attempts = isSilhouette ? silhouetteGuessAmount : guessAmount;
     const guessesLines = (isSilhouette ? silhouetteShareGuesses : shareGuesses).join('\n');
     const emoji = guessed ? "✅" : "❌";
     const result = guessed ? `${attempts}/5` : "5/5";
@@ -429,7 +429,7 @@ const handleTweetScore = () => {
                 <>
                     <div className="flex flex-col justify-center items-center w-full max-w-4xl bg-purple-600/95 rounded-lg p-6 sm:p-8">
                         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">Can you name this artifact?</h1>
-                        <img src={silhouetteAnswer.icon} alt={silhouetteAnswer.name} className={`w-64 h-64 object-contain filter mb-8 ${silhouetteguessAmount >= 4 || isSilhouetteGuessed ? 'brightness-100' : 'brightness-0'} ${silhouetteguessAmount >= 5 || isSilhouetteGuessed ? 'blur-none' : 'blur-xl'}`}/>
+                        <img src={silhouetteAnswer.icon} alt={silhouetteAnswer.name} className={`w-64 h-64 object-contain filter mb-8 ${silhouetteGuessAmount >= 4 || isSilhouetteGuessed ? 'brightness-100' : 'brightness-0'} ${silhouetteGuessAmount >= 5 || isSilhouetteGuessed ? 'blur-none' : 'blur-xl'}`}/>
                         <div className="grid grid-cols-2 gap-3 mb-6 w-full">
                             {[
                                 { label: "Role", value: silhouetteAnswer['role'] },
@@ -437,15 +437,15 @@ const handleTweetScore = () => {
                                 { label: "Character", value: silhouetteAnswer['chars'].split(', ')[gameMode === 'daily' ? silhouetteDailyCharIndex : Math.floor(Math.random() * silhouetteAnswer['chars'].split(', ').length)] },
                                 { label: "Reveal Colours", value: "✅" }
                             ].map((hint, i) => (
-                                <div key={i} className={`p-4 rounded-lg text-center text-sm font-semibold transition-all ${silhouetteguessAmount > i || isSilhouetteGuessed ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'}`}>
-                                    {silhouetteguessAmount > i || isSilhouetteGuessed
+                                <div key={i} className={`p-4 rounded-lg text-center text-sm font-semibold transition-all ${silhouetteGuessAmount > i || isSilhouetteGuessed ? 'bg-green-500 text-white' : 'bg-gray-700 text-gray-400'}`}>
+                                    {silhouetteGuessAmount > i || isSilhouetteGuessed
                                         ? `${hint.label}: ${hint.value}`
                                         : `🔒 Hint ${i + 1} - ${hint.label}`
                                     }
                                 </div>
                             ))}
                         </div>
-                        <Search onGuess={handleGuess} artifacts={artifacts} disabled={isSilhouetteGuessed || silhouetteguessAmount >= 5}/>
+                        <Search onGuess={handleGuess} artifacts={artifacts} disabled={isSilhouetteGuessed || silhouetteGuessAmount >= 5}/>
                     </div>
                     {isSilhouetteGuessed && (
                         <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
@@ -480,7 +480,7 @@ const handleTweetScore = () => {
                         </div>
                     )}
 
-                    {!isSilhouetteGuessed && silhouetteguessAmount >= 5 && (
+                    {!isSilhouetteGuessed && silhouetteGuessAmount >= 5 && (
                         <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
                             <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{silhouetteAnswer.name}</span>.</p>
                             {gameMode === 'infinite' && (
@@ -519,7 +519,7 @@ const handleTweetScore = () => {
                         </div>
                     </div>
 
-                    <GameInfo guessAmount={silhouetteguessAmount} streak={silhouetteStreak} highScore={silhouetteHighScore} prevAnswer={silhouettePrevAnswer} game={game}/>
+                    <GameInfo guessAmount={silhouetteGuessAmount} streak={silhouetteStreak} highScore={silhouetteHighScore} prevAnswer={silhouettePrevAnswer} game={game}/>
                 </>
             )}
         </div>
