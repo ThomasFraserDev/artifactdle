@@ -8,5 +8,60 @@
       "name": "Albedo",
       "stats": "ER, DEF, ATK, Crit",
       "icon": ""
+    },
+     {
+      "name": "Alhaitham",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Aloy",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Amber",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Arlecchino",
+      "stats": "EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Ayaka",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Ayato",
+      "stats": "ER, HP, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Baizhu",
+      "stats": "ER, HP, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Barbara",
+      "stats": "EM, HP, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Aino",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Beidou",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": ""
+    },
+     {
+      "name": "Bennett",
+      "stats": "ER, HP, Crit",
+      "icon": ""
     }
 ]

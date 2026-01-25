@@ -29,6 +29,9 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
             <button value={"silhouette"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
               Silhouette
             </button>
+            <button value={"substats"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
+              Substats
+            </button>
           </div>
         </div>
 

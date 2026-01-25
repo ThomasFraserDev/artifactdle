@@ -57,7 +57,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/crimson.webp",
 		"role": "DPS",
-		"chars": "Hu Tao, Klee, Yanfei"
+		"chars": "Hu Tao, Klee, Yanfei, Amber"
 	},
 	{
 		"name": "Deepwood Memories",
@@ -67,7 +67,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/deepwood.webp",
 		"role": "Support",
-		"chars": "Nahida, Tighnari, Collei"
+		"chars": "Nahida, Tighnari, Collei, Alhaitham, Baizhu"
 	},
 	{
 		"name": "Desert Pavilion Chronicle",
@@ -87,7 +87,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/echoes.webp",
 		"role": "DPS",
-		"chars": "Ayato, Childe, Wanderer"
+		"chars": "Ayato, Childe, Wanderer, Arlecchino"
 	},
 	{
 		"name": "Emblem of Severed Fate",
@@ -97,7 +97,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/emblem.webp",
 		"role": "Support",
-		"chars": "Xiangling, Xingqiu, Raiden"
+		"chars": "Xiangling, Xingqiu, Raiden, Alhaitham, Aloy, Beidou"
 	},
 	{
 		"name": "Finale of the Deep Galleries",
@@ -107,7 +107,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/finale.webp",
 		"role": "DPS",
-		"chars": "Skirk"
+		"chars": "Skirk, Ayaka"
 	},
 	{
 		"name": "Flower of Paradise Lost",
@@ -117,7 +117,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/paradiseLost.webp",
 		"role": "Support",
-		"chars": "Raiden, Yae Miko, Kuki"
+		"chars": "Raiden, Yae Miko, Kuki, Barbara"
 	},
 	{
 		"name": "Fragment of Harmonic Whimsy",
@@ -137,7 +137,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/gilded.webp",
 		"role": "Support / DPS",
-		"chars": "Alhaitham, Cyno, Thoma"
+		"chars": "Alhaitham, Cyno, Thoma, Aloy"
 	},
 	{
 		"name": "Gladiator's Finale",
@@ -147,7 +147,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/glad.webp",
 		"role": "DPS",
-		"chars": "Arlecchino, Clorinde, Keqing"
+		"chars": "Arlecchino, Clorinde, Keqing, Ayato, Beidou"
 	},
 	{
 		"name": "Golden Troupe",
@@ -167,7 +167,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/heartOfDepth.webp",
 		"role": "DPS",
-		"chars": "Childe, Xingqiu, Mona"
+		"chars": "Childe, Xingqiu, Mona, Ayato"
 	},
 	{
 		"name": "Husk of Opulent Dreams",
@@ -187,7 +187,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/lavawalker.webp",
 		"role": "DPS",
-		"chars": "Klee, Diluc, Hu Tao"
+		"chars": "Klee, Diluc, Hu Tao, Aloy"
 	},
 	{
 		"name": "Long Night's Oath",
@@ -217,7 +217,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/marechaussee.webp",
 		"role": "DPS",
-		"chars": "Neuvillette, Wriothesley, Skirk"
+		"chars": "Neuvillette, Wriothesley, Skirk, Ayaka"
 	},
 	{
 		"name": "Night of the Sky's Unveiling",
@@ -227,7 +227,7 @@
 		"version": "6.x",
 		"icon": "/assets/icons/skysUnveiling.webp",
 		"role": "DPS",
-		"chars": "Flins, Nefer"
+		"chars": "Flins, Nefer, Columbina"
 	},
 	{
 		"name": "Nighttime Whispers in the Echoing Woods",
@@ -307,7 +307,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/scroll.webp",
 		"role": "Support",
-		"chars": "Xilonen, Citlali, Kachina, Aino"
+		"chars": "Xilonen, Citlali, Kachina, Aino, Baizhu, Barbara, Bennett"
 	},
 	{
 		"name": "Shimenawa's Reminiscence",
@@ -317,7 +317,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/shimenawas.webp",
 		"role": "DPS",
-		"chars": "Yoimiya"
+		"chars": "Yoimiya, Amber"
 	},
 	{
 		"name": "Silken Moon's Serenade",
@@ -417,6 +417,6 @@
 		"version": "1.x",
 		"icon": "/assets/icons/wanderers.webp",
 		"role": "DPS",
-		"chars": "Tighnari, Collei, Sucrose"
+		"chars": "Tighnari, Collei, Sucrose, Amber"
 	}
 ]
