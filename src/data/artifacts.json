@@ -107,7 +107,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/finale.webp",
 		"role": "DPS",
-		"chars": "Skirk"
+		"chars": "Skirk, Skirk"
 	},
 	{
 		"name": "Flower of Paradise Lost",
