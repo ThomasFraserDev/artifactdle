@@ -2,66 +2,66 @@
     {
       "name": "Aino",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/aino.webp"
     },
     {
       "name": "Albedo",
       "stats": "ER, DEF, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/albedo.webp"
     },
      {
       "name": "Alhaitham",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/alhaitham.webp"
     },
      {
       "name": "Aloy",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/aloy.webp"
     },
      {
       "name": "Amber",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/amber.webp"
     },
      {
       "name": "Arlecchino",
       "stats": "EM, ATK, Crit",
-      "icon": ""
+      "icon": "/ssets/characterIcons/arlecchino.webp"
     },
      {
       "name": "Ayaka",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/ayaka.webp"
     },
      {
       "name": "Ayato",
       "stats": "ER, HP, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/ayato.webp"
     },
      {
       "name": "Baizhu",
       "stats": "ER, HP, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/baizhu.webp"
     },
      {
       "name": "Barbara",
       "stats": "EM, HP, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/barbara.webp"
     },
-     {
-      "name": "Aino",
-      "stats": "ER, EM, ATK, Crit",
-      "icon": ""
-    },
-     {
+    {
       "name": "Beidou",
       "stats": "ER, EM, ATK, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/beidou.webp"
     },
-     {
+    {
       "name": "Bennett",
       "stats": "ER, HP, Crit",
-      "icon": ""
+      "icon": "/assets/characterIcons/bennett.webp"
+    },
+    {
+      "name": "Candace",
+      "stats": "ER, HP, Crit",
+      "icon": "/assets/characterIcons/candace.webp"
     }
 ]

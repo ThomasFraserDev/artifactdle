@@ -97,7 +97,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/emblem.webp",
 		"role": "Support",
-		"chars": "Xiangling, Xingqiu, Raiden, Alhaitham, Aloy, Beidou"
+		"chars": "Xiangling, Xingqiu, Raiden, Alhaitham, Aloy, Beidou, Candace"
 	},
 	{
 		"name": "Finale of the Deep Galleries",
@@ -307,7 +307,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/scroll.webp",
 		"role": "Support",
-		"chars": "Xilonen, Citlali, Kachina, Aino, Baizhu, Barbara, Bennett"
+		"chars": "Xilonen, Citlali, Kachina, Aino, Baizhu, Barbara, Bennett, Candace"
 	},
 	{
 		"name": "Shimenawa's Reminiscence",
