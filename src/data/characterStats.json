@@ -116,12 +116,12 @@
     },
     {
       "name": "Dahlia",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, HP, Crit",
       "icon": "/assets/characterIcons/dahlia.webp"
     },
     {
       "name": "Dehya",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "EM, HP, Crit",
       "icon": "/assets/characterIcons/dehya.webp"
     },
     {
@@ -136,32 +136,32 @@
     },
     {
       "name": "Dori",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, HP",
       "icon": "/assets/characterIcons/dori.webp"
     },
     {
       "name": "Durin",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/durin.webp"
     },
     {
       "name": "Emilie",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/emilie.webp"
     },
     {
       "name": "Escoffier",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/escoffier.webp"
     },
     {
       "name": "Eula",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/eula.webp"
     },
     {
       "name": "Faruzan",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, Crit",
       "icon": "/assets/characterIcons/faruzan.webp"
     },
     {
@@ -176,12 +176,12 @@
     },
     {
       "name": "Freminet",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/freminet.webp"
     },
     {
       "name": "Furina",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, HP, Crit",
       "icon": "/assets/characterIcons/furina.webp"
     },
     {
@@ -191,12 +191,12 @@
     },
     {
       "name": "Ganyu",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/ganyu.webp"
     },
     {
       "name": "Gorou",
-      "stats": "ER, DEF, ATK, Crit",
+      "stats": "ER, DEF, Crit",
       "icon": "/assets/characterIcons/gorou.webp"
     },
     {
@@ -206,48 +206,48 @@
     },
     {
       "name": "Hu Tao",
-      "stats": "ER, HP, Crit",
+      "stats": "EM, HP, Crit",
       "icon": "/assets/characterIcons/hu_tao.webp"
     },
     {
       "name": "Iansan",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/iansan.webp"
     },
     {
       "name": "Ifa",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/ifa.webp"
     },
     {
       "name": "Illuga",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, EM, DEF, Crit",
       "icon": "/assets/characterIcons/illuga.webp"
     },
     {
       "name": "Ineffa",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/ineffa.webp"
     },
     {
       "name": "Itto",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, DEF, ATK, Crit",
       "icon": "/assets/characterIcons/itto.webp"
     },
     {
+      "name": "Jahoda",
+      "stats": "ER, ATK, Crit",
+      "icon": "/assets/characterIcons/jahoda.webp"
+    },
+    {
       "name": "Jean",
-      "stats": "ER, HP, ATK, Crit",
+      "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/jean.webp"
     },
     {
       "name": "Kachina",
-      "stats": "ER, DEF, ATK, Crit",
+      "stats": "ER, DEF, Crit",
       "icon": "/assets/characterIcons/kachina.webp"
-    },
-    {
-      "name": "Kazuha",
-      "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/kazuha.webp"
     },
     {
       "name": "Kaeya",
@@ -256,48 +256,53 @@
     },
     {
       "name": "Kaveh",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM, Crit",
       "icon": "/assets/characterIcons/kaveh.webp"
     },
     {
+      "name": "Kazuha",
+      "stats": "ER, EM, Crit",
+      "icon": "/assets/characterIcons/kazuha.webp"
+    },
+    {
       "name": "Keqing",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "EM, ATK, Crit",
       "icon": "/assets/characterIcons/keqing.webp"
     },
     {
       "name": "Kinich",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/kinich.webp"
     },
     {
       "name": "Kirara",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, HP, Crit",
       "icon": "/assets/characterIcons/kirara.webp"
     },
     {
       "name": "Klee",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/klee.webp"
     },
     {
       "name": "Kokomi",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, HP",
       "icon": "/assets/characterIcons/kokomi.webp"
-    },
-    {
-      "name": "Kujou Sara",
-      "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/kujou_sara.webp"
     },
     {
       "name": "Kuki",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/kuki_shinobu.webp"
+      "icon": "/assets/characterIcons/kuki.webp"
     },
     {
       "name": "Lan Yan",
       "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/lan_yan.webp"
+    },
+    {
+      "name": "Lauma",
+      "stats": "ER, EM, ATK, Crit",
+      "icon": "/assets/characterIcons/lauma.webp"
     },
     {
       "name": "Layla",
@@ -403,6 +408,11 @@
       "name": "Rosaria",
       "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/rosaria.webp"
+    },
+    {
+      "name": "Sara",
+      "stats": "ER, ATK, Crit",
+      "icon": "/assets/characterIcons/sara.webp"
     },
     {
       "name": "Sayu",
