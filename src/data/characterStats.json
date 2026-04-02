@@ -291,7 +291,7 @@
     },
     {
       "name": "Kuki",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM, HP, Crit",
       "icon": "/assets/characterIcons/kuki.webp"
     },
     {
@@ -301,7 +301,7 @@
     },
     {
       "name": "Lauma",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM, Crit",
       "icon": "/assets/characterIcons/lauma.webp"
     },
     {
@@ -326,7 +326,7 @@
     },
     {
       "name": "Mavuika",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "EM, ATK, Crit",
       "icon": "/assets/characterIcons/mavuika.webp"
     },
     {
@@ -336,47 +336,47 @@
     },
     {
       "name": "Mizuki",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM",
       "icon": "/assets/characterIcons/mizuki.webp"
     },
     {
       "name": "Mona",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, Crit",
       "icon": "/assets/characterIcons/mona.webp"
     },
     {
       "name": "Mualani",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM, HP, Crit",
       "icon": "/assets/characterIcons/mualani.webp"
     },
     {
       "name": "Nahida",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM, Crit",
       "icon": "/assets/characterIcons/nahida.webp"
     },
     {
       "name": "Navia",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/navia.webp"
     },
     {
       "name": "Nefer",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "EM, Crit",
       "icon": "/assets/characterIcons/nefer.webp"
     },
     {
       "name": "Neuvillette",
-      "stats": "ER, HP, ATK, Crit",
+      "stats": "ER, EM, HP, Crit",
       "icon": "/assets/characterIcons/neuvillette.webp"
     },
     {
       "name": "Nilou",
-      "stats": "ER, EM, HP, Crit",
+      "stats": "EM, HP",
       "icon": "/assets/characterIcons/nilou.webp"
     },
     {
       "name": "Ningguang",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/ningguang.webp"
     },
     {
@@ -386,7 +386,7 @@
     },
     {
       "name": "Ororon",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/ororon.webp"
     },
     {

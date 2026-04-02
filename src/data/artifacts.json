@@ -37,7 +37,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/blizzard.webp",
 		"role": "DPS",
-		"chars": "Ayaka, Ganyu, Kaeya, Escoffier, Freminet"
+		"chars": "Ayaka, Ganyu, Kaeya, Escoffier, Freminet, Layla"
 	},
 	{
 		"name": "Bloodstained Chivalry",
@@ -57,7 +57,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/crimson.webp",
 		"role": "DPS",
-		"chars": "Hu Tao, Klee, Yanfei, Amber, Diluc, Durin, Gaming"
+		"chars": "Hu Tao, Klee, Yanfei, Amber, Diluc, Durin, Gaming, Lyney"
 	},
 	{
 		"name": "Deepwood Memories",
@@ -67,7 +67,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/deepwood.webp",
 		"role": "Support",
-		"chars": "Nahida, Tighnari, Collei, Alhaitham, Baizhu, Dehya, Emilie, Jahoda, Kaveh, Kirara"
+		"chars": "Nahida, Tighnari, Collei, Alhaitham, Baizhu, Dehya, Emilie, Jahoda, Kaveh, Kirara, Lauma, Nilou"
 	},
 	{
 		"name": "Desert Pavilion Chronicle",
@@ -97,7 +97,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/emblem.webp",
 		"role": "Support",
-		"chars": "Xiangling, Xingqiu, Raiden, Alhaitham, Aloy, Beidou, Candace, Chongyun, Dori, Faruzan"
+		"chars": "Xiangling, Xingqiu, Raiden, Alhaitham, Aloy, Beidou, Candace, Chongyun, Dori, Faruzan, Lynette"
 	},
 	{
 		"name": "Finale of the Deep Galleries",
@@ -137,7 +137,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/gilded.webp",
 		"role": "Support / DPS",
-		"chars": "Alhaitham, Cyno, Thoma, Aloy, Diluc, Flins, Illuga, Ineffa, Keqing"
+		"chars": "Alhaitham, Cyno, Thoma, Aloy, Diluc, Flins, Illuga, Ineffa, Keqing, Kuki, Lauma, Nahida, Nilou"
 	},
 	{
 		"name": "Gladiator's Finale",
@@ -147,7 +147,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/glad.webp",
 		"role": "DPS",
-		"chars": "Arlecchino, Clorinde, Keqing, Ayato, Beidou, Eula"
+		"chars": "Arlecchino, Clorinde, Keqing, Ayato, Beidou, Eula, Lyney"
 	},
 	{
 		"name": "Golden Troupe",
@@ -157,7 +157,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/goldenTroupe.webp",
 		"role": "Support",
-		"chars": "Furina, Escoffier, Fischl, Albedo, Chiori, Heizou"
+		"chars": "Furina, Escoffier, Fischl, Albedo, Chiori, Heizou, Lan Yan, Nahida, Navia"
 	},
 	{
 		"name": "Heart of Depth",
@@ -167,7 +167,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/heartOfDepth.webp",
 		"role": "DPS",
-		"chars": "Childe, Xingqiu, Mona, Ayato"
+		"chars": "Childe, Xingqiu, Mona, Ayato, Mualani"
 	},
 	{
 		"name": "Husk of Opulent Dreams",
@@ -217,7 +217,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/marechaussee.webp",
 		"role": "DPS",
-		"chars": "Neuvillette, Wriothesley, Skirk, Ayaka, Chasca, Eula, Freminet, Gaming, Ganyu, Hu Tao, Ifa, Itto, Keqing, Klee"
+		"chars": "Neuvillette, Wriothesley, Skirk, Ayaka, Chasca, Eula, Freminet, Gaming, Ganyu, Hu Tao, Ifa, Itto, Keqing, Klee, Lynette, Lyney, Navia, Ningguang, Noelle"
 	},
 	{
 		"name": "Night of the Sky's Unveiling",
@@ -247,7 +247,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/noblesse.webp",
 		"role": "Support",
-		"chars": "Bennett, Shenhe, Dahlia, Aino, Charlotte, Chevreuse, Chongyun, Collei, Diona, Durin, Faruzan, Gorou, Iansan, Jean, Kirara"
+		"chars": "Bennett, Shenhe, Dahlia, Aino, Charlotte, Chevreuse, Chongyun, Collei, Diona, Durin, Faruzan, Gorou, Iansan, Jean, Kirara, Lisa, Mika, Mona"
 	},
 	{
 		"name": "Nymph's Dream",
@@ -277,7 +277,7 @@
 		"version": "2.x",
 		"icon": "/assets/icons/clam.webp",
 		"role": "Support",
-		"chars": "Kokomi, Barbara, Baizhu, Charlotte, Jean, Kaveh"
+		"chars": "Kokomi, Barbara, Baizhu, Charlotte, Jean, Kaveh, Mika"
 	},
 	{
 		"name": "Pale Flame",
@@ -297,7 +297,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/bolide.webp",
 		"role": "DPS",
-		"chars": "Yoimiya, Itto, Childe"
+		"chars": "Yoimiya, Itto, Childe, Noelle"
 	},
 	{
 		"name": "Scroll of the Hero of Cinder City",
@@ -307,7 +307,7 @@
 		"version": "5.x",
 		"icon": "/assets/icons/scroll.webp",
 		"role": "Support",
-		"chars": "Xilonen, Citlali, Kachina, Aino, Baizhu, Barbara, Bennett, Candace, Chevreuse, Collei, Dahlia, Dehya, Diona, Gorou, Iansan, Kirara"
+		"chars": "Xilonen, Citlali, Kachina, Aino, Baizhu, Barbara, Bennett, Candace, Chevreuse, Collei, Dahlia, Dehya, Diona, Gorou, Iansan, Kirara, Lan Yan, Lisa, Mavuika, Mona, Ororon"
 	},
 	{
 		"name": "Shimenawa's Reminiscence",
@@ -337,7 +337,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/song.webp",
 		"role": "Support",
-		"chars": "Chevreuse, Kokomi, Charlotte, Diona"
+		"chars": "Chevreuse, Kokomi, Charlotte, Diona, Mika"
 	},
 	{
 		"name": "Tenacity of the Milileth",
@@ -347,7 +347,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/milileth.webp",
 		"role": "Support",
-		"chars": "Furina, Zhongli, Charlotte, Citlali, Dehya, Dori, Escoffier, Faruzan"
+		"chars": "Furina, Zhongli, Charlotte, Citlali, Dehya, Dori, Escoffier, Faruzan, Kuki, Layla, Mona, Nilou"
 	},
 	{
 		"name": "Thundering Fury",
@@ -357,7 +357,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/thunderingFury.webp",
 		"role": "DPS",
-		"chars": "Keqing, Razor, Raiden, Cyno"
+		"chars": "Keqing, Razor, Raiden, Cyno, Lisa"
 	},
 	{
 		"name": "Thundersoother",
@@ -397,7 +397,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/virdescent.webp",
 		"role": "Support",
-		"chars": "Jean, Lanyan, Sucrose, Heizou, Ifa, Jahoda, Kazuha"
+		"chars": "Jean, Lanyan, Sucrose, Heizou, Ifa, Jahoda, Kazuha, Lan Yan, Lynette, Mizuki"
 	},
 	{
 		"name": "Vorukasha's Glow",
@@ -407,7 +407,7 @@
 		"version": "3.x",
 		"icon": "/assets/icons/vorushakas.webp",
 		"role": "Support",
-		"chars": "Dehya, Nilou, Kirara, Cyno, Dori"
+		"chars": "Dehya, Nilou, Kirara, Cyno, Dori, Nilou"
 	},
 	{
 		"name": "Wanderer's Troupe",
