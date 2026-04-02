@@ -16,20 +16,20 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
 
   return (
     <nav className="w-full bg-neutral-900 p-3 sm:p-4 text-gray-200 flex flex-col gap-3 sm:grid sm:grid-cols-3 sm:place-items-center">
-        <button  onClick={onModeToggle} className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold text-center">
+        <button  onClick={onModeToggle} className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer hover:scale-105 transform rounded-lg transition text-base sm:text-lg font-semibold text-center">
           {gameMode === 'daily' ? '📅 Daily' : '♾️ Infinite'}
         </button>
 
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-xl sm:text-4xl font-semibold px-2 text-center">Artifactdle</h2>
           <div className="flex flex-row gap-2">
-            <button value={"normal"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
+            <button value={"normal"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold hover:scale-105 transform">
               Normal
             </button>
-            <button value={"silhouette"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
+            <button value={"silhouette"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold hover:scale-105 transform">
               Silhouette
             </button>
-            <button value={"substats"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold">
+            <button value={"substats"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold hover:scale-105 transform">
               Substats
             </button>
           </div>
