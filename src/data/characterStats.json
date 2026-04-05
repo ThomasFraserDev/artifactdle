@@ -2,556 +2,556 @@
     {
       "name": "Aino",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/aino.webp"
+      "icon": "/assets/characterIcons/aino.png"
     },
     {
       "name": "Albedo",
       "stats": "ER, DEF, ATK, Crit",
-      "icon": "/assets/characterIcons/albedo.webp"
+      "icon": "/assets/characterIcons/albedo.png"
     },
      {
       "name": "Alhaitham",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/alhaitham.webp"
+      "icon": "/assets/characterIcons/alhaitham.png"
     },
      {
       "name": "Aloy",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/aloy.webp"
+      "icon": "/assets/characterIcons/aloy.png"
     },
      {
       "name": "Amber",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/amber.webp"
+      "icon": "/assets/characterIcons/amber.png"
     },
      {
       "name": "Arlecchino",
       "stats": "EM, ATK, Crit",
-      "icon": "/ssets/characterIcons/arlecchino.webp"
+      "icon": "/ssets/characterIcons/arlecchino.png"
     },
      {
       "name": "Ayaka",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/ayaka.webp"
+      "icon": "/assets/characterIcons/ayaka.png"
     },
      {
       "name": "Ayato",
       "stats": "ER, HP, ATK, Crit",
-      "icon": "/assets/characterIcons/ayato.webp"
+      "icon": "/assets/characterIcons/ayato.png"
     },
      {
       "name": "Baizhu",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/baizhu.webp"
+      "icon": "/assets/characterIcons/baizhu.png"
     },
      {
       "name": "Barbara",
       "stats": "EM, HP, Crit",
-      "icon": "/assets/characterIcons/barbara.webp"
+      "icon": "/assets/characterIcons/barbara.png"
     },
     {
       "name": "Beidou",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/beidou.webp"
+      "icon": "/assets/characterIcons/beidou.png"
     },
     {
       "name": "Bennett",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/bennett.webp"
+      "icon": "/assets/characterIcons/bennett.png"
     },
     {
       "name": "Candace",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/candace.webp"
+      "icon": "/assets/characterIcons/candace.png"
     },
     {
       "name": "Charlotte",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/charlotte.webp"
+      "icon": "/assets/characterIcons/charlotte.png"
     },
     {
       "name": "Chasca",
       "stats": "EM, ATK, Crit",
-      "icon": "/assets/characterIcons/chasca.webp"
+      "icon": "/assets/characterIcons/chasca.png"
     },
     {
       "name": "Chevreuse",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/chevreuse.webp"
+      "icon": "/assets/characterIcons/chevreuse.png"
     },
     {
       "name": "Chiori",
       "stats": "ATK, DEF, Crit",
-      "icon": "/assets/characterIcons/chiori.webp"
+      "icon": "/assets/characterIcons/chiori.png"
     },
     {
       "name": "Chongyun",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/chongyun.webp"
+      "icon": "/assets/characterIcons/chongyun.png"
     },
     {
       "name": "Citlali",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/citlali.webp"
+      "icon": "/assets/characterIcons/citlali.png"
     },
     {
       "name": "Clorinde",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/clorinde.webp"
+      "icon": "/assets/characterIcons/clorinde.png"
     },
     {
       "name": "Collei",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/collei.webp"
+      "icon": "/assets/characterIcons/collei.png"
     },
     {
       "name": "Columbina",
       "stats": "ER, EM, HP, Crit",
-      "icon": "/assets/characterIcons/columbina.webp"
+      "icon": "/assets/characterIcons/columbina.png"
     },
     {
       "name": "Cyno",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/cyno.webp"
+      "icon": "/assets/characterIcons/cyno.png"
     },
     {
       "name": "Dahlia",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/dahlia.webp"
+      "icon": "/assets/characterIcons/dahlia.png"
     },
     {
       "name": "Dehya",
       "stats": "EM, HP, Crit",
-      "icon": "/assets/characterIcons/dehya.webp"
+      "icon": "/assets/characterIcons/dehya.png"
     },
     {
       "name": "Diluc",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/diluc.webp"
+      "icon": "/assets/characterIcons/diluc.png"
     },
     {
       "name": "Diona",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/diona.webp"
+      "icon": "/assets/characterIcons/diona.png"
     },
     {
       "name": "Dori",
       "stats": "ER, HP",
-      "icon": "/assets/characterIcons/dori.webp"
+      "icon": "/assets/characterIcons/dori.png"
     },
     {
       "name": "Durin",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/durin.webp"
+      "icon": "/assets/characterIcons/durin.png"
     },
     {
       "name": "Emilie",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/emilie.webp"
+      "icon": "/assets/characterIcons/emilie.png"
     },
     {
       "name": "Escoffier",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/escoffier.webp"
+      "icon": "/assets/characterIcons/escoffier.png"
     },
     {
       "name": "Eula",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/eula.webp"
+      "icon": "/assets/characterIcons/eula.png"
     },
     {
       "name": "Faruzan",
       "stats": "ER, Crit",
-      "icon": "/assets/characterIcons/faruzan.webp"
+      "icon": "/assets/characterIcons/faruzan.png"
     },
     {
       "name": "Fischl",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/fischl.webp"
+      "icon": "/assets/characterIcons/fischl.png"
     },
     {
       "name": "Flins",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/flins.webp"
+      "icon": "/assets/characterIcons/flins.png"
     },
     {
       "name": "Freminet",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/freminet.webp"
+      "icon": "/assets/characterIcons/freminet.png"
     },
     {
       "name": "Furina",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/furina.webp"
+      "icon": "/assets/characterIcons/furina.png"
     },
     {
       "name": "Gaming",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/gaming.webp"
+      "icon": "/assets/characterIcons/gaming.png"
     },
     {
       "name": "Ganyu",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/ganyu.webp"
+      "icon": "/assets/characterIcons/ganyu.png"
     },
     {
       "name": "Gorou",
       "stats": "ER, DEF, Crit",
-      "icon": "/assets/characterIcons/gorou.webp"
+      "icon": "/assets/characterIcons/gorou.png"
     },
     {
       "name": "Heizou",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/heizou.webp"
+      "icon": "/assets/characterIcons/heizou.png"
     },
     {
       "name": "Hu Tao",
       "stats": "EM, HP, Crit",
-      "icon": "/assets/characterIcons/hu_tao.webp"
+      "icon": "/assets/characterIcons/hutao.png"
     },
     {
       "name": "Iansan",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/iansan.webp"
+      "icon": "/assets/characterIcons/iansan.png"
     },
     {
       "name": "Ifa",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/ifa.webp"
+      "icon": "/assets/characterIcons/ifa.png"
     },
     {
       "name": "Illuga",
       "stats": "ER, EM, DEF, Crit",
-      "icon": "/assets/characterIcons/illuga.webp"
+      "icon": "/assets/characterIcons/illuga.png"
     },
     {
       "name": "Ineffa",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/ineffa.webp"
+      "icon": "/assets/characterIcons/ineffa.png"
     },
     {
       "name": "Itto",
       "stats": "ER, DEF, ATK, Crit",
-      "icon": "/assets/characterIcons/itto.webp"
+      "icon": "/assets/characterIcons/itto.png"
     },
     {
       "name": "Jahoda",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/jahoda.webp"
+      "icon": "/assets/characterIcons/jahoda.png"
     },
     {
       "name": "Jean",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/jean.webp"
+      "icon": "/assets/characterIcons/jean.png"
     },
     {
       "name": "Kachina",
       "stats": "ER, DEF, Crit",
-      "icon": "/assets/characterIcons/kachina.webp"
+      "icon": "/assets/characterIcons/kachina.png"
     },
     {
       "name": "Kaeya",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/kaeya.webp"
+      "icon": "/assets/characterIcons/kaeya.png"
     },
     {
       "name": "Kaveh",
       "stats": "ER, EM, Crit",
-      "icon": "/assets/characterIcons/kaveh.webp"
+      "icon": "/assets/characterIcons/kaveh.png"
     },
     {
       "name": "Kazuha",
       "stats": "ER, EM, Crit",
-      "icon": "/assets/characterIcons/kazuha.webp"
+      "icon": "/assets/characterIcons/kazuha.png"
     },
     {
       "name": "Keqing",
       "stats": "EM, ATK, Crit",
-      "icon": "/assets/characterIcons/keqing.webp"
+      "icon": "/assets/characterIcons/keqing.png"
     },
     {
       "name": "Kinich",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/kinich.webp"
+      "icon": "/assets/characterIcons/kinich.png"
     },
     {
       "name": "Kirara",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/kirara.webp"
+      "icon": "/assets/characterIcons/kirara.png"
     },
     {
       "name": "Klee",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/klee.webp"
+      "icon": "/assets/characterIcons/klee.png"
     },
     {
       "name": "Kokomi",
       "stats": "ER, HP",
-      "icon": "/assets/characterIcons/kokomi.webp"
+      "icon": "/assets/characterIcons/kokomi.png"
     },
     {
       "name": "Kuki",
       "stats": "ER, EM, HP, Crit",
-      "icon": "/assets/characterIcons/kuki.webp"
+      "icon": "/assets/characterIcons/kuki.png"
     },
     {
       "name": "Lan Yan",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/lan_yan.webp"
+      "icon": "/assets/characterIcons/lanyan.png"
     },
     {
       "name": "Lauma",
       "stats": "ER, EM, Crit",
-      "icon": "/assets/characterIcons/lauma.webp"
+      "icon": "/assets/characterIcons/lauma.png"
     },
     {
       "name": "Layla",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/layla.webp"
+      "icon": "/assets/characterIcons/layla.png"
     },
     {
       "name": "Lisa",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/lisa.webp"
+      "icon": "/assets/characterIcons/lisa.png"
     },
     {
       "name": "Lynette",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/lynette.webp"
+      "icon": "/assets/characterIcons/lynette.png"
     },
     {
       "name": "Lyney",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/lyney.webp"
+      "icon": "/assets/characterIcons/lyney.png"
     },
     {
       "name": "Mavuika",
       "stats": "EM, ATK, Crit",
-      "icon": "/assets/characterIcons/mavuika.webp"
+      "icon": "/assets/characterIcons/mavuika.png"
     },
     {
       "name": "Mika",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/mika.webp"
+      "icon": "/assets/characterIcons/mika.png"
     },
     {
       "name": "Mizuki",
       "stats": "ER, EM",
-      "icon": "/assets/characterIcons/mizuki.webp"
+      "icon": "/assets/characterIcons/mizuki.png"
     },
     {
       "name": "Mona",
       "stats": "ER, Crit",
-      "icon": "/assets/characterIcons/mona.webp"
+      "icon": "/assets/characterIcons/mona.png"
     },
     {
       "name": "Mualani",
       "stats": "ER, EM, HP, Crit",
-      "icon": "/assets/characterIcons/mualani.webp"
+      "icon": "/assets/characterIcons/mualani.png"
     },
     {
       "name": "Nahida",
       "stats": "ER, EM, Crit",
-      "icon": "/assets/characterIcons/nahida.webp"
+      "icon": "/assets/characterIcons/nahida.png"
     },
     {
       "name": "Navia",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/navia.webp"
+      "icon": "/assets/characterIcons/navia.png"
     },
     {
       "name": "Nefer",
       "stats": "EM, Crit",
-      "icon": "/assets/characterIcons/nefer.webp"
+      "icon": "/assets/characterIcons/nefer.png"
     },
     {
       "name": "Neuvillette",
       "stats": "ER, EM, HP, Crit",
-      "icon": "/assets/characterIcons/neuvillette.webp"
+      "icon": "/assets/characterIcons/neuvillette.png"
     },
     {
       "name": "Nilou",
       "stats": "EM, HP",
-      "icon": "/assets/characterIcons/nilou.webp"
+      "icon": "/assets/characterIcons/nilou.png"
     },
     {
       "name": "Ningguang",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/ningguang.webp"
+      "icon": "/assets/characterIcons/ningguang.png"
     },
     {
       "name": "Noelle",
       "stats": "ER, DEF, ATK, Crit",
-      "icon": "/assets/characterIcons/noelle.webp"
+      "icon": "/assets/characterIcons/noelle.png"
     },
     {
       "name": "Ororon",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/ororon.webp"
+      "icon": "/assets/characterIcons/ororon.png"
     },
     {
       "name": "Qiqi",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/qiqi.webp"
+      "icon": "/assets/characterIcons/qiqi.png"
     },
     {
       "name": "Raiden",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/raiden.webp"
+      "icon": "/assets/characterIcons/raiden.png"
     },
     {
       "name": "Razor",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/razor.webp"
+      "icon": "/assets/characterIcons/razor.png"
     },
     {
       "name": "Rosaria",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/rosaria.webp"
+      "icon": "/assets/characterIcons/rosaria.png"
     },
     {
       "name": "Sara",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/sara.webp"
+      "icon": "/assets/characterIcons/sara.png"
     },
     {
       "name": "Sayu",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/sayu.webp"
+      "icon": "/assets/characterIcons/sayu.png"
     },
     {
       "name": "Sethos",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/sethos.webp"
+      "icon": "/assets/characterIcons/sethos.png"
     },
     {
       "name": "Shenhe",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/shenhe.webp"
+      "icon": "/assets/characterIcons/shenhe.png"
     },
     {
       "name": "Sigewinne",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/sigewinne.webp"
+      "icon": "/assets/characterIcons/sigewinne.png"
     },
     {
       "name": "Skirk",
       "stats": "ATK, Crit",
-      "icon": "/assets/characterIcons/skirk.webp"
+      "icon": "/assets/characterIcons/skirk.png"
     },
     {
       "name": "Sucrose",
       "stats": "ER, EM",
-      "icon": "/assets/characterIcons/sucrose.webp"
+      "icon": "/assets/characterIcons/sucrose.png"
     },
     {
       "name": "Childe",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/childe.webp"
+      "icon": "/assets/characterIcons/childe.png"
     },
     {
       "name": "Thoma",
       "stats": "ER, HP, EM, Crit",
-      "icon": "/assets/characterIcons/thoma.webp"
+      "icon": "/assets/characterIcons/thoma.png"
     },
     {
       "name": "Tighnari",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/tighnari.webp"
+      "icon": "/assets/characterIcons/tighnari.png"
     },
     {
       "name": "Varesa",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/varesa.webp"
+      "icon": "/assets/characterIcons/varesa.png"
     },
     {
       "name": "Varka",
       "stats": "ATK, Crit",
-      "icon": "/assets/characterIcons/varka.webp"
+      "icon": "/assets/characterIcons/varka.png"
     },
     {
       "name": "Venti",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/venti.webp"
+      "icon": "/assets/characterIcons/venti.png"
     },
     {
       "name": "Wanderer",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/wanderer.webp"
+      "icon": "/assets/characterIcons/wanderer.png"
     },
     {
       "name": "Wriothesley",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/wriothesley.webp"
+      "icon": "/assets/characterIcons/wriothesley.png"
     },
     {
       "name": "Xiangling",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/xiangling.webp"
+      "icon": "/assets/characterIcons/xiangling.png"
     },
     {
       "name": "Xianyun",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/xianyun.webp"
+      "icon": "/assets/characterIcons/xianyun.png"
     },
     {
       "name": "Xiao",
       "stats": "ER, ATK, Crit",
-      "icon": "/assets/characterIcons/xiao.webp"
+      "icon": "/assets/characterIcons/xiao.png"
     },
     {
       "name": "Xilonen",
       "stats": "ER, DEF, Crit",
-      "icon": "/assets/characterIcons/xilonen.webp"
+      "icon": "/assets/characterIcons/xilonen.png"
     },
     {
       "name": "Xingqiu",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/xingqiu.webp"
+      "icon": "/assets/characterIcons/xingqiu.png"
     },
     {
       "name": "Xinyan",
       "stats": "ER, DEF, ATK, Crit",
-      "icon": "/assets/characterIcons/xinyan.webp"
+      "icon": "/assets/characterIcons/xinyan.png"
     },
     {
       "name": "Yae Miko",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/yae_miko.webp"
+      "icon": "/assets/characterIcons/yaemiko.png"
     },
     {
       "name": "Yanfei",
       "stats": "EM, ATK, Crit",
-      "icon": "/assets/characterIcons/yanfei.webp"
+      "icon": "/assets/characterIcons/yanfei.png"
     },
     {
       "name": "Yaoyao",
       "stats": "ER, HP, EM",
-      "icon": "/assets/characterIcons/yaoyao.webp"
+      "icon": "/assets/characterIcons/yaoyao.png"
     },
     {
       "name": "Yelan",
       "stats": "ER, HP, Crit",
-      "icon": "/assets/characterIcons/yelan.webp"
+      "icon": "/assets/characterIcons/yelan.png"
     },
     {
       "name": "Yoimiya",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/yoimiya.webp"
+      "icon": "/assets/characterIcons/yoimiya.png"
     },
     {
       "name": "Yun Jin",
       "stats": "ER, DEF, Crit",
-      "icon": "/assets/characterIcons/yun_jin.webp"
+      "icon": "/assets/characterIcons/yunjin.png"
     },
     {
       "name": "Zhongli",
       "stats": "HP, Crit",
-      "icon": "/assets/characterIcons/zhongli.webp"
+      "icon": "/assets/characterIcons/zhongli.png"
     },
     {
       "name": "Zibai",
       "stats": "DEF, EM, Crit",
-      "icon": "/assets/characterIcons/zibai.webp"
+      "icon": "/assets/characterIcons/zibai.png"
     }
 ]
