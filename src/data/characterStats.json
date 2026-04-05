@@ -391,13 +391,13 @@
     },
     {
       "name": "Qiqi",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/qiqi.webp"
     },
     {
       "name": "Raiden",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/raiden_shogun.webp"
+      "icon": "/assets/characterIcons/raiden.webp"
     },
     {
       "name": "Razor",
@@ -436,22 +436,22 @@
     },
     {
       "name": "Skirk",
-      "stats": "ER, HP, Crit",
+      "stats": "ATK, Crit",
       "icon": "/assets/characterIcons/skirk.webp"
     },
     {
       "name": "Sucrose",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, EM",
       "icon": "/assets/characterIcons/sucrose.webp"
     },
     {
-      "name": "Tartaglia",
+      "name": "Childe",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/tartaglia.webp"
+      "icon": "/assets/characterIcons/childe.webp"
     },
     {
       "name": "Thoma",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, HP, EM, Crit",
       "icon": "/assets/characterIcons/thoma.webp"
     },
     {
@@ -461,22 +461,22 @@
     },
     {
       "name": "Varesa",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/varesa.webp"
     },
     {
       "name": "Varka",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ATK, Crit",
       "icon": "/assets/characterIcons/varka.webp"
     },
     {
       "name": "Venti",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/venti.webp"
     },
     {
       "name": "Wanderer",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/wanderer.webp"
     },
     {
@@ -491,17 +491,17 @@
     },
     {
       "name": "Xianyun",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/xianyun.webp"
     },
     {
       "name": "Xiao",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/xiao.webp"
     },
     {
       "name": "Xilonen",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, DEF, Crit",
       "icon": "/assets/characterIcons/xilonen.webp"
     },
     {
@@ -511,7 +511,7 @@
     },
     {
       "name": "Xinyan",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, DEF, ATK, Crit",
       "icon": "/assets/characterIcons/xinyan.webp"
     },
     {
@@ -521,17 +521,17 @@
     },
     {
       "name": "Yanfei",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "EM, ATK, Crit",
       "icon": "/assets/characterIcons/yanfei.webp"
     },
     {
       "name": "Yaoyao",
-      "stats": "ER, HP, Crit",
+      "stats": "ER, HP, EM",
       "icon": "/assets/characterIcons/yaoyao.webp"
     },
     {
       "name": "Yelan",
-      "stats": "ER, EM, ATK, Crit",
+      "stats": "ER, HP, Crit",
       "icon": "/assets/characterIcons/yelan.webp"
     },
     {
@@ -541,17 +541,17 @@
     },
     {
       "name": "Yun Jin",
-      "stats": "ER, ATK, Crit",
+      "stats": "ER, DEF, Crit",
       "icon": "/assets/characterIcons/yun_jin.webp"
     },
     {
       "name": "Zhongli",
-      "stats": "ER, HP, Crit",
+      "stats": "HP, Crit",
       "icon": "/assets/characterIcons/zhongli.webp"
     },
     {
       "name": "Zibai",
-      "stats": "ER, HP, Crit",
+      "stats": "DEF, EM, Crit",
       "icon": "/assets/characterIcons/zibai.webp"
     }
 ]
