@@ -14,6 +14,10 @@ If you enjoy or use this project, feel free to leave it a star! ;) 🫶
 
 ## Screenshots
 
+<img width="1710" height="954" alt="Screenshot 2026-04-06 at 20 40 26" src="https://github.com/user-attachments/assets/430cb7d9-3dd8-49c9-a762-2dbb8aa13952" />
+<img width="1710" height="954" alt="Screenshot 2026-04-06 at 20 40 56" src="https://github.com/user-attachments/assets/1fba1089-cab6-44cf-98d7-deab01893fd9" />
+<img width="1710" height="954" alt="Screenshot 2026-04-06 at 20 41 39" src="https://github.com/user-attachments/assets/901b3e01-e4ef-42fc-9125-867d1e8ae228" />
+
 ## How To Play (normal mode)
 
 1. A random, unknown artifact set is selected.
