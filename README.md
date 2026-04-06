@@ -14,26 +14,13 @@ If you enjoy or use this project, feel free to leave it a star! ;) 🫶
 
 ## Screenshots
 
-<div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 26 48" src="https://github.com/user-attachments/assets/c338103e-1d9a-4600-97f7-84c4c082d40d" />
-<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 27 26" src="https://github.com/user-attachments/assets/09b58fc3-e105-4a6f-b512-88cf0e89c432" />
-<img width="350" height="auto" alt="Screenshot 2026-01-09 at 02 27 59" src="https://github.com/user-attachments/assets/03e366db-47db-41a1-968c-aaf0c3fbe9a6" />
-</div>
-
-## How To Play
+## How To Play (normal mode)
 
 1. A random, unknown artifact set is selected.
 2. Type and select an artifact set from the given list.
 3. The game compares your guess and tells you which attributes (name, region, 2pc buff, 4pc buff & release version) are a match or close match to the answer.
 4. Keep guessing until either you guess the correct artifact set or hit 5 guesses.
 5. Try to build up a streak of wins and aim for a high score.
-
-## Upcoming Features
-
-- [ ] Honkai Star Rail Relic support
-- [ ] Zenless Zone Zero Disc Drive support
-- [ ] More Backgrounds
-- [ ] Colour Themes
 
 ## Download and Run
 
