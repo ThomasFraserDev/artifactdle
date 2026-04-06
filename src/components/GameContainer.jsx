@@ -123,20 +123,14 @@ export default function GameContainer({ gameMode, game}) {
     const extraPreferredStats = substatsSelectedStats.filter((stat) =>
         !normalizedPreferredStats.includes(stat.toLowerCase())
     );
-    const hasPerfectSubstatsGuess =
-        missingPreferredStats.length === 0 && extraPreferredStats.length === 0 && preferredStats.length > 0;
-    const correctSubstatsArtifactGuessCount = substatsArtifactGuesses.filter((guess) =>
-        substatsArtifactAnswerNames.includes(guess.name)
-    ).length;
-    const isSubstatsArtifactSolved =
-        substatsArtifactAnswerNames.length > 0 && correctSubstatsArtifactGuessCount === substatsArtifactAnswerNames.length;
+    const hasPerfectSubstatsGuess = missingPreferredStats.length === 0 && extraPreferredStats.length === 0 && preferredStats.length > 0;
+    const correctSubstatsArtifactGuessCount = substatsArtifactGuesses.filter((guess) => substatsArtifactAnswerNames.includes(guess.name)).length;
+    const isSubstatsArtifactSolved = substatsArtifactAnswerNames.length > 0 && correctSubstatsArtifactGuessCount === substatsArtifactAnswerNames.length;
     const isSubstatsSolved = isSubstatsArtifactSolved && hasPerfectSubstatsGuess && substatsStatsChecked;
     const hasSubstatsFailed = substatsStatsChecked && !isSubstatsSolved;
-    const isSubstatsArtifactGuessingLocked = substatsStatsChecked || substatsArtifactGuesses.length >= substatsArtifactGuessLimit;
+    const isSubstatsArtifactGuessingLocked = substatsStatsChecked || isSubstatsArtifactSolved || substatsArtifactGuesses.length >= substatsArtifactGuessLimit;
     const isSubstatsStatGuessingLocked = substatsStatsChecked;
-    const missingSubstatsArtifactNames = substatsArtifactAnswerNames.filter(
-        (name) => !substatsArtifactGuesses.some((guess) => guess.name === name)
-    );
+    const missingSubstatsArtifactNames = substatsArtifactAnswerNames.filter((name) => !substatsArtifactGuesses.some((guess) => guess.name === name));
     const substatsStreak = gameMode === 'daily' ? substatsDailyStreak : substatsInfiniteStreak;
     const substatsHighScore = gameMode === 'daily' ? substatsDailyHighScore : substatsInfiniteHighScore;
     const substatsPrevAnswer = gameMode === 'daily' ? substatsDailyPrevAnswer : substatsInfinitePrevAnswer;
@@ -503,10 +497,11 @@ const handleSubstatsArtifactGuess = (artifact) => {
         return;
     }
 
+    if (isSubstatsArtifactGuessingLocked) {
+        return;
+    }
+
     setSubstatsArtifactGuesses((prev) => {
-        if (substatsStatsChecked) {
-            return prev;
-        }
         if (prev.length >= substatsArtifactGuessLimit) {
             return prev;
         }
@@ -780,7 +775,7 @@ const handleTweetScore = () => {
 
                     {!isSubstatsSolved && hasSubstatsFailed && (
                         <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
-                            <p>You ran out of artifact guesses for this character.</p>
+                            <p>You ran out of build guesses for this character.</p>
                             {gameMode === 'infinite' && (
                                 <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded">
                                     Play again
