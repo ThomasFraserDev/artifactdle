@@ -5,9 +5,27 @@ import Search from "./Search";
 import GameInfo from "./GameInfo";
 import artifacts from "../data/artifacts.json";
 import characterStats from "../data/characterStats.json";
-import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate, getDailySilhouetteArtifactIndex, getDailySilhouetteArtifactIndexForDate } from "../utils/dailyMode";
+import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate, getDailySilhouetteArtifactIndex, getDailySilhouetteArtifactIndexForDate, getDailySubstatsCharacterIndex, getDailySubstatsCharacterIndexForDate } from "../utils/dailyMode";
 
 const getRandomSubstatsCharacter = () => characterStats[Math.floor(Math.random() * characterStats.length)];
+const SUBSTAT_OPTIONS = ["ER", "EM", "ATK", "HP", "DEF", "Crit"];
+
+const isCharacterInArtifactSet = (characterName, charsField = "") => {
+    const target = (characterName || "").trim().toLowerCase();
+    return charsField
+        .split(",")
+        .map((name) => name.trim().toLowerCase())
+        .includes(target);
+};
+
+const parsePreferredStats = (statsField = "") => {
+    return statsField
+        .split(",")
+        .map((stat) => stat.trim())
+        .filter(Boolean);
+};
+
+// ----- Build mode is still referred to as substats mode within all code, will update this later.
 
 export default function GameContainer({ gameMode, game}) {
     // Normal mode states
@@ -56,6 +74,17 @@ export default function GameContainer({ gameMode, game}) {
     const [silhouetteInfinitePrevAnswer, setSilhouetteInfinitePrevAnswer] = useState("N/A");
 
     const [substatsCharacter, setSubstatsCharacter] = useState(() => getRandomSubstatsCharacter());
+    const [substatsArtifactGuesses, setSubstatsArtifactGuesses] = useState([]);
+    const [substatsSelectedStats, setSubstatsSelectedStats] = useState([]);
+    const [substatsStatsChecked, setSubstatsStatsChecked] = useState(false);
+    const [substatsHasLoaded, setSubstatsHasLoaded] = useState(false);
+    const [substatsDailyStreak, setSubstatsDailyStreak] = useState(0);
+    const [substatsDailyHighScore, setSubstatsDailyHighScore] = useState(0);
+    const [substatsDailyPrevAnswer, setSubstatsDailyPrevAnswer] = useState("N/A");
+    const [substatsInfiniteStreak, setSubstatsInfiniteStreak] = useState(0);
+    const [substatsInfiniteHighScore, setSubstatsInfiniteHighScore] = useState(0);
+    const [substatsInfinitePrevAnswer, setSubstatsInfinitePrevAnswer] = useState("N/A");
+    const [substatsRoundResolved, setSubstatsRoundResolved] = useState(false);
 
     // Setting functions and states to their correct version depending on whether in daily/infinite mode in normal mode
     const streak = gameMode === 'daily' ? dailyStreak : infiniteStreak;
@@ -65,7 +94,7 @@ export default function GameContainer({ gameMode, game}) {
     const setHighScore = gameMode === 'daily' ? setDailyHighScore : setInfiniteHighScore;
     const setPrevAnswer = gameMode === 'daily' ? setDailyPrevAnswer : setInfinitePrevAnswer;
 
-      // Setting functions and states to their correct version depending on whether in daily/infinite mode in silhouette mode
+    // Setting functions and states to their correct version depending on whether in daily/infinite mode in silhouette mode
     const silhouetteStreak = gameMode === 'daily' ? silhouetteDailyStreak : silhouetteInfiniteStreak;
     const silhouetteHighScore = gameMode === 'daily' ? silhouetteDailyHighScore : silhouetteInfiniteHighScore;
     const silhouettePrevAnswer = gameMode === 'daily' ? silhouetteDailyPrevAnswer : silhouetteInfinitePrevAnswer;
@@ -76,11 +105,44 @@ export default function GameContainer({ gameMode, game}) {
     const isGuessed = guesses.some((g) => g.name === answer.name);
     const isSilhouetteGuessed = silhouetteGuesses.some((g) => g.name === silhouetteAnswer.name);
 
-    useEffect(() => {
-        if (game === "substats") {
-            setSubstatsCharacter(getRandomSubstatsCharacter());
-        }
-    }, [game]);
+    const substatsArtifactAnswers = artifacts.filter((artifact) =>
+        isCharacterInArtifactSet(substatsCharacter?.name, artifact.chars)
+    );
+    // States for substat mode
+    const substatsArtifactAnswerNames = substatsArtifactAnswers.map((artifact) => artifact.name);
+    const substatsArtifactGuessLimit = substatsArtifactAnswerNames.length + 2;
+    const preferredStats = parsePreferredStats(substatsCharacter?.stats);
+    const normalizedPreferredStats = preferredStats.map((stat) => stat.toLowerCase());
+    const normalizedSelectedStats = substatsSelectedStats.map((stat) => stat.toLowerCase());
+    const matchedPreferredStats = preferredStats.filter((stat) =>
+        normalizedSelectedStats.includes(stat.toLowerCase())
+    );
+    const missingPreferredStats = preferredStats.filter((stat) =>
+        !normalizedSelectedStats.includes(stat.toLowerCase())
+    );
+    const extraPreferredStats = substatsSelectedStats.filter((stat) =>
+        !normalizedPreferredStats.includes(stat.toLowerCase())
+    );
+    const hasPerfectSubstatsGuess =
+        missingPreferredStats.length === 0 && extraPreferredStats.length === 0 && preferredStats.length > 0;
+    const correctSubstatsArtifactGuessCount = substatsArtifactGuesses.filter((guess) =>
+        substatsArtifactAnswerNames.includes(guess.name)
+    ).length;
+    const isSubstatsArtifactSolved =
+        substatsArtifactAnswerNames.length > 0 && correctSubstatsArtifactGuessCount === substatsArtifactAnswerNames.length;
+    const isSubstatsSolved = isSubstatsArtifactSolved && hasPerfectSubstatsGuess && substatsStatsChecked;
+    const hasSubstatsFailed = substatsStatsChecked && !isSubstatsSolved;
+    const isSubstatsArtifactGuessingLocked = substatsStatsChecked || substatsArtifactGuesses.length >= substatsArtifactGuessLimit;
+    const isSubstatsStatGuessingLocked = substatsStatsChecked;
+    const missingSubstatsArtifactNames = substatsArtifactAnswerNames.filter(
+        (name) => !substatsArtifactGuesses.some((guess) => guess.name === name)
+    );
+    const substatsStreak = gameMode === 'daily' ? substatsDailyStreak : substatsInfiniteStreak;
+    const substatsHighScore = gameMode === 'daily' ? substatsDailyHighScore : substatsInfiniteHighScore;
+    const substatsPrevAnswer = gameMode === 'daily' ? substatsDailyPrevAnswer : substatsInfinitePrevAnswer;
+    const setSubstatsStreak = gameMode === 'daily' ? setSubstatsDailyStreak : setSubstatsInfiniteStreak;
+    const setSubstatsHighScore = gameMode === 'daily' ? setSubstatsDailyHighScore : setSubstatsInfiniteHighScore;
+    const setSubstatsPrevAnswer = gameMode === 'daily' ? setSubstatsDailyPrevAnswer : setSubstatsInfinitePrevAnswer;
 
     // Load daily/infinite stats from local storage on reload/mode change
     useEffect(() => {
@@ -235,6 +297,98 @@ useEffect(() => {
   // Silhouette
   silhouetteHasLoaded, silhouetteGuesses, silhouetteShareGuesses, silhouetteGuessAmount, isSilhouetteGuessed, silhouetteDailyStreak, silhouetteDailyHighScore, silhouetteDailyPrevAnswer, silhouetteInfiniteStreak, silhouetteInfiniteHighScore, silhouetteInfinitePrevAnswer]);
 
+// Load substats mode progress/stats on game or mode change
+useEffect(() => {
+    if (game !== "substats") {
+        return;
+    }
+
+    if (gameMode === 'daily') {
+        const dailyStats = JSON.parse(localStorage.getItem('substatsDailyStats') || '{}');
+        const dailyProgress = JSON.parse(localStorage.getItem('substatsDailyProgress') || '{}');
+        const today = getTodayDateString();
+        const todayIndex = getDailySubstatsCharacterIndex(characterStats.length);
+        const todayCharacter = characterStats[todayIndex];
+
+        setSubstatsDailyStreak(dailyStats.streak || 0);
+        setSubstatsDailyHighScore(dailyStats.highScore || 0);
+        setSubstatsCharacter(todayCharacter);
+
+        if (dailyProgress.date === today && dailyProgress.characterIndex === todayIndex) {
+            const restoredGuesses = (dailyProgress.artifactGuesses || [])
+                .map((name) => artifacts.find((artifact) => artifact.name === name))
+                .filter(Boolean);
+            setSubstatsArtifactGuesses(restoredGuesses);
+            setSubstatsSelectedStats(dailyProgress.selectedStats || []);
+            setSubstatsStatsChecked(Boolean(dailyProgress.statsChecked));
+            setSubstatsRoundResolved(Boolean(dailyProgress.roundResolved));
+        } else {
+            setSubstatsArtifactGuesses([]);
+            setSubstatsSelectedStats([]);
+            setSubstatsStatsChecked(false);
+            setSubstatsRoundResolved(false);
+        }
+
+        const t = new Date();
+        t.setHours(0, 0, 0, 0);
+        const y = new Date(t);
+        y.setDate(y.getDate() - 1);
+        const yIndex = getDailySubstatsCharacterIndexForDate(characterStats.length, 0, y);
+        setSubstatsDailyPrevAnswer(characterStats[yIndex]?.name || "N/A");
+    } else {
+        const infiniteStats = JSON.parse(localStorage.getItem('substatsInfiniteStats') || '{}');
+        setSubstatsInfiniteStreak(infiniteStats.streak || 0);
+        setSubstatsInfiniteHighScore(infiniteStats.highScore || 0);
+        setSubstatsInfinitePrevAnswer(infiniteStats.prevAnswer || "N/A");
+        setSubstatsCharacter(getRandomSubstatsCharacter());
+        setSubstatsArtifactGuesses([]);
+        setSubstatsSelectedStats([]);
+        setSubstatsStatsChecked(false);
+        setSubstatsRoundResolved(false);
+    }
+
+    setSubstatsHasLoaded(true);
+}, [game, gameMode]);
+
+// Keep substats progress/stats
+useEffect(() => {
+    if (game !== "substats" || !substatsHasLoaded) {
+        return;
+    }
+
+    if (gameMode === 'daily') {
+        const characterIndex = characterStats.findIndex((character) => character.name === substatsCharacter?.name);
+        const dailyProgress = {
+            date: getTodayDateString(), characterIndex, artifactGuesses: substatsArtifactGuesses.map((guess) => guess.name), selectedStats: substatsSelectedStats, statsChecked: substatsStatsChecked, roundResolved: substatsRoundResolved
+        };
+        localStorage.setItem('substatsDailyProgress', JSON.stringify(dailyProgress));
+        const dailyStats = {
+            streak: substatsDailyStreak, highScore: substatsDailyHighScore, prevAnswer: substatsDailyPrevAnswer
+        };
+        localStorage.setItem('substatsDailyStats', JSON.stringify(dailyStats));
+    } else {
+        const infiniteStats = {
+            streak: substatsInfiniteStreak, highScore: substatsInfiniteHighScore, prevAnswer: substatsInfinitePrevAnswer
+        };
+        localStorage.setItem('substatsInfiniteStats', JSON.stringify(infiniteStats));
+    }
+}, [game, gameMode, substatsHasLoaded, substatsCharacter, substatsArtifactGuesses, substatsSelectedStats, substatsStatsChecked, substatsRoundResolved, substatsDailyStreak,substatsDailyHighScore, substatsDailyPrevAnswer, substatsInfiniteStreak, substatsInfiniteHighScore, substatsInfinitePrevAnswer]);
+
+// Resolve substats round once for streak handling
+useEffect(() => {
+    if (game !== "substats" || substatsRoundResolved) {
+        return;
+    }
+
+    if (isSubstatsSolved) {
+        setSubstatsStreak((prev) => prev + 1);
+        setSubstatsRoundResolved(true);
+    } else if (hasSubstatsFailed) {
+        setSubstatsStreak(0);
+        setSubstatsRoundResolved(true);
+    }
+}, [game, substatsRoundResolved, isSubstatsSolved, hasSubstatsFailed, setSubstatsStreak]);
+
 // When a day is finished, record it's answer to be displayed as the previous answer the next day
 useEffect(() => {
     if (gameMode === 'daily') {
@@ -262,7 +416,12 @@ useEffect(() => {
             setSilhouetteHighScore(silhouetteStreak);
         }
     }
-}, [game, streak, highScore, setHighScore, silhouetteStreak, silhouetteHighScore, setSilhouetteHighScore]);
+    else if (game === "substats") {
+        if (substatsStreak > substatsHighScore) {
+            setSubstatsHighScore(substatsStreak);
+        }
+    }
+}, [game, streak, highScore, setHighScore, silhouetteStreak, silhouetteHighScore, setSilhouetteHighScore, substatsStreak, substatsHighScore, setSubstatsHighScore]);
 
 // Update relevant stats on each guess
 const handleGuess = (artifact) => {
@@ -322,6 +481,59 @@ const handleReplay = () => {
         }
         setsilhouetteGuessAmount(0);
     }
+    else if (game === "substats") {
+        setSubstatsPrevAnswer(substatsCharacter?.name || "N/A");
+        if (gameMode === 'daily') {
+            const dailyIndex = getDailySubstatsCharacterIndex(characterStats.length);
+            setSubstatsCharacter(characterStats[dailyIndex]);
+        } else {
+            setSubstatsCharacter(getRandomSubstatsCharacter());
+        }
+        setSubstatsArtifactGuesses([]);
+        setSubstatsSelectedStats([]);
+        setSubstatsStatsChecked(false);
+        setSubstatsRoundResolved(false);
+    }
+};
+
+const handleSubstatsArtifactGuess = (artifact) => {
+    if (game !== "substats") {
+        return;
+    }
+
+    setSubstatsArtifactGuesses((prev) => {
+        if (substatsStatsChecked) {
+            return prev;
+        }
+        if (prev.length >= substatsArtifactGuessLimit) {
+            return prev;
+        }
+        if (prev.some((guess) => guess.name === artifact.name)) {
+            return prev;
+        }
+        return [artifact, ...prev];
+    });
+};
+
+const toggleSubstatsStat = (stat) => {
+    if (isSubstatsStatGuessingLocked) {
+        return;
+    }
+
+    setSubstatsSelectedStats((prev) => {
+        if (prev.includes(stat)) {
+            return prev.filter((value) => value !== stat);
+        }
+        return [...prev, stat];
+    });
+};
+
+const checkSubstatsGuess = () => {
+    if (isSubstatsStatGuessingLocked) {
+        return;
+    }
+
+    setSubstatsStatsChecked(true);
 };
 
 // Generate share result text based on score (separate per game)
@@ -541,14 +753,117 @@ const handleTweetScore = () => {
                     <GameInfo guessAmount={silhouetteGuessAmount} streak={silhouetteStreak} highScore={silhouetteHighScore} prevAnswer={silhouettePrevAnswer} game={game}/>
                 </>
             ) : (
-                <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-8 sm:p-12 text-center text-white">
-                    <h2 className="text-2xl sm:text-3xl font-bold">Substats Mode</h2>
-                    <p className="mt-4 text-sm sm:text-base text-purple-100">glorp</p>
-                    <div className="mt-8 flex flex-col items-center gap-4">
-                        <img src={substatsCharacter?.icon} alt={substatsCharacter?.name} className="w-40 h-40 sm:w-56 sm:h-56 object-contain rounded-lg border-2 border-purple-300 bg-neutral-800/60 p-2" />
-                        <p className="text-xl sm:text-4xl font-semibold">{substatsCharacter?.name}</p>
+                <>
+                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-8 sm:p-12 text-center text-white">
+                        <h2 className="text-2xl sm:text-3xl font-bold">Guess their build</h2>
+                        <div className="mt-8 flex flex-col items-center gap-4">
+                            <img src={substatsCharacter?.icon} alt={substatsCharacter?.name} className="w-40 h-40 sm:w-56 sm:h-56 object-contain rounded-lg border-2 border-purple-300 bg-neutral-800/60 p-2" />
+                            <p className="text-xl sm:text-4xl font-semibold">{substatsCharacter?.name}</p>
+                        </div>
                     </div>
-                </div>
+
+                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-6 sm:p-8 text-white">
+
+                        <div className="mt-6 text-center">
+                            <p className="text-sm sm:text-2xl font-semibold mb-3 ">Preferred Artifact Sets</p>
+                            <Search onGuess={handleSubstatsArtifactGuess} artifacts={artifacts} disabled={isSubstatsArtifactGuessingLocked || isSubstatsSolved} />
+                            <p className="mt-3 text-xs sm:text-lg text-purple-100">
+                                Correct sets guessed: {correctSubstatsArtifactGuessCount}/{substatsArtifactAnswerNames.length}
+                            </p>
+                            <div className="mt-3 flex flex-wrap justify-center gap-2">
+                                {substatsArtifactGuesses.length === 0 && (
+                                    <span className="text-sm sm:text-lg text-purple-100">No guesses yet.</span>
+                                )}
+                                {substatsArtifactGuesses.map((guess) => {
+                                    const isCorrect = substatsArtifactAnswerNames.includes(guess.name);
+                                    return (
+                                        <span key={guess.name} className={`px-3 py-1 rounded-full text-sm sm:text-lg ${isCorrect ? "bg-green-600" : "bg-red-700"}`}>
+                                            {guess.name}
+                                        </span>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        <div className="mt-8">
+                            <p className="text-sm sm:text-2xl text-center font-semibold mb-3">Preferred Substats</p>
+                            <div className="grid grid-cols-2 gap-2">
+                                {SUBSTAT_OPTIONS.map((stat) => {
+                                    const isSelected = substatsSelectedStats.includes(stat);
+                                    const isPreferred = normalizedPreferredStats.includes(stat.toLowerCase());
+
+                                    let substatClassName = "bg-neutral-800 hover:bg-neutral-700";
+                                    if (substatsStatsChecked) {
+                                        substatClassName = isPreferred ? "bg-green-600 text-white" : "bg-red-700 text-white";
+                                    } else if (isSelected) {
+                                        substatClassName = "bg-green-600 text-white";
+                                    }
+
+                                    return (
+                                        <button key={stat} onClick={() => toggleSubstatsStat(stat)} className={`px-3 py-2 rounded-lg text-sm font-semibold cursor-pointer transition ${substatClassName}`}>
+                                            {stat}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            <button onClick={checkSubstatsGuess} disabled={isSubstatsStatGuessingLocked} className={`mt-4 px-4 py-2 text-white rounded transition font-semibold block mx-auto ${isSubstatsStatGuessingLocked ? "bg-blue-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 cursor-pointer"}`}>
+                                Submit guesses
+                            </button>
+
+                            {substatsStatsChecked && (
+                                <div className="mt-4 rounded-lg bg-neutral-800/70 p-4 text-sm sm:text-base text-center">
+                                    {missingSubstatsArtifactNames.length > 0 && (
+                                        <div className="mt-1 mb-4 text-center">
+                                            <p className="font-semibold text-yellow-300">Missing artifact sets</p>
+                                            <p className="mt-2 text-purple-100">{missingSubstatsArtifactNames.join(", ")}</p>
+                                        </div>
+                                    )}
+                                    <p className={hasPerfectSubstatsGuess ? "text-green-400 font-semibold" : "text-yellow-300 font-semibold"}>
+                                        {hasPerfectSubstatsGuess
+                                            ? "Perfect substat guesses!"
+                                            : `Matched ${matchedPreferredStats.length}/${preferredStats.length} preferred substats.`}
+                                    </p>
+                                    {!hasPerfectSubstatsGuess && (
+                                        <div>
+                                            <p className="mt-2 text-purple-100">Missing: {missingPreferredStats.length > 0 ? missingPreferredStats.join(", ") : "None"}</p>
+                                            <p className="mt-1 text-purple-100">Extra: {extraPreferredStats.length > 0 ? extraPreferredStats.join(", ") : "None"}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {isSubstatsSolved && (
+                        <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
+                            <p className="font-bold">You guessed the full build correctly!</p>
+                            {gameMode === 'infinite' && (
+                                <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-green-500 transition rounded">
+                                    Play again
+                                </button>
+                            )}
+                            {gameMode === 'daily' && (
+                                <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                            )}
+                        </div>
+                    )}
+
+                    {!isSubstatsSolved && hasSubstatsFailed && (
+                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
+                            <p>You ran out of artifact guesses for this character.</p>
+                            {gameMode === 'infinite' && (
+                                <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded">
+                                    Play again
+                                </button>
+                            )}
+                            {gameMode === 'daily' && (
+                                <p className="text-sm text-gray-700">Come back tomorrow for the next game!</p>
+                            )}
+                        </div>
+                    )}
+
+                    <GameInfo guessAmount={substatsArtifactGuesses.length} guessLimit={substatsArtifactGuessLimit} streak={substatsStreak} highScore={substatsHighScore} prevAnswer={substatsPrevAnswer} game={game}/>
+                </>
             )}
         </div>
     );

@@ -30,7 +30,7 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
               Silhouette
             </button>
             <button value={"substats"} onClick={handleGameChange} className="px-3 py-2 bg-purple-600 hover:bg-purple-700 hover:cursor-pointer rounded-lg transition text-base sm:text-lg font-semibold hover:scale-105 transform">
-              Substats
+              Build
             </button>
           </div>
         </div>

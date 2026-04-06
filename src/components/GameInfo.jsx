@@ -1,4 +1,4 @@
-export default function GameInfo({ guessAmount, streak, highScore, prevAnswer, game }) {
+export default function GameInfo({ guessAmount, guessLimit = 5, streak, highScore, prevAnswer, game }) {
     return (
         <div className="w-full max-w-4xl">
             <div className="bg-purple-600/95 rounded-lg p-6 sm:p-10">
@@ -11,7 +11,7 @@ export default function GameInfo({ guessAmount, streak, highScore, prevAnswer, g
                     <div className="grid grid-cols-2 gap-4 sm:gap-6 text-lg sm:text-xl font-semibold">
                         <div className="bg-neutral-800 rounded-2xl p-4">
                             <p className="text-gray-400 text-sm">Guesses</p>
-                            <p className="text-2xl sm:text-3xl font-bold">{guessAmount} / 5</p>
+                            <p className="text-2xl sm:text-3xl font-bold">{guessAmount} / {guessLimit}</p>
                         </div>
                         <div className="bg-neutral-800 rounded-2xl p-4">
                             <p className="text-gray-400 text-sm">Win Streak</p>
@@ -22,7 +22,7 @@ export default function GameInfo({ guessAmount, streak, highScore, prevAnswer, g
                             <p className="text-2xl sm:text-3xl font-bold">{highScore} 🔥</p>
                         </div>
                         <div className="bg-neutral-800 rounded-2xl p-4">
-                            <p className="text-gray-400 text-sm">Previous Answer</p>
+                            <p className="text-gray-400 text-sm">{game === 'substats' ? 'Previous Character' : 'Previous Answer'}</p>
                             <p className="text-lg sm:text-xl font-bold truncate">{prevAnswer}</p>
                         </div>
                     </div>

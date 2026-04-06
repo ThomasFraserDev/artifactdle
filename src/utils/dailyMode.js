@@ -48,6 +48,19 @@ export const getDailySilhouetteArtifactIndexForDate = (artifactCount, offset = 0
   return Math.floor(seededRandom(seed) * artifactCount);
 };
 
+// For substats mode daily character
+export const getDailySubstatsCharacterIndex = (characterCount, offset = 0) => {
+  const today = new Date();
+  const seed = getSeedForDate(today, offset, 'substats');
+  return Math.floor(seededRandom(seed) * characterCount);
+};
+
+// For substats mode, but for a specific date
+export const getDailySubstatsCharacterIndexForDate = (characterCount, offset = 0, date) => {
+  const seed = getSeedForDate(date, offset, 'substats');
+  return Math.floor(seededRandom(seed) * characterCount);
+};
+
 export const getTodayDateString = () => {
   const today = new Date();
   return today.toISOString().split('T')[0]; // YYYY-MM-DD
