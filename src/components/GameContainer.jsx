@@ -4,7 +4,10 @@ import GuessHeader from "./GuessHeader";
 import Search from "./Search";
 import GameInfo from "./GameInfo";
 import artifacts from "../data/artifacts.json";
+import characterStats from "../data/characterStats.json";
 import { getDailyArtifactIndex, getTodayDateString, getTimeUntilNextDaily, getDailyArtifactIndexForDate, getDailySilhouetteArtifactIndex, getDailySilhouetteArtifactIndexForDate } from "../utils/dailyMode";
+
+const getRandomSubstatsCharacter = () => characterStats[Math.floor(Math.random() * characterStats.length)];
 
 export default function GameContainer({ gameMode, game}) {
     // Normal mode states
@@ -52,6 +55,8 @@ export default function GameContainer({ gameMode, game}) {
     const [silhouetteInfiniteHighScore, setSilhouetteInfiniteHighScore] = useState(0);
     const [silhouetteInfinitePrevAnswer, setSilhouetteInfinitePrevAnswer] = useState("N/A");
 
+    const [substatsCharacter, setSubstatsCharacter] = useState(() => getRandomSubstatsCharacter());
+
     // Setting functions and states to their correct version depending on whether in daily/infinite mode in normal mode
     const streak = gameMode === 'daily' ? dailyStreak : infiniteStreak;
     const highScore = gameMode === 'daily' ? dailyHighScore : infiniteHighScore;
@@ -71,8 +76,18 @@ export default function GameContainer({ gameMode, game}) {
     const isGuessed = guesses.some((g) => g.name === answer.name);
     const isSilhouetteGuessed = silhouetteGuesses.some((g) => g.name === silhouetteAnswer.name);
 
+    useEffect(() => {
+        if (game === "substats") {
+            setSubstatsCharacter(getRandomSubstatsCharacter());
+        }
+    }, [game]);
+
     // Load daily/infinite stats from local storage on reload/mode change
     useEffect(() => {
+        if (game !== "normal" && game !== "silhouette") {
+            return;
+        }
+
         let dailyStats;
         let updateDailyStreak;
         let updateDailyHighScore;
@@ -176,6 +191,10 @@ export default function GameContainer({ gameMode, game}) {
 
 // Save game progress and stats to local storage
 useEffect(() => {
+    if (game !== "normal" && game !== "silhouette") {
+        return;
+    }
+
     if (game === "normal") {
         if (!hasLoaded) {
             return;
@@ -425,7 +444,7 @@ const handleTweetScore = () => {
 
                     <GameInfo guessAmount={guessAmount} streak={streak} highScore={highScore} prevAnswer={prevAnswer} game={game}/>
                 </>
-            ) : (
+            ) : game === 'silhouette' ? (
                 <>
                     <div className="flex flex-col justify-center items-center w-full max-w-4xl bg-purple-600/95 rounded-lg p-6 sm:p-8">
                         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">Can you name this artifact?</h1>
@@ -521,6 +540,15 @@ const handleTweetScore = () => {
 
                     <GameInfo guessAmount={silhouetteGuessAmount} streak={silhouetteStreak} highScore={silhouetteHighScore} prevAnswer={silhouettePrevAnswer} game={game}/>
                 </>
+            ) : (
+                <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-8 sm:p-12 text-center text-white">
+                    <h2 className="text-2xl sm:text-3xl font-bold">Substats Mode</h2>
+                    <p className="mt-4 text-sm sm:text-base text-purple-100">glorp</p>
+                    <div className="mt-8 flex flex-col items-center gap-4">
+                        <img src={substatsCharacter?.icon} alt={substatsCharacter?.name} className="w-40 h-40 sm:w-56 sm:h-56 object-contain rounded-lg border-2 border-purple-300 bg-neutral-800/60 p-2" />
+                        <p className="text-xl sm:text-4xl font-semibold">{substatsCharacter?.name}</p>
+                    </div>
+                </div>
             )}
         </div>
     );

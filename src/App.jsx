@@ -22,11 +22,21 @@ export default function App() {
   };
 
   return (
-    <div className="flex min-h-screen w-full flex-col gap-y-5" style={{backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundPosition: "center"}}>
-      <Navbar onBackgroundChange={changeBackground} gameMode={gameMode} onModeToggle={handleModeToggle} game={game} onGameChange={changeGame} />
-      <GameContainer gameMode={gameMode} game={game} />
-      <Footer />
-      <Analytics />
+    <div className="relative min-h-screen w-full overflow-x-hidden">
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      />
+      <div className="flex min-h-screen w-full flex-col gap-y-5">
+        <Navbar onBackgroundChange={changeBackground} gameMode={gameMode} onModeToggle={handleModeToggle} game={game} onGameChange={changeGame} />
+        <GameContainer gameMode={gameMode} game={game} />
+        <Footer />
+        <Analytics />
+      </div>
     </div>
   )
 }
