@@ -191,7 +191,9 @@ export default function GameContainer({ gameMode, game}) {
             updateDailyStreak = setSilhouetteDailyStreak;
             updateDailyHighScore = setSilhouetteDailyHighScore;
             updateDailyPrevAswer = setSilhouetteDailyPrevAnswer;
-            dailyProgress = JSON.parse(localStorage.getItem('sihouetteDailyProgress') || '{}'); // Load daily progress from local storage
+            dailyProgress = JSON.parse(
+                localStorage.getItem('silhouetteDailyProgress') || localStorage.getItem('sihouetteDailyProgress') || '{}'
+            ); // Load daily progress from local storage (including legacy typo key)
             updateGuesses = setSilhouetteGuesses;
             updateGuessAmount = setsilhouetteGuessAmount;
             updateShareGuesses = setSilhouetteShareGuesses;
@@ -615,7 +617,7 @@ const handleTweetScore = () => {
                         </div>
                     )}
                     {!isGuessed && guessAmount >= 5 && (
-                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
+                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
                             <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{answer.name}</span>.</p>
                             {gameMode === 'infinite' && (
                                 <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded"> 
@@ -712,7 +714,7 @@ const handleTweetScore = () => {
                     )}
 
                     {!isSilhouetteGuessed && silhouetteGuessAmount >= 5 && (
-                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-black text-lg sm:text-2xl rounded-lg">
+                        <div className="bg-red-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
                             <p>You didn't manage to guess the set. The answer was <span className="font-bold text-green-800">{silhouetteAnswer.name}</span>.</p>
                             {gameMode === 'infinite' && (
                                 <button onClick={handleReplay} className="border-2 border-black px-6 py-3 cursor-pointer hover:bg-red-500 transition rounded"> 
@@ -762,78 +764,6 @@ const handleTweetScore = () => {
                         </div>
                     </div>
 
-                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-6 sm:p-8 text-white">
-
-                        <div className="mt-6 text-center">
-                            <p className="text-sm sm:text-2xl font-semibold mb-3 ">Preferred Artifact Sets</p>
-                            <Search onGuess={handleSubstatsArtifactGuess} artifacts={artifacts} disabled={isSubstatsArtifactGuessingLocked || isSubstatsSolved} />
-                            <p className="mt-3 text-xs sm:text-lg text-purple-100">
-                                Correct sets guessed: {correctSubstatsArtifactGuessCount}/{substatsArtifactAnswerNames.length}
-                            </p>
-                            <div className="mt-3 flex flex-wrap justify-center gap-2">
-                                {substatsArtifactGuesses.length === 0 && (
-                                    <span className="text-sm sm:text-lg text-purple-100">No guesses yet.</span>
-                                )}
-                                {substatsArtifactGuesses.map((guess) => {
-                                    const isCorrect = substatsArtifactAnswerNames.includes(guess.name);
-                                    return (
-                                        <span key={guess.name} className={`px-3 py-1 rounded-full text-sm sm:text-lg ${isCorrect ? "bg-green-600" : "bg-red-700"}`}>
-                                            {guess.name}
-                                        </span>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        <div className="mt-8">
-                            <p className="text-sm sm:text-2xl text-center font-semibold mb-3">Preferred Substats</p>
-                            <div className="grid grid-cols-2 gap-2">
-                                {SUBSTAT_OPTIONS.map((stat) => {
-                                    const isSelected = substatsSelectedStats.includes(stat);
-                                    const isPreferred = normalizedPreferredStats.includes(stat.toLowerCase());
-
-                                    let substatClassName = "bg-neutral-800 hover:bg-neutral-700";
-                                    if (substatsStatsChecked) {
-                                        substatClassName = isPreferred ? "bg-green-600 text-white" : "bg-red-700 text-white";
-                                    } else if (isSelected) {
-                                        substatClassName = "bg-green-600 text-white";
-                                    }
-
-                                    return (
-                                        <button key={stat} onClick={() => toggleSubstatsStat(stat)} className={`px-3 py-2 rounded-lg text-sm font-semibold cursor-pointer transition ${substatClassName}`}>
-                                            {stat}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-                            <button onClick={checkSubstatsGuess} disabled={isSubstatsStatGuessingLocked} className={`mt-4 px-4 py-2 text-white rounded transition font-semibold block mx-auto ${isSubstatsStatGuessingLocked ? "bg-blue-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 cursor-pointer"}`}>
-                                Submit guesses
-                            </button>
-
-                            {substatsStatsChecked && (
-                                <div className="mt-4 rounded-lg bg-neutral-800/70 p-4 text-sm sm:text-base text-center">
-                                    {missingSubstatsArtifactNames.length > 0 && (
-                                        <div className="mt-1 mb-4 text-center">
-                                            <p className="font-semibold text-yellow-300">Missing artifact sets</p>
-                                            <p className="mt-2 text-purple-100">{missingSubstatsArtifactNames.join(", ")}</p>
-                                        </div>
-                                    )}
-                                    <p className={hasPerfectSubstatsGuess ? "text-green-400 font-semibold" : "text-yellow-300 font-semibold"}>
-                                        {hasPerfectSubstatsGuess
-                                            ? "Perfect substat guesses!"
-                                            : `Matched ${matchedPreferredStats.length}/${preferredStats.length} preferred substats.`}
-                                    </p>
-                                    {!hasPerfectSubstatsGuess && (
-                                        <div>
-                                            <p className="mt-2 text-purple-100">Missing: {missingPreferredStats.length > 0 ? missingPreferredStats.join(", ") : "None"}</p>
-                                            <p className="mt-1 text-purple-100">Extra: {extraPreferredStats.length > 0 ? extraPreferredStats.join(", ") : "None"}</p>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
                     {isSubstatsSolved && (
                         <div className="bg-green-400/95 w-full max-w-4xl py-8 px-6 flex flex-col gap-6 items-center text-center text-black text-lg sm:text-2xl rounded-lg">
                             <p className="font-bold">You guessed the full build correctly!</p>
@@ -861,6 +791,80 @@ const handleTweetScore = () => {
                             )}
                         </div>
                     )}
+
+                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-6 sm:p-8 text-white">
+
+                        <div className="mt-6 text-center">
+                            <p className="text-sm sm:text-2xl font-semibold mb-3 ">Preferred Artifact Sets</p>
+                            <Search onGuess={handleSubstatsArtifactGuess} artifacts={artifacts} disabled={isSubstatsArtifactGuessingLocked || isSubstatsSolved} />
+                        </div>
+
+                        <div className="mt-8">
+                            <p className="text-sm sm:text-2xl text-center font-semibold mb-3">Preferred Substats</p>
+                            <div className="grid grid-cols-2 gap-2">
+                                {SUBSTAT_OPTIONS.map((stat) => {
+                                    const isSelected = substatsSelectedStats.includes(stat);
+                                    const isPreferred = normalizedPreferredStats.includes(stat.toLowerCase());
+
+                                    let substatClassName = "bg-neutral-800 hover:bg-neutral-700";
+                                    if (substatsStatsChecked) {
+                                        substatClassName = isPreferred ? "bg-green-600 text-white" : "bg-red-700 text-white";
+                                    } else if (isSelected) {
+                                        substatClassName = "bg-green-600 text-white";
+                                    }
+
+                                    return (
+                                        <button key={stat} onClick={() => toggleSubstatsStat(stat)} className={`px-3 py-2 rounded-lg text-sm font-semibold cursor-pointer transition ${substatClassName}`}>
+                                            {stat}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            <button onClick={checkSubstatsGuess} disabled={isSubstatsStatGuessingLocked} className={`mt-4 px-4 py-2 text-white rounded transition font-semibold block mx-auto ${isSubstatsStatGuessingLocked ? "bg-blue-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 cursor-pointer"}`}>
+                                Submit guesses
+                            </button>
+
+                            <div className="mt-4 rounded-lg bg-neutral-900/75 p-4 text-center text-white">
+                                <p className="text-sm sm:text-lg text-purple-100">
+                                    Correct sets guessed: {correctSubstatsArtifactGuessCount}/{substatsArtifactAnswerNames.length}
+                                </p>
+                                <div className="mt-3 flex flex-wrap justify-center gap-2">
+                                    {substatsArtifactGuesses.length === 0 && (
+                                        <span className="text-sm sm:text-lg text-purple-100">No guesses yet.</span>
+                                    )}
+                                    {substatsArtifactGuesses.map((guess) => {
+                                        const isCorrect = substatsArtifactAnswerNames.includes(guess.name);
+                                        return (
+                                            <span key={guess.name} className={`px-3 py-1 rounded-full text-sm sm:text-lg ${isCorrect ? "bg-green-600" : "bg-red-700"}`}>
+                                                {guess.name}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+
+                                {substatsStatsChecked && (
+                                    <div className="mt-4 p-4 text-sm sm:text-base text-center">
+                                        {missingSubstatsArtifactNames.length > 0 && (
+                                            <div className="mt-1 mb-4 text-center">
+                                                <p className="font-semibold text-yellow-300">Missing artifact sets</p>
+                                                <p className="mt-2 text-purple-100">{missingSubstatsArtifactNames.join(", ")}</p>
+                                            </div>
+                                        )}
+                                        <p className={hasPerfectSubstatsGuess ? "text-green-400 font-semibold" : "text-yellow-300 font-semibold"}>
+                                            {hasPerfectSubstatsGuess
+                                                ? "Perfect substat guesses!" : `Matched ${matchedPreferredStats.length}/${preferredStats.length} preferred substats.`}
+                                        </p>
+                                        {!hasPerfectSubstatsGuess && (
+                                            <div>
+                                                <p className="mt-2 text-purple-100">Missing: {missingPreferredStats.length > 0 ? missingPreferredStats.join(", ") : "None"}</p>
+                                                <p className="mt-1 text-purple-100">Extra: {extraPreferredStats.length > 0 ? extraPreferredStats.join(", ") : "None"}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
 
                     <GameInfo guessAmount={substatsArtifactGuesses.length} guessLimit={substatsArtifactGuessLimit} streak={substatsStreak} highScore={substatsHighScore} prevAnswer={substatsPrevAnswer} game={game}/>
                 </>
