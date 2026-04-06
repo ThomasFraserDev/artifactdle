@@ -9,21 +9,21 @@ export default function GameInfo({ guessAmount, guessLimit = 5, streak, highScor
                         />
                     </div>
                     <div className="grid grid-cols-2 gap-4 sm:gap-6 text-lg sm:text-xl font-semibold">
-                        <div className="bg-neutral-800 rounded-2xl p-4">
+                        <div className="bg-neutral-800 rounded-2xl p-4 w-40 sm:w-52 min-w-0">
                             <p className="text-gray-400 text-sm">Guesses</p>
                             <p className="text-2xl sm:text-3xl font-bold">{guessAmount} / {guessLimit}</p>
                         </div>
-                        <div className="bg-neutral-800 rounded-2xl p-4">
+                        <div className="bg-neutral-800 rounded-2xl p-4 w-40 sm:w-52 min-w-0">
                             <p className="text-gray-400 text-sm">Win Streak</p>
                             <p className="text-2xl sm:text-3xl font-bold">{streak} 🔥</p>
                         </div>
-                        <div className="bg-neutral-800 rounded-2xl p-4">
+                        <div className="bg-neutral-800 rounded-2xl p-4 w-40 sm:w-52 min-w-0">
                             <p className="text-gray-400 text-sm">High Score</p>
                             <p className="text-2xl sm:text-3xl font-bold">{highScore} 🔥</p>
                         </div>
-                        <div className="bg-neutral-800 rounded-2xl p-4">
+                        <div className="bg-neutral-800 rounded-2xl p-4 w-40 sm:w-52 min-w-0">
                             <p className="text-gray-400 text-sm">{game === 'substats' ? 'Previous Character' : 'Previous Answer'}</p>
-                            <p className="text-lg sm:text-xl font-bold truncate">{prevAnswer}</p>
+                            <p className="text-lg sm:text-xl font-bold whitespace-normal break-words leading-tight">{prevAnswer}</p>
                         </div>
                     </div>
                 </div>

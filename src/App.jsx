@@ -23,16 +23,11 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <div
-        className="fixed inset-0 -z-10"
-        style={{
-          backgroundImage: `url(${background})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
-      />
+      <div className="fixed inset-0 -z-10">
+        <img src={background} className="h-full w-full object-cover object-center"/>
+      </div>
       <div className="flex min-h-screen w-full flex-col gap-y-5">
-        <Navbar onBackgroundChange={changeBackground} gameMode={gameMode} onModeToggle={handleModeToggle} game={game} onGameChange={changeGame} />
+        <Navbar onBackgroundChange={changeBackground} gameMode={gameMode} onModeToggle={handleModeToggle} game={game} onGameChange={changeGame} currentBackground={background} />
         <GameContainer gameMode={gameMode} game={game} />
         <Footer />
         <Analytics />

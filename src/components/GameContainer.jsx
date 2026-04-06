@@ -571,7 +571,7 @@ const handleTweetScore = () => {
                 <>
                     <div className="w-full max-w-4xl">
                         <div className="bg-purple-600/95 rounded-lg p-6 sm:p-8">
-                            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Guess the Artifact Set</h2>
+                            <h2 className="text-2xl sm:text-3xl text-center font-black mb-6">Guess the Artifact Set</h2>
                             <Search onGuess={handleGuess} artifacts={artifacts} disabled={isGuessed || guessAmount >= 5}/>
                             {gameMode === 'daily' && (isGuessed || guessAmount >= 5) && (
                                 <p className="text-center text-sm text-gray-300 mt-4">
@@ -659,7 +659,7 @@ const handleTweetScore = () => {
             ) : game === 'silhouette' ? (
                 <>
                     <div className="flex flex-col justify-center items-center w-full max-w-4xl bg-purple-600/95 rounded-lg p-6 sm:p-8">
-                        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">Can you name this artifact?</h1>
+                        <h1 className="text-2xl sm:text-3xl text-center font-black mb-6">Can you name this Artifact?</h1>
                         <img src={silhouetteAnswer.icon} alt={silhouetteAnswer.name} className={`w-64 h-64 object-contain filter mb-8 ${silhouetteGuessAmount >= 4 || isSilhouetteGuessed ? 'brightness-100' : 'brightness-0'} ${silhouetteGuessAmount >= 5 || isSilhouetteGuessed ? 'blur-none' : 'blur-xl'}`}/>
                         <div className="grid grid-cols-2 gap-3 mb-6 w-full">
                             {[
@@ -754,8 +754,8 @@ const handleTweetScore = () => {
                 </>
             ) : (
                 <>
-                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-8 sm:p-12 text-center text-white">
-                        <h2 className="text-2xl sm:text-3xl font-bold">Guess their build</h2>
+                    <div className="w-full max-w-4xl rounded-lg bg-purple-600/95 p-8 text-center text-white">
+                        <h2 className="text-2xl sm:text-3xl text-center font-black mb-6">Guess their Build!</h2>
                         <div className="mt-8 flex flex-col items-center gap-4">
                             <img src={substatsCharacter?.icon} alt={substatsCharacter?.name} className="w-40 h-40 sm:w-56 sm:h-56 object-contain rounded-lg border-2 border-purple-300 bg-neutral-800/60 p-2" />
                             <p className="text-xl sm:text-4xl font-semibold">{substatsCharacter?.name}</p>

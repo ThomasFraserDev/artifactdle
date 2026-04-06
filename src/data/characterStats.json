@@ -27,7 +27,7 @@
      {
       "name": "Arlecchino",
       "stats": "EM, ATK, Crit",
-      "icon": "/ssets/characterIcons/arlecchino.png"
+        "icon": "/assets/characterIcons/arlecchino.png"
     },
      {
       "name": "Ayaka",
@@ -202,7 +202,7 @@
     {
       "name": "Heizou",
       "stats": "ER, EM, ATK, Crit",
-      "icon": "/assets/characterIcons/heizou.png"
+        "icon": "/assets/characterIcons/heizo.png"
     },
     {
       "name": "Hu Tao",
