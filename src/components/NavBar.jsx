@@ -40,7 +40,7 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
     setIsBackgroundMenuOpen(false);
   };
 
-  const toggleBackgroundMenu = () => {
+  const toggleBackgroundMenu = () => { // Show/Hide background select menu
     setIsBackgroundMenuOpen((prev) => {
       const next = !prev;
       if (next) {
@@ -54,7 +54,7 @@ export default function Navbar({ onBackgroundChange, onGameChange, gameMode, onM
   const visibleBackgrounds = backgroundPages[backgroundPage] || [];
   const hasPreviousPage = backgroundPage > 0;
   const hasNextPage = backgroundPage < backgroundPages.length - 1;
-  const helpCopyByMode = {
+  const helpCopyByMode = { // Help text for each mode
     normal: {
       lines: [
         "Guess the hidden artifact set using the search bar.",
