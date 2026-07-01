@@ -50,6 +50,16 @@
 		"chars": "Eula, Keqing, Noelle"
 	},
 	{
+		"name": "Celestial Gift",
+		"region": "Mondstadt",
+		"2pc": "ER",
+		"4pc": "Elemental DMG",
+		"version": "6.x",
+		"icon": "/assets/icons/celestial.webp",
+		"role": "Support",
+		"chars": "Nicole, Durin"
+	},
+	{
 		"name": "Crimson Witch of Flames",
 		"region": "Liyue",
 		"2pc": "Elemental DMG",
@@ -78,6 +88,16 @@
 		"icon": "/assets/icons/desertPavilion.webp",
 		"role": "DPS",
 		"chars": "Wanderer, Heizou, Sethos, Varka"
+	},
+	{
+		"name": "Disenchantment in Deep Shadow",
+		"region": "Mondstadt",
+		"2pc": "ATK%",
+		"4pc": "Crit Rate + Reaction DMG",
+		"version": "6.x",
+		"icon": "/assets/icons/disenchantment.webp",
+		"role": "DPS",
+		"chars": "Sandrone, Yae Miko"
 	},
 	{
 		"name": "Echoes of an Offering",
