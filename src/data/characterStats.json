@@ -310,9 +310,19 @@
       "icon": "/assets/characterIcons/layla.png"
     },
     {
+      "name": "Linnea",
+      "stats": "DEF, EM, Crit",
+      "icon": "/assets/characterIcons/linnea.png"
+    },
+    {
       "name": "Lisa",
       "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/lisa.png"
+    },
+    {
+      "name": "Lohen",
+      "stats": "ATK, Crit",
+      "icon": "/assets/characterIcons/lohen.png"
     },
     {
       "name": "Lynette",
@@ -370,6 +380,11 @@
       "icon": "/assets/characterIcons/neuvillette.png"
     },
     {
+      "name": "Nicole",
+      "stats": "ER, ATK",
+      "icon": "/assets/characterIcons/nicole.png"
+    },
+    {
       "name": "Nilou",
       "stats": "EM, HP",
       "icon": "/assets/characterIcons/nilou.png"
@@ -390,6 +405,11 @@
       "icon": "/assets/characterIcons/ororon.png"
     },
     {
+      "name": "Prune",
+      "stats": "ER, ATK, Crit",
+      "icon": "/assets/characterIcons/prune.png"
+    },
+    {
       "name": "Qiqi",
       "stats": "ER, ATK, Crit",
       "icon": "/assets/characterIcons/qiqi.png"
@@ -408,6 +428,11 @@
       "name": "Rosaria",
       "stats": "ER, EM, ATK, Crit",
       "icon": "/assets/characterIcons/rosaria.png"
+    },
+    {
+      "name": "Sandrone",
+      "stats": "ER, ATK, EM, Crit",
+      "icon": "/assets/characterIcons/sandrone.png"
     },
     {
       "name": "Sara",

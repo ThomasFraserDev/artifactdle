@@ -7,7 +7,7 @@
 		"version": "6.x",
 		"icon": "/assets/icons/windborne.webp",
 		"role": "DPS",
-		"chars": "Venti, Durin, Klee, Varka, Fischl"
+		"chars": "Venti, Durin, Klee, Varka, Fischl, Prune, Lohen"
 	},
 	{
 		"name": "Archaic Petra",
@@ -37,7 +37,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/blizzard.webp",
 		"role": "DPS",
-		"chars": "Ayaka, Ganyu, Kaeya, Escoffier, Freminet, Layla, Skirk, Wriothesley"
+		"chars": "Ayaka, Ganyu, Kaeya, Escoffier, Freminet, Layla, Skirk, Wriothesley, Lohen"
 	},
 	{
 		"name": "Bloodstained Chivalry",
@@ -57,7 +57,7 @@
 		"version": "6.x",
 		"icon": "/assets/icons/celestial.webp",
 		"role": "Support",
-		"chars": "Nicole, Durin"
+		"chars": "Nicole, Durin, Prune"
 	},
 	{
 		"name": "Crimson Witch of Flames",
@@ -237,7 +237,7 @@
 		"version": "4.x",
 		"icon": "/assets/icons/marechaussee.webp",
 		"role": "DPS",
-		"chars": "Neuvillette, Wriothesley, Skirk, Ayaka, Chasca, Eula, Freminet, Gaming, Ganyu, Hu Tao, Ifa, Itto, Keqing, Klee, Lynette, Lyney, Navia, Ningguang, Noelle, Wanderer, Xiao, Xinyan, Yanfei"
+		"chars": "Neuvillette, Wriothesley, Skirk, Ayaka, Chasca, Eula, Freminet, Gaming, Ganyu, Hu Tao, Ifa, Itto, Keqing, Klee, Lynette, Lyney, Navia, Ningguang, Noelle, Wanderer, Xiao, Xinyan, Yanfei, Lohen"
 	},
 	{
 		"name": "Night of the Sky's Unveiling",
@@ -267,7 +267,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/noblesse.webp",
 		"role": "Support",
-		"chars": "Bennett, Shenhe, Dahlia, Aino, Charlotte, Chevreuse, Chongyun, Collei, Diona, Durin, Faruzan, Gorou, Iansan, Jean, Kirara, Lisa, Mika, Mona, Rosaria, Sara, Sayu, Shenhe, Thoma, Xianyun, Xingqiu, Yelan, Yun Jin"
+		"chars": "Bennett, Shenhe, Dahlia, Aino, Charlotte, Chevreuse, Chongyun, Collei, Diona, Durin, Faruzan, Gorou, Iansan, Jean, Kirara, Lisa, Mika, Mona, Rosaria, Sara, Sayu, Shenhe, Thoma, Xianyun, Xingqiu, Yelan, Yun Jin, Nicole"
 	},
 	{
 		"name": "Nymph's Dream",
@@ -417,7 +417,7 @@
 		"version": "1.x",
 		"icon": "/assets/icons/virdescent.webp",
 		"role": "Support",
-		"chars": "Jean, Lanyan, Sucrose, Heizou, Ifa, Jahoda, Kazuha, Lan Yan, Lynette, Mizuki, Sayu, XIanyun"
+		"chars": "Jean, Lanyan, Sucrose, Heizou, Ifa, Jahoda, Kazuha, Lan Yan, Lynette, Mizuki, Sayu, Xianyun, Prune"
 	},
 	{
 		"name": "Vorukasha's Glow",
