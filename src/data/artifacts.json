@@ -97,7 +97,7 @@
 		"version": "6.x",
 		"icon": "/assets/icons/disenchantment.webp",
 		"role": "DPS",
-		"chars": "Sandrone, Yae Miko"
+		"chars": "Sandrone, Yae Miko, Cyno, Wriothesley"
 	},
 	{
 		"name": "Echoes of an Offering",
